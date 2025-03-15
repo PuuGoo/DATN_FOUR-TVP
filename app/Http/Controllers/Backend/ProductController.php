@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\SubCategory;
-use App\Models\brands;
-use App\Models\products;
+use App\Models\Brand;
+use App\Models\Product;
 use App\Models\variant_name;
 use App\Models\variant_attribute;
 use App\Models\infor_option;
@@ -25,19 +24,19 @@ use PDOException;
 class ProductController extends Controller
 {
      public function AllProduct(){
-        $show_products = products::all();
+        $show_products = Product::all();
         return view('backend.product.product_all',compact('show_products'));
     } // End Method 
 
 
     public function AddProduct(){
-        $show_brands = brands::all();
+        $show_brands = Brand::all();
         $show_categories = Category::where('parent_id', 0)->get();
         return view('backend.product.product_add', compact('show_brands','show_categories'));
     } // End Method 
 
     public function InactiveProduct($id){
-        $show_product = products::where('id', $id)->first();
+        $show_product = Product::where('id', $id)->first();
         $show_product->status = 5;
         $show_product->save();
         return redirect()->route('all.product');
@@ -45,7 +44,7 @@ class ProductController extends Controller
 
     public function DeleteProduct($id){
         try{
-            $pd = products::where('id', $id)->first();
+            $pd = Product::where('id', $id)->first();
             $muti_img = multi_imgs::where('product_id', $id)->get();
 
 
@@ -110,7 +109,7 @@ class ProductController extends Controller
             'list_image.*.image' => 'Mỗi tệp trong danh sách hình ảnh phải là ảnh hợp lệ.',
         ]);
 
-        $product = new products();
+        $product = new Product();
 
         if ($request->hasFile('product_thambnail')) {
             $fileImg = $request->file('product_thambnail');
@@ -492,9 +491,9 @@ class ProductController extends Controller
 
 
     public function EditProduct($id){
-        $show_brands = brands::all();
+        $show_brands = Brand::all();
         $show_categories = Category::where('parent_id', 0)->get();
-        $show_product = products::where('id', $id)->first();
+        $show_product = Product::where('id', $id)->first();
         $show_multi_imgs = multi_imgs::where('product_id', $id)->get();
         $show_subcate = Category::where('parent_id', $show_product->category_id)->get();
         $show_vendor = User::all();
@@ -519,7 +518,7 @@ class ProductController extends Controller
     }
 
     public function UpdateProduct(Request $request){
-        $product = products::findOrFail($request->id);;
+        $product = Product::findOrFail($request->id);;
 
         if ($request->hasFile('product_thambnail')) {
             File::delete(public_path($product->product_thumnail));

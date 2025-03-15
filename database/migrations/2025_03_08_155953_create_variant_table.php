@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('variant_name', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('idproduct')->constrained('products')->onDelete('cascade');
             $table->string('name',255);
             $table->timestamps();
         });
@@ -44,9 +43,14 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('variant_name');
-        Schema::dropIfExists('variant_attribute');
-        Schema::dropIfExists('infor_option');
-        Schema::dropIfExists('variant_option');
+    Schema::disableForeignKeyConstraints();
+
+    Schema::dropIfExists('variant_option');
+    Schema::dropIfExists('infor_option');
+    Schema::dropIfExists('variant_attribute');
+    Schema::dropIfExists('variant_name');
+
+    Schema::enableForeignKeyConstraints();
     }
+
 };

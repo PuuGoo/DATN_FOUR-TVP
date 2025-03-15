@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\brands;
+use App\Models\Brand;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use PDOException;
@@ -13,7 +13,7 @@ class BrandController extends Controller
 {
     public function AllBrand()
     {
-        $show_brands = brands::all();
+        $show_brands = Brand::all();
         return view('backend.brand.brand_all',compact('show_brands'));
     } // End Method 
 
@@ -35,7 +35,7 @@ class BrandController extends Controller
             'brand_image.image' => 'Ảnh sản phẩm phải là file hình ảnh.',
         ]);
 
-        $brands = new brands();
+        $brands = new Brand();
 
         $brand_name = $rq->brand_name;
         
@@ -59,12 +59,12 @@ class BrandController extends Controller
     } // End Method 
 
     public function EditBrand($id){
-        $detail_brands = brands::where('id', $id)->first();
+        $detail_brands = Brand::where('id', $id)->first();
         return view('backend.brand.brand_edit', compact('detail_brands'));
 
     }
     public function UpdateBrand(Request $rq){
-        $brand = brands::findOrFail($rq->id);
+        $brand = Brand::findOrFail($rq->id);
 
         if ($rq->hasFile('brand_image')) {
             File::delete(public_path($brand->brand_image));
@@ -87,7 +87,7 @@ class BrandController extends Controller
 
     public function DeleteBrand($id){
         try{
-            $brand = brands::findOrFail($id);
+            $brand = Brand::findOrFail($id);
             $imgbrand = $brand->brand_image;
             $brand->delete();
             File::delete(public_path($imgbrand));

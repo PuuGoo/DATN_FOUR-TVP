@@ -16,158 +16,79 @@
 		</div>
 		<div class="ms-auto">
 			<div class="btn-group">
-	  
+
 			</div>
 		</div>
 	</div>
 	<!--end breadcrumb-->
-	 
-	<hr/>
+
+	<hr />
 	<div class="card">
 		<div class="card-body">
 			<div class="table-responsive">
 				<table id="example" class="table table-striped table-bordered" style="width:100%">
 					<thead>
-<tr>
-	<th>Sl</th>
-	<th>Image </th>
-	<th>Product </th>
-	<th>User </th>
-	<th>Comment </th> 
-	<th>Rating </th>
-	<th>Status </th> 
-	<th>Action</th> 
-</tr>
-</thead>
-<tbody>
+						<tr>
+							<th>STT</th>
+							<th>Image </th>
+							<th>Product </th>
+							<th>User </th>
+							<th>Comment </th>
+							<th>Rating </th>
+							<th>Status </th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
 
-<tr>
-	<td> 1 </td>
-<td> <img src="https://digi-poly.id.vn/upload/products/thambnail/1740389527616484.webp" style="width: 40px; height:40px;" ></td>
-<td>Color Block Men Hooded Neck Red</td>
-<td>kazi</td>
-<td>I don&#039;t understand what i...</td>
-	
-
-	<td>
-			<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-
-					 </td>
-		 <td>
-				  <span class="badge rounded-pill bg-warning">Pending</span>
-								  </td>
-	
-	<td>
-<a href="" class="btn btn-danger">Approve</a>
+						@foreach ($reviews as $key => $review)
+						<tr>
+							<td> {{ $key + 1 }} </td>
+							<td> <img src="{{ asset("upload/products/thambnail/" . $review->product->product_thumbnail) }}" style="width: 40px; height:40px;"></td>
+							<td>{{ $review->product->product_name }}</td>
+							<td>{{ $review->user->username}}</td>
+							<td>{{ $review->comment }}</td>
 
 
-	</td> 
-</tr>
-		
-<tr>
-	<td> 2 </td>
-<td> <img src="https://digi-poly.id.vn/upload/products/thambnail/1740389527616484.webp" style="width: 40px; height:40px;" ></td>
-<td>Color Block Men Hooded Neck Red</td>
-<td>kazi</td>
-<td>Purchased these along wit...</td>
-	
+							<td>
+								@for ($i = 1; $i < $review->rating; $i++)
+									<i class="bx bxs-star text-warning"></i>
+									@endfor
+							</td>
+							<td>
+								<span class="badge rounded-pill bg-warning">{{ $review->status == 0 ? 'pending' : "approve" }}</span>
+							</td>
 
-	<td>
-			<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-secondary"></i>
-					 </td>
-		 <td>
-				  <span class="badge rounded-pill bg-warning">Pending</span>
-								  </td>
-	
-	<td>
-<a href="" class="btn btn-danger">Approve</a>
+							<td>
+								<a href="{{ route('review.approve', $review->id) }}" class="btn btn-danger">Approve</a>
+
+							</td>
+						</tr>
+						@endforeach
 
 
-	</td> 
-</tr>
-		
-<tr>
-	<td> 3 </td>
-<td> <img src="https://digi-poly.id.vn/upload/products/thambnail/1740389527616484.webp" style="width: 40px; height:40px;" ></td>
-<td>Color Block Men Hooded Neck Red</td>
-<td>kazi</td>
-<td>I am very pleased with th...</td>
-	
-
-	<td>
-			<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-secondary"></i>
-					 </td>
-		 <td>
-				  <span class="badge rounded-pill bg-warning">Pending</span>
-								  </td>
-	
-	<td>
-<a href="" class="btn btn-danger">Approve</a>
 
 
-	</td> 
-</tr>
-		
-<tr>
-	<td> 4 </td>
-<td> <img src="https://digi-poly.id.vn/upload/products/thambnail/1740389864437655.webp" style="width: 40px; height:40px;" ></td>
-<td>Color Block Men Round Neck Pink T-Shirt</td>
-<td>User</td>
-<td>Nice quality shirt. Very...</td>
-	
-
-	<td>
-			<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-
-					 </td>
-		 <td>
-				  <span class="badge rounded-pill bg-warning">Pending</span>
-								  </td>
-	
-	<td>
-<a href="" class="btn btn-danger">Approve</a>
-
-
-	</td> 
-</tr>
-			 
-
-</tbody>
-<tfoot>
-<tr>
-	<th>Sl</th>
-	<th>Image </th>
-	<th>Product </th>
-	<th>User </th>
-	<th>Comment </th> 
-	<th>Rating </th>
-	<th>Status </th> 
-	<th>Action</th> 
-</tr>
-</tfoot>
-</table>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Sl</th>
+							<th>Image </th>
+							<th>Product </th>
+							<th>User </th>
+							<th>Comment </th>
+							<th>Rating </th>
+							<th>Status </th>
+							<th>Action</th>
+						</tr>
+					</tfoot>
+				</table>
 			</div>
 		</div>
 	</div>
 
 
-	 
+
 </div>
 
 

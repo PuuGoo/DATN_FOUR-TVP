@@ -68,6 +68,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(CategoryController::class)->group(function () {
         Route::get('/all/category', 'AllCategory')->name('all.category');
         Route::get('/add/category', 'AddCategory')->name('add.category');
+        Route::post('/store/category', 'StoreCategory')->name('store.category');
+        Route::get('/edit/category/{id}', 'EditCategory')->name('edit.category');
+        Route::post('/update/category', 'UpdateCategory')->name('update.category');
+        Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
     });
 
 
@@ -164,7 +168,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // Admin Reviw All Route 
     Route::controller(ReviewController::class)->group(function () {
         Route::get('/pending/review', 'PendingReview')->name('pending.review');
+        Route::get('/review/approve/{id}', 'ReviewApprove')->name('review.approve');
         Route::get('/publish/review', 'PublishReview')->name('publish.review');
+        Route::get('/review/delete/{id}', 'ReviewDelete')->name('review.delete');
     });
 
 
@@ -179,6 +185,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(RoleController::class)->group(function () {
         Route::get('/all/permission', 'AllPermission')->name('all.permission');
         Route::get('/add/permission', 'AddPermission')->name('add.permission');
+        Route::post('/store/permission', 'StorePermission')->name('store.permission');
+        Route::get('/edit/permission/{id}', 'EditPermission')->name('edit.permission');
+        Route::post('/update/permission', 'UpdatePermission')->name('update.permission');
+        Route::get('/delete/permission/{id}', 'DeletePermission')->name('delete.permission');
     });
 
 

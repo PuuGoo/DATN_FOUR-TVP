@@ -29,133 +29,35 @@
 				<table id="example" class="table table-striped table-bordered" style="width:100%">
 					<thead>
 						<tr>
-							<th>Sl</th>
+							<th>STT</th>
 							<th>Category Name </th>
+							<th>Category Parent </th>
 							<th>Category Image </th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
-
+						@foreach ( $categories as $key => $category)
 						<tr>
-							<td> 1 </td>
-							<td>Fashion</td>
-							<td> <img src="https://digi-poly.id.vn/upload/category/1740388456845535.webp" style="width: 70px; height:40px;"> </td>
+							<td> {{ $key + 1 }} </td>
+							<td>{{ $category->category_name }}</td>
+							<td>
+								<!-- 
+								@firstWhere: Dùng tìm danh mục cha trong danh sách $categories dựa trên parent_id của danh mục con
+								'Unknown': Danh mục cha đã bị xóa | không tồn tại
+								-->
+								{{ $category->parent_id ? $categories->firstWhere('id', $category->parent_id)->category_name ?? 'Unknown' : 'Root Category' }}
+							</td>
+							<td> <img src="{{ asset('upload/category/' . $category->category_image) }}" style="width: 70px; height:40px;"> </td>
 
 							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
+								<a href="{{ route('edit.category',$category->id) }}" class="btn btn-info">Edit</a>
+								<a href="{{ route('delete.category',$category->id) }}" class="btn btn-danger" id="delete">Delete</a>
 
 							</td>
 						</tr>
 
-						<tr>
-							<td> 2 </td>
-							<td>Electronics</td>
-							<td> <img src="https://digi-poly.id.vn/upload/category/1740388410112488.webp" style="width: 70px; height:40px;"> </td>
-
-							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-							</td>
-						</tr>
-
-						<tr>
-							<td> 3 </td>
-							<td>Sweet Home</td>
-							<td> <img src="https://digi-poly.id.vn/upload/category/1740388444682193.webp" style="width: 70px; height:40px;"> </td>
-
-							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-							</td>
-						</tr>
-
-						<tr>
-							<td> 4 </td>
-							<td>Appliances</td>
-							<td> <img src="https://digi-poly.id.vn/upload/category/1740388475103826.webp" style="width: 70px; height:40px;"> </td>
-
-							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-							</td>
-						</tr>
-
-						<tr>
-							<td> 5 </td>
-							<td>Beauty</td>
-							<td> <img src="https://digi-poly.id.vn/upload/category/1740388510925410.webp" style="width: 70px; height:40px;"> </td>
-
-							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-							</td>
-						</tr>
-
-						<tr>
-							<td> 6 </td>
-							<td>Meat &amp; Fish</td>
-							<td> <img src="https://digi-poly.id.vn/upload/category/1740388203907617.png" style="width: 70px; height:40px;"> </td>
-
-							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-							</td>
-						</tr>
-
-						<tr>
-							<td> 7 </td>
-							<td>Furniture</td>
-							<td> <img src="https://digi-poly.id.vn/upload/category/1740388599418960.webp" style="width: 70px; height:40px;"> </td>
-
-							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-							</td>
-						</tr>
-
-						<tr>
-							<td> 8 </td>
-							<td>Mobiles</td>
-							<td> <img src="https://digi-poly.id.vn/upload/category/1740388616630915.webp" style="width: 70px; height:40px;"> </td>
-
-							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-							</td>
-						</tr>
-
-						<tr>
-							<td> 9 </td>
-							<td>Grocery</td>
-							<td> <img src="https://digi-poly.id.vn/upload/category/1740388649576724.webp" style="width: 70px; height:40px;"> </td>
-
-							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-							</td>
-						</tr>
-
-						<tr>
-							<td> 10 </td>
-							<td>Travel</td>
-							<td> <img src="https://digi-poly.id.vn/upload/category/1740388803723655.webp" style="width: 70px; height:40px;"> </td>
-
-							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-							</td>
-						</tr>
+						@endforeach
 
 
 					</tbody>

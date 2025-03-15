@@ -16,223 +16,76 @@
 		</div>
 		<div class="ms-auto">
 			<div class="btn-group">
-	  
+
 			</div>
 		</div>
 	</div>
 	<!--end breadcrumb-->
-	 
-	<hr/>
+
+	<hr />
 	<div class="card">
 		<div class="card-body">
 			<div class="table-responsive">
 				<table id="example" class="table table-striped table-bordered" style="width:100%">
 					<thead>
-<tr>
-	<th>Sl</th>
-	<th>Image </th>
-	<th>Product </th>
-	<th>User </th>
-	<th>Comment </th> 
-	<th>Rating </th>
-	<th>Status </th> 
-	<th>Action</th> 
-</tr>
-</thead>
-<tbody>
+						<tr>
+							<th>STT</th>
+							<th>Image </th>
+							<th>Product </th>
+							<th>User </th>
+							<th>Comment </th>
+							<th>Rating </th>
+							<th>Status </th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach ($reviews as $key => $review)
+						<tr>
+							<td> {{ $key + 1 }} </td>
+							<td> <img src="{{ asset("upload/products/thambnail/" . $review->product->product_thumbnail) }}" style="width: 40px; height:40px;"></td>
+							<td>{{ $review->product->product_name }}</td>
+							<td>{{ $review->user->username}}</td>
+							<td>{{ $review->comment }}</td>
 
-<tr>
-	<td> 1 </td> 
-<td> <img src="https://digi-poly.id.vn/upload/products/thambnail/1740389668728493.webp" style="width: 40px; height:40px;" ></td>
-<td>Men Regular Fit Solid Button Down</td>
-<td>User</td>
-<td>San Pham Qua Tot</td>
-	<td>
-			<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
+							<td>
+								@for ($i = 1; $i < $review->rating; $i++)
+									<i class="bx bxs-star text-warning"></i>
+									@endfor
+							</td>
+							<td>
+								<span class="badge rounded-pill bg-warning">Publish</span>
+							</td>
 
-					 </td>
-		 <td>
-			  <span class="badge rounded-pill bg-warning">Publish</span>
-								  </td>
-	
-	<td>
-<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-
-	</td> 
-</tr>
-		
-<tr>
-	<td> 2 </td> 
-<td> <img src="https://digi-poly.id.vn/upload/products/thambnail/1740390741204758.webp" style="width: 40px; height:40px;" ></td>
-<td>Portronics POR-1196 Modesk Plus</td>
-<td>User</td>
-<td>San Pham Tot Qua</td>
-	<td>
-			<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-
-					 </td>
-		 <td>
-			  <span class="badge rounded-pill bg-warning">Publish</span>
-								  </td>
-	
-	<td>
-<a href="" class="btn btn-danger" id="delete">Delete</a>
+							<td>
+								<a href="{{ route('review.delete', $review->id) }}" class="btn btn-danger" id="delete">Delete</a>
+							</td>
+						</tr>
+						@endforeach
 
 
-	</td> 
-</tr>
-		
-<tr>
-	<td> 3 </td> 
-<td> <img src="https://digi-poly.id.vn/upload/products/thambnail/1740390277372812.webp" style="width: 40px; height:40px;" ></td>
-<td>Canon PIXMA G1010 Single Function</td>
-<td>kazi</td>
-<td>I have rarely seen any Am...</td>
-	<td>
-			<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-
-					 </td>
-		 <td>
-			  <span class="badge rounded-pill bg-warning">Publish</span>
-								  </td>
-	
-	<td>
-<a href="" class="btn btn-danger" id="delete">Delete</a>
 
 
-	</td> 
-</tr>
-		
-<tr>
-	<td> 4 </td> 
-<td> <img src="https://digi-poly.id.vn/upload/products/thambnail/1740389527616484.webp" style="width: 40px; height:40px;" ></td>
-<td>Color Block Men Hooded Neck Red</td>
-<td>kazi</td>
-<td>So, I like them, and will...</td>
-	<td>
-			<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-secondary"></i>
-					 </td>
-		 <td>
-			  <span class="badge rounded-pill bg-warning">Publish</span>
-								  </td>
-	
-	<td>
-<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-
-	</td> 
-</tr>
-		
-<tr>
-	<td> 5 </td> 
-<td> <img src="https://digi-poly.id.vn/upload/products/thambnail/1740389864437655.webp" style="width: 40px; height:40px;" ></td>
-<td>Color Block Men Round Neck Pink T-Shirt</td>
-<td>kazi</td>
-<td>was a bit worried, as I h...</td>
-	<td>
-			<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-secondary"></i>
-					 </td>
-		 <td>
-			  <span class="badge rounded-pill bg-warning">Publish</span>
-								  </td>
-	
-	<td>
-<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-
-	</td> 
-</tr>
-		
-<tr>
-	<td> 6 </td> 
-<td> <img src="https://digi-poly.id.vn/upload/products/thambnail/1740389864437655.webp" style="width: 40px; height:40px;" ></td>
-<td>Color Block Men Round Neck Pink T-Shirt</td>
-<td>User</td>
-<td>Normal Product haskldhfkl...</td>
-	<td>
-			<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-secondary"></i>
-<i class="bx bxs-star text-secondary"></i>
-<i class="bx bxs-star text-secondary"></i>
-					 </td>
-		 <td>
-			  <span class="badge rounded-pill bg-warning">Publish</span>
-								  </td>
-	
-	<td>
-<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-
-	</td> 
-</tr>
-		
-<tr>
-	<td> 7 </td> 
-<td> <img src="https://digi-poly.id.vn/upload/products/thambnail/1740389864437655.webp" style="width: 40px; height:40px;" ></td>
-<td>Color Block Men Round Neck Pink T-Shirt</td>
-<td>User</td>
-<td>Stay home &amp; get your dail...</td>
-	<td>
-			<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-warning"></i>
-<i class="bx bxs-star text-secondary"></i>
-					 </td>
-		 <td>
-			  <span class="badge rounded-pill bg-warning">Publish</span>
-								  </td>
-	
-	<td>
-<a href="" class="btn btn-danger" id="delete">Delete</a>
-
-
-	</td> 
-</tr>
-			 
-
-</tbody>
-<tfoot>
-<tr>
-	 <th>Sl</th>
-	<th>Image </th>
-	<th>Product </th>
-	<th>User </th>
-	<th>Comment </th> 
-	<th>Rating </th>
-	<th>Status </th> 
-	<th>Action</th> 
-</tr>
-</tfoot>
-</table>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Sl</th>
+							<th>Image </th>
+							<th>Product </th>
+							<th>User </th>
+							<th>Comment </th>
+							<th>Rating </th>
+							<th>Status </th>
+							<th>Action</th>
+						</tr>
+					</tfoot>
+				</table>
 			</div>
 		</div>
 	</div>
 
 
-	 
+
 </div>
 
 

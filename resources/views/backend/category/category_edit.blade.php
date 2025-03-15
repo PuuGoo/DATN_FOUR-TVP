@@ -6,13 +6,13 @@
 <div class="page-content">
 	<!--breadcrumb-->
 	<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-		<div class="breadcrumb-title pe-3">Add Category </div>
+		<div class="breadcrumb-title pe-3">Edit Category </div>
 		<div class="ps-3">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb mb-0 p-0">
 					<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 					</li>
-					<li class="breadcrumb-item active" aria-current="page">Add Category </li>
+					<li class="breadcrumb-item active" aria-current="page">Edit Category </li>
 				</ol>
 			</nav>
 		</div>
@@ -28,15 +28,18 @@
 				<div class="col-lg-10">
 					<div class="card">
 						<div class="card-body">
-							<form id="myForm" method="post" action="{{ route('store.category') }}" enctype="multipart/form-data">
+							<form id="myForm" method="post" action="{{ route('update.category') }}" enctype="multipart/form-data">
 								@csrf
+
+								<input type="hidden" name="id" value="{{ $category_by_id->id }}">
+								<input type="hidden" name="old_image" value="{{ $category_by_id->category_image }}">
 
 								<div class="row mb-3">
 									<div class="col-sm-3">
 										<h6 class="mb-0">Category Name</h6>
 									</div>
 									<div class="form-group col-sm-9 text-secondary">
-										<input type="text" name="category_name" class="form-control" />
+										<input type="text" name="category_name" class="form-control" value="{{ $category_by_id->category_name }}" />
 									</div>
 								</div>
 
@@ -46,7 +49,7 @@
 									</div>
 									<div class="col-sm-9 text-secondary">
 										<select name="parent_id" id="" class="form-control">
-											<option value="0">Root Category</option>
+											<option value="{{ $category_by_id->id }}">{{ $category_by_id->category_name }}</option>
 											<!-- Viết hàm đệ quy để hiện thị danh mục lồng nhau -->
 											@php
 											function buildCategoryOptions($categories, $parent_id = 0, $prefix = '') {
@@ -80,7 +83,7 @@
 										<h6 class="mb-0"> </h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-										<img id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Admin" style="width:100px; height: 100px;">
+										<img id="showImage" src="{{ $category_by_id->category_image ? url('upload/category/' . $category_by_id->category_image) :url('upload/no_image.jpg') }}" alt="Admin" style="width:100px; height: 100px;">
 									</div>
 								</div>
 

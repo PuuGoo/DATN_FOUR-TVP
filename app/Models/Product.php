@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Http\Controllers\Backend\CategoryController;
 use Illuminate\Database\Eloquent\Model;
 
-class products extends Model
+class Product extends Model
 {
     protected $primaryKey='id';
 
