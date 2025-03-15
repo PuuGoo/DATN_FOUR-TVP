@@ -107,7 +107,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // Banner All Route 
     Route::controller(BannerController::class)->group(function () {
         Route::get('/all/banner', 'AllBanner')->name('all.banner');
-        Route::get('/add/banner', 'AddBanner')->name('add.banner');
+        Route::get('/add/banner', 'AddBanner')->name('add.banner.form'); //hiển thị form
+        Route::post('/add/banner', 'storeBanner')->name('add.banner'); //thêm
+        Route::get('/delete/banner/{id}', 'deleteBanner')->name('delete.banner'); //xoá
+        Route::get('/edit/banner/{id}', 'editBanner')->name('edit.banner');//hiển thị form edit
+        Route::post('/update/banner/{id}', 'updateBanner')->name('update.banner'); //cập nhật
     });
 
 
@@ -120,10 +124,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // Admin Order All Route 
     Route::controller(OrderController::class)->group(function () {
         Route::get('/pending/order', 'PendingOrder')->name('pending.order');
-        Route::get('/admin/order/details', 'AdminOrderDetails')->name('admin.order.details');
-        Route::get('/admin/confirmed/order', 'AdminConfirmedOrder')->name('admin.confirmed.order');
-        Route::get('/admin/processing/order', 'AdminProcessingOrder')->name('admin.processing.order');
-        Route::get('/admin/delivered/order', 'AdminDeliveredOrder')->name('admin.delivered.order');
+        Route::get('/admin/order/details/{id}', 'AdminOrderDetails')->name('admin.order.details');//chi tiết đơn hàng
+        Route::get('/admin/confirmed/order', 'AdminConfirmedOrder')->name('admin.confirmed.order');//danh sách đã xác nhận
+        Route::get('/admin/processing/order', 'AdminProcessingOrder')->name('admin.processing.order');//danh sách đang xử lý
+        Route::get('/admin/delivered/order', 'AdminDeliveredOrder')->name('admin.delivered.order');//danh sách đã giao hàng
+    
+        Route::get('order/change/confirmed/{id}', 'ChangeConfirmedOrder')->name('change.order.confirmed');//confirmed
+
+        Route::get('order/change/processing/{id}', 'ChangeProcessingOrder')->name('change.order.processing');//processing
+
+        Route::get('order/change/delivered/{id}', 'ChangeDeliveryOrder')->name('change.order.delivered');//delivery
     });
 
 
@@ -144,9 +154,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     // Active user and vendor All Route 
     Route::controller(ActiveUserController::class)->group(function () {
-
+        //user
         Route::get('/all/user', 'AllUser')->name('all-user');
-        Route::get('/all/vendor', 'AllVendor')->name('all-vendor');
+        Route::get('/user/edit/{id}', 'editUser')->name('edit.users');
+        Route::post('/user/update/{id}', 'updateUser')->name('update.users');
+        Route::get('/user/delete/{id}', 'delelteUser')->name('delete.users');
+        //vendor
+        Route::get('/all/vendor', 'AllVendor')->name('all-vendor');  
+        Route::get('/vendor/edit/{id}', 'editVendor')->name('edit.Vendor');
+        Route::post('/vendor/update/{id}', 'updateVendor')->name('update.Vendor');
+        Route::get('/vendor/delete/{id}', 'delelteVendor')->name('delete.Vendor');
     });
 
 

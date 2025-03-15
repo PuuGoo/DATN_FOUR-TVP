@@ -29,7 +29,7 @@
 	<div class="card">
 		<div class="card-body">
 
-		<form id="myForm" method="post" action="{{ route('update.banner') }}" enctype="multipart/form-data" >
+		<form id="myForm" method="post" action="{{ route('update.banner',['id'=> $banner->id]) }}" enctype="multipart/form-data" >
 			@csrf
 		 
 		 <input type="hidden" name="id" value="{{ $banner->id }}">
