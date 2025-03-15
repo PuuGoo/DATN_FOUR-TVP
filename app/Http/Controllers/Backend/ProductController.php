@@ -194,7 +194,6 @@ class ProductController extends Controller
                 for ($i=0; $i < count($name_variant); $i++) {
                     $variant_name = new variant_name();
 
-                    $variant_name->idproduct = $idproduct;
                     $variant_name->name = $name_variant[$i];
 
                     $variant_name->save();

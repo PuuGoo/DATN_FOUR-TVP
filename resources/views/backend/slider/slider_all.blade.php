@@ -16,12 +16,12 @@
 		</div>
 		<div class="ms-auto">
 			<div class="btn-group">
-<a href="{{route('add.slider')}}" class="btn btn-primary">Add Slider</a> 				 
+<a href="{{route('add.slider')}}" class="btn btn-primary">Add Slider</a>
 			</div>
 		</div>
 	</div>
 	<!--end breadcrumb-->
-	 
+
 	<hr/>
 	<div class="card">
 		<div class="card-body">
@@ -33,46 +33,41 @@
 	<th>Slider Title </th>
 	<th>Short Title </th>
 	<th>Slider Image </th>
-	<th>Action</th> 
+	<th>Action</th>
 </tr>
 </thead>
 <tbody>
+    @foreach($sliders as $key => $slider)
+    <tr>
+        <td>{{ $key + 1 }}</td>
+        <td>{{ $slider->title }}</td>
+        <td>{{ $slider->short_title }}</td>
+        <td>
+            <img src="{{ asset($slider->image) }}" style="width: 70px; height:40px;">
+        </td>
+        <td>
+            <a href="{{ route('edit.slider', $slider->id) }}" class="btn btn-info">Edit</a>
+            <a href="{{ route('delete.slider', $slider->id) }}" class="btn btn-danger" id="delete">Delete</a>
+            {{-- <form action="{{ route('delete.slider', $slider->id) }}" method="POST" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form> --}}
 
-<tr>
-	<td> 1 </td>
-	<td>11this is our slider one title</td>
-	<td>11this is our slider one Short title</td>
-	<td> <img src="https://digi-poly.id.vn/upload/slider/1740458428862987.png" style="width: 70px; height:40px;" >  </td>
-	
-	<td>
-<a href="" class="btn btn-info">Edit</a>
-<a href="" class="btn btn-danger" id="delete" >Delete</a>
-
-	</td> 
-</tr>
-		
-<tr>
-	<td> 2 </td>
-	<td>nice some tiing test in there</td>
-	<td>Course Name One</td>
-	<td> <img src="https://digi-poly.id.vn/upload/slider/1740458445299745.png" style="width: 70px; height:40px;" >  </td>
-	
-	<td>
-<a href="" class="btn btn-info">Edit</a>
-<a href="" class="btn btn-danger" id="delete" >Delete</a>
-
-	</td> 
-</tr>
-			 
-
+        </td>
+    </tr>
+    @endforeach
 </tbody>
+
+
+
 <tfoot>
 <tr>
 	<th>Sl</th>
 	<th>Slider Title </th>
 	<th>Short Title </th>
 	<th>Slider Image </th>
-	<th>Action</th>  
+	<th>Action</th>
 </tr>
 </tfoot>
 </table>
@@ -81,7 +76,7 @@
 	</div>
 
 
-	 
+
 </div>
 
 

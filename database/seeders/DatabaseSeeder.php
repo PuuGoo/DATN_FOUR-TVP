@@ -33,5 +33,7 @@ class DatabaseSeeder extends Seeder
 
         // Sau đó mới seed orders
         Order::factory()->count(10)->create();
+
+        $this->call(VendorSeeder::class);
     }
 }

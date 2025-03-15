@@ -3,7 +3,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<div class="page-content"> 
+<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
 					<div class="breadcrumb-title pe-3">Edit Slider </div>
@@ -17,30 +17,30 @@
 						</nav>
 					</div>
 					<div class="ms-auto">
-				 
+
 					</div>
 				</div>
 				<!--end breadcrumb-->
 				<div class="container">
 					<div class="main-body">
 						<div class="row">
-							 
+
 <div class="col-lg-10">
 	<div class="card">
 		<div class="card-body">
 
-		<form id="myForm" method="post" action="{{ route('update.slider') }}" enctype="multipart/form-data" >
+		<form id="myForm" method="post" action="{{ route('edit_.slider', $slider->id) }}" enctype="multipart/form-data" >
 			@csrf
-		 
-		 <input type="hidden" name="id" value="{{ $sliders->id }}">
-		 <input type="hidden" name="old_img" value="{{ $sliders->slider_image }}">
+
+		 <input type="hidden" name="id" value="{{ $slider->id }}">
+		 <input type="hidden" name="old_img" value="{{ $slider->slider_image }}">
 
 			<div class="row mb-3">
 				<div class="col-sm-3">
 					<h6 class="mb-0">Slider Title</h6>
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
-					<input type="text" name="slider_title" class="form-control" value="{{ $sliders->slider_title }}"   />
+					<input type="text" name="slider_title" class="form-control" value="{{ $slider->title }}"   />
 				</div>
 			</div>
 
@@ -49,10 +49,10 @@
 					<h6 class="mb-0">Short Title</h6>
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
-					<input type="text" name="short_title" class="form-control" value="{{ $sliders->short_title }}"   />
+					<input type="text" name="short_title" class="form-control" value="{{ $slider->short_title }}"   />
 				</div>
 			</div>
-			  
+
 
 			<div class="row mb-3">
 				<div class="col-sm-3">
@@ -60,6 +60,7 @@
 				</div>
 				<div class="col-sm-9 text-secondary">
 					<input type="file" name="slider_image" class="form-control"  id="image"   />
+                    <img src="{{ asset($slider->image) }}" alt="Slider Image" class="mt-2" style="width: 100px; height: 50px;">
 				</div>
 			</div>
 
@@ -70,7 +71,7 @@
 					<h6 class="mb-0"> </h6>
 				</div>
 				<div class="col-sm-9 text-secondary">
-					 <img id="showImage" src="{{ asset($sliders->slider_image) }}" alt="Admin" style="width:100px; height: 100px;"  >
+					 <img id="showImage" src="{{ asset($slider->slider_image) }}" alt="Admin" style="width:100px; height: 100px;"  >
 				</div>
 			</div>
 
@@ -91,7 +92,7 @@
 
 
 	</div>
-	 
+
 
 
 
@@ -110,7 +111,7 @@
             rules: {
                 slider_title: {
                     required : true,
-                }, 
+                },
                 short_title: {
                     required : true,
                 },
@@ -123,7 +124,7 @@
                     required : 'Please Enter Short Title',
                 },
             },
-            errorElement : 'span', 
+            errorElement : 'span',
             errorPlacement: function (error,element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
@@ -136,7 +137,7 @@
             },
         });
     });
-    
+
 </script>
 
 

@@ -11,7 +11,6 @@ class variant_name extends Model
     protected $primaryKey='id';
 
     protected $fillable = [
-        'idproduct',
         'name'
     ];
 }

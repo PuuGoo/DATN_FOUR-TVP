@@ -3,7 +3,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<div class="page-content"> 
+<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
 					<div class="breadcrumb-title pe-3">Add Slider </div>
@@ -17,27 +17,27 @@
 						</nav>
 					</div>
 					<div class="ms-auto">
-				 
+
 					</div>
 				</div>
 				<!--end breadcrumb-->
 				<div class="container">
 					<div class="main-body">
 						<div class="row">
-							 
+
 <div class="col-lg-10">
 	<div class="card">
 		<div class="card-body">
 
-		<form id="myForm" method="post" action="" enctype="multipart/form-data" >
+		<form id="myForm" method="post" action="{{ route('store.slider') }}" enctype="multipart/form-data" >
 			@csrf
-		 
+
 			<div class="row mb-3">
 				<div class="col-sm-3">
 					<h6 class="mb-0">Slider Title</h6>
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
-					<input type="text" name="slider_title" class="form-control"   />
+					<input type="text" name="slider_title" class="form-control" required  />
 				</div>
 			</div>
 
@@ -46,17 +46,17 @@
 					<h6 class="mb-0">Short Title</h6>
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
-					<input type="text" name="short_title" class="form-control"   />
+					<input type="text" name="short_title" class="form-control" required  />
 				</div>
 			</div>
-			  
+
 
 			<div class="row mb-3">
 				<div class="col-sm-3">
 					<h6 class="mb-0">Slider Image  </h6>
 				</div>
 				<div class="col-sm-9 text-secondary">
-					<input type="file" name="slider_image" class="form-control"  id="image"   />
+					<input type="file" name="slider_image" class="form-control"  id="image" required  />
 				</div>
 			</div>
 
@@ -88,7 +88,7 @@
 
 
 	</div>
-	 
+
 
 
 
@@ -107,7 +107,7 @@
             rules: {
                 slider_title: {
                     required : true,
-                }, 
+                },
                 short_title: {
                     required : true,
                 },
@@ -120,7 +120,7 @@
                     required : 'Please Enter Short Title',
                 },
             },
-            errorElement : 'span', 
+            errorElement : 'span',
             errorPlacement: function (error,element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
@@ -133,7 +133,7 @@
             },
         });
     });
-    
+
 </script>
 
 

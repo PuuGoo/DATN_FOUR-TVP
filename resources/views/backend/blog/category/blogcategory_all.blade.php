@@ -16,12 +16,12 @@
 		</div>
 		<div class="ms-auto">
 			<div class="btn-group">
-<a href="{{route('add.blog.categroy')}}" class="btn btn-primary">Add Blog Category</a> 				 
+<a href="{{route('add.blog.category')}}" class="btn btn-primary">Add Blog Category</a>
 			</div>
 		</div>
 	</div>
 	<!--end breadcrumb-->
-	 
+
 	<hr/>
 	<div class="card">
 		<div class="card-body">
@@ -30,63 +30,74 @@
 					<thead>
 <tr>
 	<th>Sl</th>
-	<th>Blog Category Name </th> 
-	<th>Action</th> 
+	<th>Blog Category Name </th>
+	<th>Action</th>
 </tr>
 </thead>
 <tbody>
 
-<tr>
+    @foreach($categories as $key => $category)
+    <tr>
+        <td>{{ $key+1 }}</td>
+        <td>{{ $category->category_name }}</td>
+        <td>
+            <a href="{{ route('edit.blog.category', $category->id) }}" class="btn btn-info">Edit</a>
+            <a href="{{ route('delete.blog.category', $category->id) }}" class="btn btn-danger" id="delete">Delete</a>
+        </td>
+    </tr>
+    @endforeach
+
+{{-- <tr>
 	<td> 1 </td>
 	<td>Baking material</td>
-	 
+
 	<td>
 <a href="" class="btn btn-info">Edit</a>
 <a href="" class="btn btn-danger" id="delete" >Delete</a>
 
-	</td> 
+	</td>
 </tr>
-		
+
 <tr>
 	<td> 2 </td>
 	<td>Fresh Fruit</td>
-	 
+
 	<td>
 <a href="" class="btn btn-info">Edit</a>
 <a href="" class="btn btn-danger" id="delete" >Delete</a>
 
-	</td> 
+	</td>
 </tr>
-		
+
 <tr>
 	<td> 3 </td>
 	<td>Pet Foods</td>
-	 
+
 	<td>
 <a href="" class="btn btn-info">Edit</a>
 <a href="" class="btn btn-danger" id="delete" >Delete</a>
 
-	</td> 
+	</td>
 </tr>
-		
+
 <tr>
 	<td> 4 </td>
 	<td>Clothing</td>
-	 
+
 	<td>
 <a href="" class="btn btn-info">Edit</a>
 <a href="" class="btn btn-danger" id="delete" >Delete</a>
 
-	</td> 
-</tr>
-			 
+	</td>
+</tr> --}}
+
 
 </tbody>
 <tfoot>
 <tr>
 	<th>Sl</th>
-	<th>Blog Category Name </th> 
-	<th>Action</th> 
+	<th>Blog Category Name </th>
+	<th>Action</th>
 </tr>
 </tfoot>
 </table>
@@ -95,7 +106,7 @@
 	</div>
 
 
-	 
+
 </div>
 
 

@@ -15,12 +15,12 @@
 		</div>
 		<div class="ms-auto">
 			<div class="btn-group">
-			  
+
 			</div>
 		</div>
 	</div>
 	<!--end breadcrumb-->
-	 
+
 	<hr/>
 	<div class="card">
 		<div class="card-body">
@@ -34,23 +34,44 @@
 	<th>Join Date  </th>
 	<th>Vendor Email </th>
 	<th>Status </th>
-	<th>Action</th> 
+	<th>Action</th>
 </tr>
 </thead>
 <tbody>
-	 
+    @foreach($inactiveVendors as $key => $vendor)
+    <tr>
+        <th>{{ $key+1 }}</th>
+        <th>{{ $vendor->shop_name }} </th>
+        <th>{{ $vendor->vendor_username }}</th>
+        <th>{{ $vendor->join_date }} </th>
+        <th>{{ $vendor->vendor_email }} </th>
+        <th>
+            <span class="badge bg-warning">Inactive</span>
+        </th>
+        <th>
+            <!-- Nút chuyển đến trang chi tiết vendor -->
+            <a href="{{ route('inactive.vendor.details', $vendor->id) }}" class="btn btn-info">Chi tiết</a>
+
+            <!-- Form cập nhật trạng thái -->
+            <form action="{{ route('vendor.updateStatus', $vendor->id) }}" method="POST" style="display:inline;">
+                @csrf
+                <button type="submit" class="btn btn-success">Duyệt</button>
+            </form>
+        </th>
+    </tr>
+    @endforeach
 
 </tbody>
 <tfoot>
-<tr>
-	<th>Sl</th>
-	<th>Shop Name </th>
-	<th>Vendor Username </th>
-	<th>Join Date  </th>
-	<th>Vendor Email </th>
-	<th>Status </th>
-	<th>Action</th> 
-</tr>
+    <tr>
+        <th>Sl</th>
+        <th>Shop Name </th>
+        <th>Vendor Username </th>
+        <th>Join Date  </th>
+        <th>Vendor Email </th>
+        <th>Status </th>
+        <th>Action</th>
+    </tr>
 </tfoot>
 </table>
 			</div>
@@ -58,7 +79,7 @@
 	</div>
 
 
-	 
+
 </div>
 
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\ActiveUserController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\BlogCategoryController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -76,12 +77,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
 
-    // Vendor Active and Inactive All Route 
+    // Vendor Active and Inactive All Route
     Route::controller(AdminController::class)->group(function () {
         Route::get('/inactive/vendor', 'InactiveVendor')->name('inactive.vendor');
         Route::get('/active/vendor', 'ActiveVendor')->name('active.vendor');
-        Route::get('/inactive/vendor/details', 'InactiveVendorDetails')->name('inactive.vendor.details');
-        Route::get('/active/vendor/details', 'ActiveVendorDetails')->name('active.vendor.details');
+        Route::get('/inactive/vendor/details/{id}', 'InactiveVendorDetails')->name('inactive.vendor.details');
+        Route::get('/active/vendor/details/{id}', 'ActiveVendorDetails')->name('active.vendor.details');
+        Route::post('/vendor/update-status/{id}', 'UpdateVendorStatus')->name('vendor.updateStatus');
+
+
     });
 
 
@@ -98,10 +102,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
 
-    // Slider All Route 
+    // Slider All Route
     Route::controller(SliderController::class)->group(function () {
         Route::get('/all/slider', 'AllSlider')->name('all.slider');
         Route::get('/add/slider', 'AddSlider')->name('add.slider');
+        Route::post('/store/slider', 'StoreSlider')->name('store.slider');
+        Route::get('/edit/slider/{id}', 'EditSlider')->name('edit.slider');
+        Route::post('/edit_/slider', 'UpdateSlider')->name('edit_.slider');
+        Route::get('/delete/slider/{id}', 'DeleteSlider')->name('delete.slider');
     });
 
     // Banner All Route 
@@ -167,18 +175,26 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
 
-    // Blog Category All Route 
-    Route::controller(BlogController::class)->group(function () {
-        Route::get('/admin/blog/category', 'AllBlogCateogry')->name('admin.blog.category');
-        Route::get('/admin/add/blog/category', 'AddBlogCateogry')->name('add.blog.categroy');
+    // Blog Category All Route
+    Route::controller(BlogCategoryController::class)->group(function () {
+        Route::get('/admin/blog/category', 'AllBlogCategory')->name('admin.blog.category');
+        Route::get('/admin/add/blog/category', 'AddBlogCategory')->name('add.blog.category');
+        Route::post('/admin/store/blog/category', 'StoreBlogCategory')->name('store.blog.category');
+        Route::get('/admin/edit/blog/category/{id}', 'EditBlogCategory')->name('edit.blog.category');
+        Route::post('/admin/update/blog/category/{id}', 'UpdateBlogCategory')->name('update.blog.category');
+        Route::get('/admin/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
     });
 
 
 
-    // Blog Post All Route 
+    // Blog Post All Route
     Route::controller(BlogController::class)->group(function () {
         Route::get('/admin/blog/post', 'AllBlogPost')->name('admin.blog.post');
         Route::get('/admin/add/blog/post', 'AddBlogPost')->name('add.blog.post');
+        Route::post('/admin/store/blog/post', 'StoreBlogPost')->name('store.blog.post');
+        Route::get('/admin/edit/blog/post/{id}', 'EditBlogPost')->name('edit.blog.post');
+        Route::post('/admin/update/blog/post', 'UpdateBlogPost')->name('update.blog.post');
+        Route::get('/admin/delete/blog/post/{id}', 'DeleteBlogPost')->name('delete.blog.post');
     });
 
 

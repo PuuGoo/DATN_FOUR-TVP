@@ -15,12 +15,12 @@
 		</div>
 		<div class="ms-auto">
 			<div class="btn-group">
-<a href="{{route('add.blog.post')}}" class="btn btn-primary">Add Blog Post</a> 				 
+<a href="{{route('add.blog.post')}}" class="btn btn-primary">Add Blog Post</a>
 			</div>
 		</div>
 	</div>
 	<!--end breadcrumb-->
-	 
+
 	<hr/>
 	<div class="card">
 		<div class="card-body">
@@ -31,13 +31,28 @@
 	<th>Sl</th>
 	<th>Post Category </th>
 	<th>Post Image </th>
-	<th>Post Title </th> 
-	<th>Action</th> 
+	<th>Post Title </th>
+	<th>Action</th>
 </tr>
 </thead>
 <tbody>
 
-<tr>
+    @foreach ($blogposts as $key => $post)
+    <tr>
+        <td>{{ $key + 1 }}</td>
+        <td>{{ $post->category->name ?? 'No Category' }}</td>
+        <td>
+            <img src="{{ asset($post->image) }}" style="width: 70px; height:40px;">
+        </td>
+        <td>{{ $post->title }}</td>
+        <td>
+            <a href="{{ route('edit.blog.post', $post->id) }}" class="btn btn-info">Edit</a>
+            <a href="{{ route('delete.blog.post', $post->id) }}" class="btn btn-danger" id="delete">Delete</a>
+        </td>
+    </tr>
+    @endforeach
+
+{{-- <tr>
 	<td> 1 </td>
 	<td>Clothing</td>
 	<td> <img src="https://digi-poly.id.vn/upload/blog/1742527821092388.jpg" style="width: 70px; height:40px;" >  </td>
@@ -46,9 +61,9 @@
 <a href="" class="btn btn-info">Edit</a>
 <a href="" class="btn btn-danger" id="delete" >Delete</a>
 
-	</td> 
+	</td>
 </tr>
-		
+
 <tr>
 	<td> 2 </td>
 	<td>Fresh Fruit</td>
@@ -58,9 +73,9 @@
 <a href="" class="btn btn-info">Edit</a>
 <a href="" class="btn btn-danger" id="delete" >Delete</a>
 
-	</td> 
+	</td>
 </tr>
-		
+
 <tr>
 	<td> 3 </td>
 	<td>Pet Foods</td>
@@ -70,9 +85,9 @@
 <a href="" class="btn btn-info">Edit</a>
 <a href="" class="btn btn-danger" id="delete" >Delete</a>
 
-	</td> 
+	</td>
 </tr>
-		
+
 <tr>
 	<td> 4 </td>
 	<td>Pet Foods</td>
@@ -82,9 +97,9 @@
 <a href="" class="btn btn-info">Edit</a>
 <a href="" class="btn btn-danger" id="delete" >Delete</a>
 
-	</td> 
-</tr>
-			 
+	</td>
+</tr> --}}
+
 
 </tbody>
 <tfoot>
@@ -92,8 +107,8 @@
 	<th>Sl</th>
 	<th>Post Category </th>
 	<th>Post Image </th>
-	<th>Post Title </th> 
-	<th>Action</th> 
+	<th>Post Title </th>
+	<th>Action</th>
 </tr>
 </tfoot>
 </table>
@@ -102,7 +117,7 @@
 	</div>
 
 
-	 
+
 </div>
 
 
