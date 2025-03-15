@@ -94,7 +94,7 @@
 
 
 
- <form method="post" action="{{ route('search-by-year')}}">
+ <form method="post" action="">
 		@csrf
 		<div class="col">
 			<div class="card">

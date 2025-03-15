@@ -20,8 +20,16 @@ class CategoryController extends Controller
         return view('backend.category.category_add');
     } // End Method 
 
-
-
+    public function subcategoryapi($idpr)
+    {
+        $detail_news = $categories = Category::where('parent_id', $idpr)->get();
+        $js = [
+            'status' => 200,
+            'msg' => 'Successfully',
+            'data'=> $detail_news
+        ];
+        return response()->json($js, 200);
+    } // End Method 
 
 
 

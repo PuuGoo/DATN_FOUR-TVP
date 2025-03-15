@@ -48,6 +48,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/admin/update/password', [AdminController::class, 'AdminUpdatePassword'])->name('update.password');
 });
 
+Route::get('/api/categories/{idpr}', [CategoryController::class, 'subcategoryapi']);
+
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
@@ -55,6 +57,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(BrandController::class)->group(function () {
         Route::get('/all/brand', 'AllBrand')->name('all.brand');
         Route::get('/add/brand', 'AddBrand')->name('add.brand');
+        Route::post('/store/brand', 'StoreBrand')->name('store.brand');
+        Route::get('/edit/brand/{id}', 'EditBrand')->name('edit.brand');
+        Route::post('/update/brand', 'UpdateBrand')->name('update.brand');
+        Route::get('/delete/brand/{id}', 'DeleteBrand')->name('delete.brand');
     });
 
 
@@ -79,6 +85,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(ProductController::class)->group(function () {
         Route::get('/all/product', 'AllProduct')->name('all.product');
         Route::get('/add/product', 'AddProduct')->name('add.product');
+        Route::post('/store/product', 'StoreProduct')->name('store.product');
+        Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
+        Route::post('/update/product', 'UpdateProduct')->name('update.product');
+        Route::get('/inactive/product/{id}', 'InactiveProduct')->name('inactive.product');
+        Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
+
     });
 
 

@@ -24,6 +24,13 @@
 	<!--end breadcrumb-->
 
 	<hr />
+
+	@if ( session('errdetele'))
+		<div class="col-12 alert alert-danger alert-dismissible fade show" role="alert">
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			<p class="m-0"><strong>cảnh báo: </strong>{{ session('errdetele') }}</p>
+		</div>
+	@endif
 	<div class="card">
 		<div class="card-body">
 			<div class="table-responsive">
@@ -38,39 +45,19 @@
 					</thead>
 					<tbody>
 
+						@foreach ($show_brands as $i)
 						<tr>
-							<td> 1 </td>
-							<td>Oppo</td>
-							<td> <img src="upload/brand/1739356212196819.png" style="width: 70px; height:40px;"> </td>
+							<td> {{$i->id}} </td>
+							<td>{{$i->brand_name}}</td>
+							<td> <img src="{{asset($i->brand_image)}}" style="width: 70px; height:40px;"> </td>
 
 							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
+								<a href="{{route('edit.brand', $i->id)}}" class="btn btn-info">Edit</a>
+								{{-- @method('DELETE') --}}
+								<a href="{{route('delete.brand', $i->id)}}" class="btn btn-danger" id="delete">Delete</a>
 							</td>
 						</tr>
-
-						<tr>
-							<td> 2 </td>
-							<td>Waltan</td>
-							<td> <img src="upload/brand/1739358672624143.png" style="width: 70px; height:40px;"> </td>
-
-							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
-							</td>
-						</tr>
-
-						<tr>
-							<td> 3 </td>
-							<td>Bata</td>
-							<td> <img src="upload/brand/1739356243015943.png" style="width: 70px; height:40px;"> </td>
-
-							<td>
-								<a href="" class="btn btn-info">Edit</a>
-								<a href="" class="btn btn-danger" id="delete">Delete</a>
-							</td>
-						</tr>
-
+						@endforeach
 
 					</tbody>
 					<tfoot>

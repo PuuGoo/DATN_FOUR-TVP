@@ -28,9 +28,17 @@
 				<div class="col-lg-10">
 					<div class="card">
 						<div class="card-body">
-
-							<form id="myForm" method="post" action="" enctype="multipart/form-data">
-								<input type="hidden" name="_token" value="z6e9lHtOKg9xZNVxYf1guz9CSRPE8SMOGj3oXJ8y">
+						@if ($errors->any())
+							@foreach ($errors->all() as $error)
+								<div class="col-12 alert alert-danger alert-dismissible fade show" role="alert">
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									<p class="m-0"><strong>cảnh báo: </strong>{{ $error }}</p>
+								</div>
+							@endforeach
+						@endif
+							<form id="myForm" method="post" action="{{route('store.brand')}}" enctype="multipart/form-data">
+								@csrf
+							
 								<div class="row mb-3">
 									<div class="col-sm-3">
 										<h6 class="mb-0">Brand Name</h6>
@@ -46,7 +54,7 @@
 										<h6 class="mb-0">Brand Image </h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-										<input type="file" name="brand_image" class="form-control" id="image" />
+										<input type="file" name="brand_image" accept="image/*" class="form-control" id="image" />
 									</div>
 								</div>
 
@@ -71,9 +79,9 @@
 										<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
 									</div>
 								</div>
-						</div>
+						
 
-						</form>
+							</form>
 
 
 
