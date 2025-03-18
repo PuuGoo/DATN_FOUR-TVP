@@ -43,11 +43,6 @@ class IndexController extends Controller
    } // End Method 
 
 
-   public function SubCatWiseProduct(Request $request, $id, $slug)
-   {
-      return view('frontend.product.subcategory_view');
-   } // End Method 
-
 
    public function ProductViewAjax($id)
    {

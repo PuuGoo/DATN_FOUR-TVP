@@ -3,9 +3,15 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>User Dashboard - Easy Shop Online Store </title>
+    <title> @yield('title')</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="title" content="" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
     <meta name="description" content="" />
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="" />
     <meta property="og:type" content="" />
@@ -14,26 +20,35 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/assets/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css?v=5.3') }}" />
-    <!-- Toaster -->
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-    <!-- Toaster   -->
+
+    <script src="https://js.stripe.com/v3/"></script>
 
 </head>
 
 <body>
+    <!-- Modal -->
 
     <!-- Quick view -->
+    @include('frontend.body.quickview')
+    <!-- Header  -->
+
     @include('frontend.body.header')
     <!--End header-->
 
-    <main class="main pages">
-        @yield('user')
+
+
+    <main class="main">
+        @yield('main')
+
     </main>
 
-
-
     @include('frontend.body.footer')
+
+
 
     <!-- Preloader Start -->
     <div id="preloader-active">
@@ -69,9 +84,13 @@
     <script src="{{ asset('frontend/assets/js/main.js?v=5.3') }}"></script>
     <script src="{{ asset('frontend/assets/js/shop.js?v=5.3') }}"></script>
 
+    <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-
 
 
 </body>

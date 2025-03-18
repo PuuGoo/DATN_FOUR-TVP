@@ -33,7 +33,12 @@ class ReviewController extends Controller
     } // End Method 
 
 
+    public function VendorAllReview()
+    {
 
+
+        return view('vendor.backend.review.approve_review');
+    } // End Method 
 
 
 

@@ -9,8 +9,6 @@ class VendorOrderController extends Controller
 {
     public function VendorOrder()
     {
-
-
         return view('vendor.backend.orders.pending_orders');
     } // End Method 
 

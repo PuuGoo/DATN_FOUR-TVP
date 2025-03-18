@@ -55,4 +55,9 @@ class AdminController extends Controller
     {
         return view('backend.admin.add_admin');
     } // End Method
+
+    public function AdminLogin()
+    {
+        return view('admin.admin_login');
+    } // End Mehtod 
 }

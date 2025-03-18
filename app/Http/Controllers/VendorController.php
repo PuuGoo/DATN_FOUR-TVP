@@ -31,7 +31,7 @@ class VendorController extends Controller
     public function VendorProfile()
     {
 
-        // 
+        return view('vendor.vendor_profile_view');
     } // End Mehtod 
 
 

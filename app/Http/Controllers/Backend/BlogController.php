@@ -25,15 +25,17 @@ class BlogController extends Controller
     //////////////////// Blog Post Methods //////////////////
 
 
- public function AllBlogPost(){
-    $blogposts = BlogPost::latest()->get();
-    return view('backend.blog.post.blogpost_all', compact('blogposts'));
+    public function AllBlogPost()
+    {
+        $blogposts = BlogPost::latest()->get();
+        return view('backend.blog.post.blogpost_all', compact('blogposts'));
         // return view('backend.blog.post.blogpost_all');
 
     } // End Method
 
 
-    public function AddBlogPost(){
+    public function AddBlogPost()
+    {
         $blogcategory = BlogCategory::orderBy('id', 'DESC')->get();
         return view('backend.blog.post.blogpost_add', compact('blogcategory'));
     } // End Method
@@ -105,4 +107,24 @@ class BlogController extends Controller
         $blogpost->delete();
         return redirect()->route('admin.blog.post')->with('success', 'Blog post deleted successfully.');
     }
+
+
+    //////////////////// Frontend Blog All Method //////////////
+
+
+    public function AllBlog()
+    {
+        return view('frontend.blog.home_blog');
+    } // End Method 
+
+    public function BlogDetails($id, $slug)
+    {
+        return view('frontend.blog.blog_details');
+    } // End Method 
+
+
+    public function BlogPostCategory($id, $slug)
+    {
+        return view('frontend.blog.category_post');
+    } // End Method 
 }
