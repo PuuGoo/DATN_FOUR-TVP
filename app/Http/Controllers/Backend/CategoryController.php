@@ -101,17 +101,6 @@ class CategoryController extends Controller
         return redirect()->route('all.category');
     } // End Method 
 
-    public function subcategoryapi($idpr)
-    {
-        $detail_news = $categories = Category::where('parent_id', $idpr)->get();
-        $js = [
-            'status' => 200,
-            'msg' => 'Successfully',
-            'data'=> $detail_news
-        ];
-        return response()->json($js, 200);
-    } // End Method 
-
 
 
 

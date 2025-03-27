@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductsTableSeeder::class);
         $this->call(ReviewsTableSeeder::class);
         $this->call(PermissionsTableSeeder::class);
+        $this->call(AreaSeeder::class);
         // User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

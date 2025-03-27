@@ -128,13 +128,13 @@
                                       <img alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-cart.svg" />
                                       <span class="pro-count blue" id="cartQty">0</span>
                                   </a>
-                                  <a href="https://digi-poly.id.vn/mycart"><span class="lable">Cart</span></a>
+                                  <a href="/mycart"><span class="lable">Cart</span></a>
                                   <div class="cart-dropdown-wrap cart-dropdown-hm2">
 
 
                                       <!--   // mini cart start with ajax -->
                                       <div id="miniCart">
-
+                                        
                                       </div>
 
                                       <!--   // End mini cart start with ajax -->

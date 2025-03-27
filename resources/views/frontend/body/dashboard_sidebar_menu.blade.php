@@ -33,7 +33,10 @@ $route = Route::current()->getName();
 
 
     <li class="nav-item" style="background:#ddd;">
-        <a class="nav-link" href="{{ route('user.logout') }}"><i class="fi-rs-sign-out mr-10"></i>Logout</a>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button class="nav-link"><i class="fi-rs-sign-out mr-10"></i>Logout</button>
+        </form>
     </li>
 </ul>
 </div>

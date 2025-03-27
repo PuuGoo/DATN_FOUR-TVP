@@ -23,6 +23,10 @@
     <!--End header-->
 
     <main class="main pages">
+
+
+        
+
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
@@ -44,31 +48,39 @@
          <p class="mb-30">Already have an Vendor account? <a href="{{ route('vendor.login') }}">Vendor Login</a></p>
                                         </div>
 
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <div class="col-12 alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <p class="m-0"><strong>cảnh báo: </strong>{{ $error }}</p>
+                </div>
+            @endforeach
+        @endif
 
  <form method="POST" action="{{ route('vendor.register') }}">
             @csrf
 
 
     <div class="form-group">
-        <input type="text" id="name" required="" name="name" placeholder="Shop Name" />
+        <input type="text" id="name" value="{{ old('name') }}" required="" name="name" placeholder="Shop Name" />
     </div>
 
       <div class="form-group">
-        <input type="text" id="username" required="" name="username" placeholder="User Name" />
+        <input type="text" id="username" value="{{ old('username') }}" required="" name="username" placeholder="User Name" />
     </div>
 
 
     <div class="form-group">
-        <input type="email"  id="email" required="" name="email" placeholder="Email" />
+        <input type="email"  id="email" value="{{ old('email') }}" required="" name="email" placeholder="Email" />
     </div>
 
- <div class="form-group">
-        <input type="text" id="phone" required="" name="phone" placeholder="Phone" />
+    <div class="form-group">
+        <input type="text" id="phone" value="{{ old('phone') }}" required="" name="phone" placeholder="Phone" />
     </div>
 
 
      <div class="form-group">
-         <select name="vendor_join" class="form-select mb-3" aria-label="Default select example">
+         <select name="vendor_join"  value="{{ old('vendor_join') }}" class="form-select mb-3" aria-label="Default select example">
             <option selected="">Open this select Join Date</option>
             <option value="2022">2022</option>
             <option value="2023">2023</option>
@@ -80,10 +92,10 @@
  
 
     <div class="form-group">
-        <input required=""  id="password"  type="password" name="password" placeholder="Password" />
+        <input required=""  id="password" value="{{ old('password') }}" type="password" name="password" placeholder="Password" />
     </div>
     <div class="form-group">
-        <input required="" id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirm password" />
+        <input required="" id="password_confirmation" value="{{ old('password_confirmation') }}" type="password" name="password_confirmation" placeholder="Confirm password" />
     </div>
      
    

@@ -17,7 +17,6 @@ class ProductsTableSeeder extends Seeder
             [
                 'brand_id' => 1,
                 'category_id' => 1,
-                'sub_category_id' => 2,
                 'product_name' => 'A',
                 'product_slug' => 'a',
                 'product_code' => '123456789',

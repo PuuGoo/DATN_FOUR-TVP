@@ -325,6 +325,7 @@ Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('ven
 
 Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
 Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->name('vendor.register');
+Route::get('/api/product/variant/{id}', [IndexController::class, 'jsonvariantproduct']);
 // Phuoc Vinh End
 
 // Duc Phu Start

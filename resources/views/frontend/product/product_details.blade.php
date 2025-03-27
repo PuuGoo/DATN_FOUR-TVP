@@ -73,7 +73,7 @@
 
 
                                 <div class="product-price primary-color float-left">
-                                    <span class="current-price text-brand">$400</span>
+                                    <span class="current-price text-brand" priceproduct>$400</span>
                                     <span>
                                         <span class="save-price font-md color3 ml-15">20% Off</span>
                                         <span class="old-price font-md ml-15">$500</span>
@@ -88,29 +88,28 @@
                             </div>
 
 
-                            <div class="attr-detail attr-size mb-30">
-                                <strong class="mr-10" style="width:50px;">Size : </strong>
-                                <select class="form-control unicase-form-control" id="dsize">
-                                    <option selected="" disabled="">--Choose Size--</option>
-                                    <option value="Small">Small</option>
-                                    <option value="Midium">Midium</option>
-                                    <option value="Large">Large</option>
-                                </select>
+
+                            <div notivariant>
+
                             </div>
 
+                            
+
+
+                            @for ($i=0; $i < count($arrvalue); $i++)
+                                <div class="attr-detail attr-size mb-30">
+                                    <strong class="mr-10 namevariant" style="width:100px;">{{ $arrvalue[$i][0] }} : </strong>
+                                    <select class="form-control unicase-form-control valvariant" onchange="selectvari()" id="dsize">
+                                        <option selected="" disabled="" value="">--Choose Size--</option>
+                                        @for ($j=0; $j < count($arrvalue[$i][1]); $j++)
+                                            <option value="{{ $arrvalue[$i][1][$j] }}">{{ $arrvalue[$i][1][$j] }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                            @endfor
 
 
 
-
-                            <div class="attr-detail attr-size mb-30">
-                                <strong class="mr-10" style="width:50px;">Color : </strong>
-                                <select class="form-control unicase-form-control" id="dcolor">
-                                    <option selected="" disabled="">--Choose Color--</option>
-                                    <option value="Red">Red</option>
-                                    <option value="Blue">Blue</option>
-                                    <option value="Black">Black</option>
-                                </select>
-                            </div>
 
 
 
@@ -661,5 +660,12 @@
         </div>
     </div>
 </div>
+
+<input type="hidden" id="idproduct" value="2"></input>
+{{-- <input type="hidden" name="" id="valuevariant"></input> --}}
+
+
+
+
 
 @endsection

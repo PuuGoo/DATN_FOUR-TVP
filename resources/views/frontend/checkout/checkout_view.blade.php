@@ -32,10 +32,10 @@
 
             <div class="row">
                 <div class="form-group col-lg-6">
-                    <input type="text" required="" name="shipping_name" value="{{ Auth::user()->name }}" >
+                    <input type="text" required="" name="shipping_name" value="" >
                 </div>
                 <div class="form-group col-lg-6">
-                    <input type="email" required="" name="shipping_email" value="{{ Auth::user()->email }}">
+                    <input type="email" required="" name="shipping_email" value="">
                 </div>
             </div>
                            
@@ -46,15 +46,13 @@
 	        <div class="custom_select">
 	            <select name="division_id" class="form-control">
 	                <option value="">Select Division...</option>
-	                @foreach($divisions as $item)
-	                <option value="{{ $item->id }}">{{ $item->division_name }}</option>
-	                @endforeach
+	                <option value="aaaa">aaaa/option>
 	                 
 	            </select>
 	        </div>
 	    </div>
         <div class="form-group col-lg-6">
-      <input required="" type="text" name="shipping_phone" value="{{ Auth::user()->phone }}">
+      <input required="" type="text" name="shipping_phone" value="">
                                 </div>
                             </div>
 
@@ -85,7 +83,7 @@
         </div>
     </div>
                                 <div class="form-group col-lg-6">
-      <input required="" type="text" name="shipping_address" placeholder="Address *" value="{{ Auth::user()->address }}">
+      <input required="" type="text" name="shipping_address" placeholder="Address *" value="">
                                 </div>
                             </div>
 
@@ -114,26 +112,25 @@
     <div class="table-responsive order_table checkout">
         <table class="table no-border">
             <tbody>
-               @foreach($carts as $item) 
                 <tr>
-                    <td class="image product-thumbnail"><img src="{{ asset($item->options->image) }} " alt="#" style="width:50px; height: 50px;" ></td>
+                    
+                    <td class="image product-thumbnail"><img src="" alt="#" style="width:50px; height: 50px;" ></td>
                     <td>
-                        <h6 class="w-160 mb-5"><a href="shop-product-full.html" class="text-heading">{{ $item->name }}</a></h6></span>
+                        <h6 class="w-160 mb-5"><a href="shop-product-full.html" class="text-heading">fffffffffff</a></h6></span>
                         <div class="product-rate-cover">
 
-                         <strong>Color :{{ $item->options->color }} </strong>
-                         <strong>Size : {{ $item->options->size }}</strong>
+                         <strong>Color :</strong>
+                         <strong>Size : </strong>
                              
                         </div>
                     </td>
                     <td>
-                        <h6 class="text-muted pl-20 pr-20">x {{ $item->qty }}</h6>
+                        <h6 class="text-muted pl-20 pr-20">x </h6>
                     </td>
                     <td>
-                        <h4 class="text-brand">${{ $item->price }}</h4>
+                        <h4 class="text-brand">11111111</h4>
                     </td>
                 </tr>
-                @endforeach
             </tbody>
         </table>
 
@@ -143,14 +140,14 @@
  <table class="table no-border">
         <tbody>
 
-       @if(Session::has('coupon'))
+       
 
        <tr>
                 <td class="cart_total_label">
                     <h6 class="text-muted">Subtotal</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">${{ $cartTotal }}</h4>
+                    <h4 class="text-brand text-end">$1111</h4>
                 </td>
             </tr>
             
@@ -159,7 +156,7 @@
                     <h6 class="text-muted">Coupon Name</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h6 class="text-brand text-end">{{ session()->get('coupon')['coupon_name'] }} ( {{ session()->get('coupon')['coupon_discount'] }}% ) </h6>
+                    <h6 class="text-brand text-end">11111111 </h6>
                 </td>
             </tr>
 
@@ -168,7 +165,7 @@
                     <h6 class="text-muted">Coupon Discount</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">${{ session()->get('coupon')['discount_amount'] }}</h4>
+                    <h4 class="text-brand text-end">1111111111</h4>
                 </td>
             </tr>
 
@@ -177,28 +174,21 @@
                     <h6 class="text-muted">Grand Total</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">${{ session()->get('coupon')['total_amount'] }}</h4>
+                    <h4 class="text-brand text-end">111111111</h4>
                 </td>
             </tr>
-
-       @else
-
 
        <tr>
                 <td class="cart_total_label">
                     <h6 class="text-muted">Grand Total </h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">${{ $cartTotal }}</h4>
+                    <h4 class="text-brand text-end">111111111111</h4>
                 </td>
             </tr>
             
            
            
-
-       @endif
-
-
             
         </tbody>
     </table>
@@ -246,7 +236,7 @@
          </form>
 
 
-
+{{-- 
 <script type="text/javascript">
   		
   		$(document).ready(function(){
@@ -297,7 +287,7 @@
   			});
   		});
 
-  </script>
+  </script> --}}
 
 
 

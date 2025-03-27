@@ -58,7 +58,7 @@
 
 	                                    <a aria-label="Compare" class="action-btn" id="6" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
 
-	                                    <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="6" onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
+	                                    <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="2" onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
 
 	                                </div>
 

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('brand_id')->constrained('brands')->onDelete('restrict');
             $table->foreignId('category_id')->constrained('categories')->onDelete('restrict');
-            $table->foreignId('sub_category_id')->constrained('categories')->onDelete('restrict');
             $table->string('product_name',255);
             $table->string('product_slug',255);
             $table->string('product_code',255);
