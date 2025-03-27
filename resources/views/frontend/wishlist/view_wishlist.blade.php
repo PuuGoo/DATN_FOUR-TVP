@@ -34,7 +34,7 @@ Wishlist
                         </tr>
                     </thead>
                     <tbody id="wishlist">
-                        <tr class="pt-30">
+                        {{-- <tr class="pt-30">
                             <td class="custome-checkbox pl-30">
 
                             </td>
@@ -60,7 +60,8 @@ Wishlist
                             <td class="action text-center" data-title="Remove">
                                 <a type="submit" class="text-body" id="18" onclick="wishlistRemove(this.id)"><i class="fi-rs-trash"></i></a>
                             </td>
-                        </tr>
+                        </tr> --}}
+
                     </tbody>
                 </table>
             </div>
@@ -68,7 +69,58 @@ Wishlist
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch('/get-wishlist-product')
+            .then(response => response.json())
+            .then(data => {
 
+
+                let wishlistContent = document.getElementById('wishlist');
+                wishlistContent.innerHTML = '';
+
+                for (let i = 0; i < data.wishlist.length; i++) {
+
+
+                    wishlistContent.innerHTML += `
+                        <tr class="pt-30">
+                            <td class="custome-checkbox pl-30"></td>
+                            <td class="image product-thumbnail pt-40">
+                                <img src="/upload/products/thambnail/${data.wishlist[i].product.product_thumnail}" alt="#">
+                            </td>
+                            <td class="product-des product-name">
+                                <h6><a class="product-name mb-10" href="/product/details/${data.wishlist[i].product.id}/${data.wishlist[i].product.product_slug}">${data.wishlist[i].product.product_name}</a></h6>
+
+                            </td>
+                            <td class="price" data-title="Price">
+                                <h3 class="text-brand">$${ data.wishlist[i].product.discount_price == null ? data.wishlist[i].product.selling_price : data.wishlist[i].product.discount_price}</h3>
+                            </td>
+                            <td class="action text-center" data-title="Remove">
+                                <a class="text-body remove-wishlist" data-id="${data.wishlist[i].product.id}">
+                                    <i class="fi-rs-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    `;
+                }
+
+
+                // Xóa sản phẩm khỏi Wishlist
+                document.querySelectorAll('.remove-wishlist').forEach(button => {
+                    button.addEventListener('click', function () {
+                        let productId = this.getAttribute('data-id');
+
+                        fetch(`/wishlist-remove/${productId}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                alert(data.message || data.error);
+                                location.reload();
+                            });
+                    });
+                });
+            });
+    });
+</script>
 
 
 

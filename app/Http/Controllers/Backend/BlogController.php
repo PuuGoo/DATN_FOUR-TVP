@@ -36,7 +36,7 @@ class BlogController extends Controller
 
     public function AddBlogPost()
     {
-        $blogcategory = BlogCategory::orderBy('id', 'DESC')->get();
+        $blogcategory = BlogCategory::all();
         return view('backend.blog.post.blogpost_add', compact('blogcategory'));
     } // End Method
 
