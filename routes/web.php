@@ -123,7 +123,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // Coupon All Route 
     Route::controller(CouponController::class)->group(function () {
         Route::get('/all/coupon', 'AllCoupon')->name('all.coupon');
-        Route::get('/add/coupon', 'AddCoupon')->name('add.coupon');
+        Route::match(['get', 'post'], '/add/coupon', 'AddCoupon')->name('add.coupon');
+        Route::get('/edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
+        Route::put('/update/coupon/{id}', 'UpdateCoupon')->name('update.coupon');
+
+        Route::delete('/delete/coupon/{id}', [CouponController::class, 'DeleteCoupon'])->name('delete.coupon');
+
     });
 
     // Admin Order All Route 
@@ -204,10 +209,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
 
+   
     // Site Setting All Route 
     Route::controller(SiteSettingController::class)->group(function () {
-        Route::get('/site/setting', 'SiteSetting')->name('site.setting');
-        Route::get('/seo/setting', 'SeoSetting')->name('seo.setting');
+        Route::get('/site/setting', [SiteSettingController::class, 'editSiteSetting'])->name('site.setting');
+
+        Route::get('/seo/setting', 'SeoSetting')->name('seo.setting'); // Hiển thị trang SEO
+        Route::post('/site/setting/update/{id}', [SiteSettingController::class, 'UpdateSiteSetting'])->name('site.setting.update');
+
+
+
     });
 
 
@@ -279,7 +290,10 @@ Route::middleware(['auth', 'role:vendor'])->group(function () {
         Route::get('/vendor/all/product', 'VendorAllProduct')->name('vendor.all.product');
         Route::get('/vendor/add/product', 'VendorAddProduct')->name('vendor.add.product');
 
+
         Route::post('/vendor/store/product', 'VendorStoreProduct')->name('vendor.store.product');
+        Route::get('/vendor/store/product', 'VendorShowStoreProduct')->name('vendor.show.store.product');
+
         Route::get('/vendor/edit/product/{id}', 'VendorEditProduct')->name('vendor.edit.product');
 
         Route::post('/vendor/update/product', 'VendorUpdateProduct')->name('vendor.update.product');
@@ -331,6 +345,7 @@ Route::get('/api/product/variant/{id}', [IndexController::class, 'jsonvariantpro
 // Duc Phu Start
 /// Frontend Product Details All Route 
 
+Route::get('/api/product/variant/{id}', [IndexController::class, 'jsonvariantproduct']);
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
 Route::get('/vendor/details/{id}', [IndexController::class, 'VendorDetails'])->name('vendor.details');
 
@@ -455,7 +470,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::controller(AllUserController::class)->group(function () {
         Route::get('/user/account/page', 'UserAccount')->name('user.account.page');
         Route::get('/user/change/password', 'UserChangePassword')->name('user.change.password');
-
+        Route::post('/user/change/password', [UserController::class, 'ChangePassword'])->name('user.change.password');
         Route::get('/user/order/page', 'UserOrderPage')->name('user.order.page');
 
         Route::get('/user/order_details/{order_id}', 'UserOrderDetails');

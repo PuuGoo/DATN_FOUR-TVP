@@ -2,6 +2,7 @@
 @section('admin')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="{{asset('adminbackend/plugins_rich_text/libs/quill/quill.snow.css')}}" rel="stylesheet" type='text/css'/>
 
 
 
@@ -42,12 +43,15 @@
 					<h6 class="mb-0">Blog Category</h6>
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
-					<select name="category_id" class="form-select" id="inputVendor">
-						<option></option>
-						@foreach($blogcategory as $cat)
-						<option value="{{ $cat->id }}" {{ $cat->id == $blogpost->category_id ? 'selected' : '' }} >{{ $cat->blog_category_name }}</option>
-						 @endforeach
-					  </select>
+					<select name="category_id" class="form-select" required>
+                        <option disabled>Choose Category</option>
+                        @foreach($blogcategory as $category)
+                            <option value="{{ $category->id }}" {{ $category->id == $blogpost->category_id ? 'selected' : '' }}>
+                                {{ $category->category_name }}
+                            </option>
+                        @endforeach
+                    </select>
+
 				</div>
 			</div>
 
@@ -57,7 +61,7 @@
 					<h6 class="mb-0">Blog Post</h6>
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
-					<input type="text" name="post_title" class="form-control"  value="{{ $blogpost->post_title }}" />
+					<input type="text" name="post_title" class="form-control"  value="{{ $blogpost->title }}" />
 				</div>
 			</div>
 
@@ -69,7 +73,7 @@
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
 					<textarea name="post_short_description" class="form-control" id="inputProductDescription" rows="3">
-					{{ $blogpost->post_short_description }}
+					{{ $blogpost->blog_short_decs }}
 					</textarea>
 				</div>
 			</div>
@@ -80,9 +84,10 @@
 					<h6 class="mb-0">Blog Long Decs</h6>
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
-					<textarea id="mytextarea" name="post_long_description">
-                 {!! $blogpost->post_short_description !!}
-					 </textarea>
+                    <div class="mb-3">
+                        <div id="snow-editor" style="height: 150px;"></div> <!-- end Snow-editor-->
+                        <input type="hidden" value="{{ $blogpost->blog_long_decs }}" name="detailed_description" id="conten">
+                    </div>
 				</div>
 			</div>
 
@@ -107,7 +112,7 @@
 					<h6 class="mb-0"> </h6>
 				</div>
 				<div class="col-sm-9 text-secondary">
-					 <img id="showImage" src="{{ asset($blogpost->post_image) }}" alt="Admin" style="width:100px; height: 100px;"  >
+					 <img id="showImage" src="{{ asset($blogpost->image) }}" alt="Admin" style="width:100px; height: 100px;"  >
 				</div>
 			</div>
 
@@ -118,7 +123,7 @@
 			<div class="row">
 				<div class="col-sm-3"></div>
 				<div class="col-sm-9 text-secondary">
-					<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
+					<input id="save_" type="submit" class="btn btn-primary px-4" value="Save Changes" />
 				</div>
 			</div>
 		</div>
@@ -128,7 +133,7 @@
 
 
 	</div>
-
+<input type="hidden" id="click">
 
 
 
@@ -141,6 +146,8 @@
 
 
 
+<script src="{{asset('adminbackend/plugins_rich_text/libs/quill/quill.min.js')}}"></script>
+<script src="{{asset('adminbackend/plugins_rich_text/js/pages/add-product.init.js')}}"></script>
 
 
 <script type="text/javascript">
@@ -189,6 +196,39 @@
 
 </script>
 
+{{-- đọc mô tả chi tiết --}}
+<script type="text/javascript">
+	//  let framewriting = document.getElementsByClassName("ql-editor");
+	// // let getall = document.getElementById("getall");
+	// let save_product = document.getElementById('save_product');
+	// let content = document.getElementById("conten");
+	// save_product.addEventListener("click", () => {
+	// 	content.value = framewriting[0].innerHTML;
+	// });
+    document.addEventListener("DOMContentLoaded", () => {
 
+        let framewriting = document.getElementsByClassName("ql-editor");
+        let save_ = document.getElementById("save_");
+        let click = document.getElementById("click");
+        let content = document.getElementById("conten");
+
+        click.addEventListener("click", () => {
+            if (framewriting[0]) {
+                framewriting[0].innerHTML = content.value;
+            }
+        });
+
+        setTimeout(() => {
+            click.click();
+        }, 1000);
+
+        save_.addEventListener("click", () => {
+            if (framewriting[0]) {
+                content.value = framewriting[0].innerHTML;
+            }
+        });
+
+    });
+</script>
 
 @endsection

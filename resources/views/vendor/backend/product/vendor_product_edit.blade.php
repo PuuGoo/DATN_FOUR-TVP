@@ -149,12 +149,12 @@
 										</select>
 									</div>
 
-									<div class="form-group col-12">
+									{{-- <div class="form-group col-12">
 										<label for="inputCollection" class="form-label">Product SubCategory <span class="text-danger">*</span></label>
 										<select name="subcategory_id" class="form-select" id="subcate">
 
 										</select>
-									</div>
+									</div> --}}
 
 
 									<div class="form-group col-12">

@@ -14,7 +14,6 @@
 				</ol>
 			</nav>
 		</div>
-
 	</div>
 	<!--end breadcrumb-->
 
@@ -23,17 +22,12 @@
 			<h5 class="card-title">Add New Product</h5>
 			<hr />
 
-
-
-
-			<form id="myForm" method="post" action="http://127.0.0.1:8000/store/product" enctype="multipart/form-data">
-				<input type="hidden" name="_token" value="YZ1sGCGP5S5SinbXoqViYXUoVlMuNwN8T1UNghLJ" autocomplete="off">
+			<form id="myForm" method="post" action="{{ route('vendor.store.product') }}" enctype="multipart/form-data">
+				@csrf
 				<div class="form-body mt-4">
 					<div class="row mb-3">
 						<div class="col-lg-8">
 							<div class="border border-3 p-4 rounded">
-
-
 								<div class="form-group mb-3">
 									<label for="inputProductTitle" class="form-label">Product Name <span class="text-danger">*</span></label>
 									<input type="text" name="product_name" value="" class="form-control" id="inputProductTitle" placeholder="Enter product title">
@@ -44,8 +38,6 @@
 									<input type="text" id="tags_pd" name="product_tags" class="form-control visually-hidden" data-role="tagsinput" value="new product,top product">
 								</div>
 
-
-
 								<div class="form-group mb-3">
 									<label for="inputProductDescription" class="form-label">Short Description <span class="text-danger">*</span></label>
 									<textarea name="short_descp" class="form-control" id="inputProductDescription" rows="3"></textarea>
@@ -53,65 +45,26 @@
 
 								<div class="mb-3">
 									<label for="product-description" class="form-label">Long Description <span class="text-danger">*</span></label>
-									<div id="snow-editor" style="height: 150px;"></div> <!-- end Snow-editor-->
-									<input type="hidden" name="detailed_description" value="" id="conten">
+									<div id="snow-editor" style="height: 150px;"></div>
+									<input type="hidden" name="long_descp" value="" id="long_descp">
 								</div>
-
-
 
 								<div class="form-group mb-3">
-									<label for="inputProductTitle" class="form-label">Main Thambnail <span class="text-danger">*</span></label>
-									<input name="product_thambnail" class="form-control" type="file" id="formFile" onChange="mainThamUrl(this)" accept="image/*">
-
+									<label for="inputProductTitle" class="form-label">Main Thumbnail <span class="text-danger">*</span></label>
+									<input name="product_thumbnail" class="form-control" type="file" id="formFile" onChange="mainThamUrl(this)" accept="image/*">
 									<img src="" id="mainThmb" />
 								</div>
-
-
 
 								<div class="form-group mb-5">
 									<label for="inputProductTitle" class="form-label">Multiple Image <span class="text-danger">*</span></label>
 									<input class="form-control" type="file" name="list_image[]" onchange="docfile()" id="upload" multiple accept="image/*">
 									<div id="preview-files"></div>
 								</div>
-
-								<div class="mb-3">
-									<label for="inputProductTitle" class="form-label">Biến thể sản phẩm</label>
-									<div class="d-flex align-items-center">
-										<label for="" class="me-2">Tạo mới</label>
-										<!-- nút tạo mới tên biến thể -->
-										<div class="cursor_point badge rounded-pill bg-primary d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;" id="btncreatename">
-											<i style="font-size: small; font-weight: 900;" class="lni lni-plus"></i>
-										</div>
-
-									</div>
-									<!-- nơi để hiển thị ra input để nhập tên biến thể -->
-									<div id="shownamenewvariant">
-
-									</div>
-
-									<!-- nơi hiển thị ra nút tạo biến thể theo tên -->
-									<div id="showbtncreatevariant" class="d-flex justify-content-center">
-
-									</div>
-									<div id="bienthe">
-										<div id="showinputvaluevariant">
-
-										</div>
-										<div id="showbtnvaluevariant">
-
-										</div>
-
-									</div>
-
-								</div>
-
-
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="border border-3 p-4 rounded">
 								<div class="row g-3">
-
 									<div class="form-group col-md-6">
 										<label for="inputPrice" class="form-label">Product Price <span class="text-danger">*</span></label>
 										<input type="text" name="selling_price" value="" class="form-control" id="inputPrice" placeholder="00.00">
@@ -129,11 +82,10 @@
 										<input type="text" name="product_qty" value="" class="form-control" id="inputStarPoints" placeholder="00.00">
 									</div>
 
-
 									<div class="form-group col-12">
 										<label for="inputProductType" class="form-label">Product Brand <span class="text-danger">*</span></label>
 										<select name="brand_id" class="form-select" id="inputProductType">
-											<option value="">chọn nhánh</option>
+											<option value="">Select Brand</option>
 											<option value="1">Apple</option>
 											<option value="2">Samsung</option>
 											<option value="3">Xiaomi</option>
@@ -143,65 +95,45 @@
 									<div class="form-group col-12">
 										<label for="inputVendor" class="form-label">Product Category <span class="text-danger">*</span></label>
 										<select name="category_id" onchange="select_categorymain(this)" class="form-select">
-											<option value="">chọn danh mục</option>
+											<option value="">Select Category</option>
 											<option value="1">Electronics</option>
 											<option value="4">B</option>
 										</select>
 									</div>
 
 									<div class="form-group col-12">
-										<label for="inputCollection" class="form-label">Product SubCategory <span class="text-danger">*</span></label>
-										<select name="subcategory_id" class="form-select" id="subcate">
-
-										</select>
-									</div>
-
-
-									<div class="form-group col-12">
 										<label for="inputCollection" class="form-label">Select Vendor</label>
-										<select name="vendor_id" class="form-select" id="inputCollection">
+										<select name="vendor_id" class="form-select">
 											<option></option>
 											<option value="2">Nest Food.,Ltd</option>
 											<option value="14">Walton</option>
 											<option value="15">Sony</option>
-											<option value="16">Expart Fashion</option>
-											<option value="22">halal</option>
-											<option value="24">FOUR-TVP</option>
 										</select>
 									</div>
-
 
 									<div class="form-group col-12">
 										<label for="inputCollection" class="form-label">Select Status</label>
-										<select name="status" class="form-select" id="inputCollection">
+										<select name="status" class="form-select">
 											<option value="0" selected>Normal</option>
 											<option value="1">Hot Deals</option>
 											<option value="2">Featured</option>
-											<option value="3">Special Offer</option>
-											<option value="4">Special Deals</option>
 										</select>
 									</div>
-
-
-									<div class="col-12">
-
-
-
-									</div>
-
-									<hr>
-
 
 									<div class="col-12">
 										<div class="d-grid">
 											<input type="submit" id="save_product" class="btn btn-primary px-4" value="Save" />
-
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div><!--end row-->
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div><!--end row-->
 
 
 					<div id="showframeattributesvariant">
@@ -235,7 +167,7 @@
 				short_descp: {
 					required: true,
 				},
-				product_thambnail: {
+				product_thumbnail: {
 					required: true,
 				},
 				list_image: {
@@ -267,8 +199,8 @@
 				short_descp: {
 					required: 'Please Enter Short Description',
 				},
-				product_thambnail: {
-					required: 'Please Select Product Thambnail Image',
+				product_thumbnail: {
+					required: 'Please Select Product Thumbnail Image',
 				},
 				list_image: {
 					required: 'Please Select Product Multi Image',
@@ -468,13 +400,6 @@
 		docfile();
 	}
 </script>
-
-
-
-
-
-
-
 
 <script type="text/javascript">
 	var btncreatename = document.getElementById('btncreatename');
