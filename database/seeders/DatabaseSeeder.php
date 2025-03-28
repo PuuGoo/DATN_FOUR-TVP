@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BlogCategorySeeder::class);
         $this->call(BlogPostSeeder::class);
         $this->call(BannerSeeder::class);
+        $this->call(RoleTableSeeder::class);
         // User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

@@ -212,13 +212,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
    
     // Site Setting All Route 
     Route::controller(SiteSettingController::class)->group(function () {
-        Route::get('/site/setting', [SiteSettingController::class, 'editSiteSetting'])->name('site.setting');
+        Route::get('/site/setting', [SiteSettingController::class, 'SiteSetting'])->name('site.setting');
 
         Route::get('/seo/setting', 'SeoSetting')->name('seo.setting'); // Hiển thị trang SEO
         Route::post('/site/setting/update/{id}', [SiteSettingController::class, 'UpdateSiteSetting'])->name('site.setting.update');
-
-
-
     });
 
 
@@ -234,12 +231,31 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
     // Roles All Route 
+    // Roles All Route 
     Route::controller(RoleController::class)->group(function () {
+
         Route::get('/all/roles', 'AllRoles')->name('all.roles');
         Route::get('/add/roles', 'AddRoles')->name('add.roles');
+        Route::post('/store/roles', 'StoreRoles')->name('store.roles');
+        Route::get('/edit/roles/{id}', 'EditRoles')->name('edit.roles');
+
+        Route::post('/update/roles', 'UpdateRoles')->name('update.roles');
+
+        Route::get('/delete/roles/{id}', 'DeleteRoles')->name('delete.roles');
+
+        // add role permission 
 
         Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission');
+
+        Route::post('/role/permission/store', 'RolePermissionStore')->name('role.permission.store');
+
         Route::get('/all/roles/permission', 'AllRolesPermission')->name('all.roles.permission');
+
+        Route::get('/admin/edit/roles/{id}', 'AdminRolesEdit')->name('admin.edit.roles');
+
+        Route::post('/admin/roles/update/{id}', 'AdminRolesUpdate')->name('admin.roles.update'); //There is no permission named `40` for guard `web`.
+
+        Route::get('/admin/delete/roles/{id}', 'AdminRolesDelete')->name('admin.delete.roles');
     });
 
     // Admin User All Route 
@@ -407,7 +423,7 @@ Route::controller(BlogController::class)->group(function () {
 
     Route::get('/blog', 'AllBlog')->name('home.blog');
     Route::get('/post/details/{id}/{slug}', 'BlogDetails')->name('blog.details');
-    Route::get('/post/category/{id}/{slug}', 'BlogPostCategory');
+    Route::get('/post/category/{id}/{slug}', 'BlogPostCategory')->name('blog.category');
 });
 
 

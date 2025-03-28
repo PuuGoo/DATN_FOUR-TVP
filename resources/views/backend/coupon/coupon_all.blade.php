@@ -38,45 +38,32 @@
 </tr>
 </thead>
 <tbody>
-
-<tr>
-	<td> 1 </td>
-	<td> EASYLEARING</td>
-	<td> 30% </td>
-	<td> Fri, 28 February 2025  </td>
-
-
-	<td> 
-<span class="badge rounded-pill bg-danger">Invalid</span>
-
-	  </td>
-	
-	<td>
-<a href="" class="btn btn-info">Edit</a>
-<a href="" class="btn btn-danger" id="delete" >Delete</a>
-	</td> 
-</tr>
-		
-<tr>
-	<td> 2 </td>
-	<td> HAPPYLEARNING</td>
-	<td> 20% </td>
-	<td> Thu, 20 October 2022  </td>
-
-
-	<td> 
-<span class="badge rounded-pill bg-danger">Invalid</span>
-
-	  </td>
-	
-	<td>
-<a href="" class="btn btn-info">Edit</a>
-<a href="" class="btn btn-danger" id="delete" >Delete</a>
-	</td> 
-</tr>
-			 
-
+    @foreach ($coupons as $key => $coupon)
+    <tr>
+        <td>{{ $key + 1 }}</td>
+        <td>{{ $coupon->coupon_name }}</td>
+        <td>{{ $coupon->coupon_discount }}%</td>
+        <td>{{ \Carbon\Carbon::parse($coupon->coupon_validity)->format('D, d M Y') }}</td>
+        <td>
+            @if (\Carbon\Carbon::parse($coupon->coupon_validity)->isFuture())
+                <span class="badge rounded-pill bg-success">Valid</span>
+            @else
+                <span class="badge rounded-pill bg-danger">Invalid</span>
+            @endif
+        </td>
+        <td>
+            <a href="{{ route('edit.coupon', $coupon->id) }}" class="btn btn-info">Edit</a>
+			<form action="{{ route('delete.coupon', $coupon->id) }}" method="POST" style="display: inline;">
+				@csrf
+				@method('DELETE')
+				<button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this coupon?')">Delete</button>
+			</form>
+			
+        </td>
+    </tr>
+    @endforeach
 </tbody>
+
 <tfoot>
 <tr>
 	<th>Sl</th>

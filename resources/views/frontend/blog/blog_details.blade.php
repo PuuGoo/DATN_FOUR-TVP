@@ -16,7 +16,7 @@
                 Baking material
 
             </a>
-            <span></span> 1Easy Italian Chicken Dinner I Make Over and Over Again
+            <span></span> {{ $blogpost->post_title }}
         </div>
     </div>
 </div>
@@ -31,7 +31,7 @@
                                 <div class="row">
                                     <div class="col-xl-10 col-lg-12 m-auto">
 
-                                        <h2 class="mb-10">1Easy Italian Chicken Dinner I Make Over and Over Again</h2>
+                                        <h2 class="mb-10">{{ $blogpost->post_title }}</h2>
                                         <div class="single-header-meta">
                                             <div class="entry-meta meta-1 font-xs mt-15 mb-15">
                                                 <a class="author-avatar" href="#">
@@ -56,8 +56,7 @@
                                 </div>
                             </div>
                             <figure class="single-thumbnail">
-                                <img src="https://digi-poly.id.vn/upload/blog/1742527821092388.jpg" alt=""
-                                    style="width: 500px; height: 400px;">
+                                <img src="{{ $blogpost->post_image }}" alt="" style="width: 500px; height: 400px;">
                             </figure>
                             <div class="single-content">
                                 <div class="row">
@@ -235,7 +234,8 @@
                                                                             <div class="d-flex align-items-center">
                                                                                 <span
                                                                                     class="font-xs text-muted">December
-                                                                                    4, 2022 at 3:12 pm </span> </div>
+                                                                                    4, 2022 at 3:12 pm </span>
+                                                                            </div>
                                                                             <div class="product-rate d-inline-block">
                                                                                 <div class="product-rating"
                                                                                     style="width: 80%"></div>
@@ -293,7 +293,8 @@
                                                                             <div class="d-flex align-items-center">
                                                                                 <span
                                                                                     class="font-xs text-muted">December
-                                                                                    4, 2022 at 3:12 pm </span> </div>
+                                                                                    4, 2022 at 3:12 pm </span>
+                                                                            </div>
                                                                             <div class="product-rate d-inline-block">
                                                                                 <div class="product-rating"
                                                                                     style="width: 80%"></div>
@@ -338,33 +339,19 @@
                                     <h5 class="section-title style-1 mb-30">Category</h5>
                                     <ul>
 
-
+                                        <!-- blog category -->
+                                        @foreach($blog_category as $ct)
                                         <li>
-                                            <a href="https://digi-poly.id.vn/post/category/4/baking-material"> <img
-                                                    src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
-                                                    alt="">Baking material</a><span class="count">0</span>
+                                            <a
+                                                href="{{ route('blog.category', ['id'=>$ct->id, 'slug'=>$ct->blog_category_slug]) }}">
+                                                <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                                    alt="">{{ $ct->blog_category_name }}</a><span
+                                                class="count">{{ \App\Models\BlogPost::where('category_id', $ct->id)->count() }}
+                                            </span>
                                         </li>
+                                        @endforeach
+                                        <!-- end blog category -->
 
-
-                                        <li>
-                                            <a href="https://digi-poly.id.vn/post/category/3/fresh-fruit"> <img
-                                                    src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
-                                                    alt="">Fresh Fruit</a><span class="count">1</span>
-                                        </li>
-
-
-                                        <li>
-                                            <a href="https://digi-poly.id.vn/post/category/2/pet-foods"> <img
-                                                    src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
-                                                    alt="">Pet Foods</a><span class="count">2</span>
-                                        </li>
-
-
-                                        <li>
-                                            <a href="https://digi-poly.id.vn/post/category/1/clothing"> <img
-                                                    src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
-                                                    alt="">Clothing</a><span class="count">1</span>
-                                        </li>
                                     </ul>
                                 </div>
                                 <!-- Product sidebar Widget -->

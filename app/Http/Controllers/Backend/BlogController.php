@@ -119,24 +119,30 @@ class BlogController extends Controller
 
     public function AllBlog()
     {
+        $blog_category = BlogCategory::all();
         $blogposts = BlogPost::all();
-        return view('frontend.blog.home_blog', compact('blogposts'));
+        return view('frontend.blog.home_blog', compact('blogposts', 'blog_category'));
     } // End Method 
 
     public function BlogDetails($id, $slug)
     {
+        $blog_category = BlogCategory::all();
+
         $blogpost = BlogPost::findOrFail($id);
 
         if ($blogpost->post_slug !== $slug) {
             abort(404);
         }
 
-        return view('frontend.blog.blog_details', compact('blogpost'));
+        return view('frontend.blog.blog_details', compact('blogpost', 'blog_category'));
     } // End Method 
 
 
     public function BlogPostCategory($id, $slug)
     {
-        return view('frontend.blog.category_post');
+        $blog_category = BlogCategory::findOrFail($id);
+        $blogs = BlogPost::where('category_id', $blog_category->id)->get();
+
+        return view('frontend.blog.category_post', compact('blog_category', 'blogs'));
     } // End Method 
 }

@@ -41,7 +41,7 @@
 						<tr>
 							<td> {{ $key + 1 }} </td>
 							<td>{{ $permission->name }}</td>
-							<td>{{ $permission->guard_name }}</td>
+							<td>{{ $permission->group_name }}</td>
 
 							<td>
 								<a href="{{ route('edit.permission', $permission->id) }}" class="btn btn-info">Edit</a>

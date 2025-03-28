@@ -16,86 +16,53 @@
 		</div>
 		<div class="ms-auto">
 			<div class="btn-group">
-<a href="{{route('add.roles')}}" class="btn btn-primary">Add Roles</a> 				 
+				<a href="{{ route('add.roles') }}" class="btn btn-primary">Add Roles</a>
 			</div>
 		</div>
 	</div>
 	<!--end breadcrumb-->
-	 
-	<hr/>
+
+	<hr />
 	<div class="card">
 		<div class="card-body">
 			<div class="table-responsive">
 				<table id="example" class="table table-striped table-bordered" style="width:100%">
 					<thead>
-<tr>
-	<th>Sl</th>
-	<th>Roles Name </th> 
-	<th>Action</th> 
-</tr>
-</thead>
-<tbody>
+						<tr>
+							<th>Sl</th>
+							<th>Roles Name </th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach($roles as $key => $item)
+						<tr>
+							<td> {{ $key+1 }} </td>
+							<td>{{ $item->name }}</td>
 
-<tr>
-	<td> 1 </td>
-	<td>SuperAdmin</td> 
-	
-	<td>
-<a href="" class="btn btn-info">Edit</a>
-<a href="" class="btn btn-danger" id="delete" >Delete</a>
+							<td>
+								<a href="{{ route('edit.roles',$item->id) }}" class="btn btn-info">Edit</a>
+								<a href="{{ route('delete.roles',$item->id) }}" class="btn btn-danger" id="delete">Delete</a>
 
-	</td> 
-</tr>
-		
-<tr>
-	<td> 2 </td>
-	<td>Admin</td> 
-	
-	<td>
-<a href="" class="btn btn-info">Edit</a>
-<a href="" class="btn btn-danger" id="delete" >Delete</a>
+							</td>
+						</tr>
+						@endforeach
 
-	</td> 
-</tr>
-		
-<tr>
-	<td> 3 </td>
-	<td>CEO</td> 
-	
-	<td>
-<a href="" class="btn btn-info">Edit</a>
-<a href="" class="btn btn-danger" id="delete" >Delete</a>
 
-	</td> 
-</tr>
-		
-<tr>
-	<td> 4 </td>
-	<td>Account</td> 
-	
-	<td>
-<a href="" class="btn btn-info">Edit</a>
-<a href="" class="btn btn-danger" id="delete" >Delete</a>
-
-	</td> 
-</tr>
-			 
-
-</tbody>
-<tfoot>
-<tr>
-	<th>Sl</th>
-	<th>Roles Name </th> 
-	<th>Action</th> 
-</tr>
-</tfoot>
-</table>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Sl</th>
+							<th>Roles Name </th>
+							<th>Action</th>
+						</tr>
+					</tfoot>
+				</table>
 			</div>
 		</div>
 	</div>
 
 
-	 
 </div>
 
 

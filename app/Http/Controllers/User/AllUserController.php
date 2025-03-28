@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Order;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class AllUserController extends Controller
 {
     public function UserAccount()
     {
-
-        return view('frontend.userdashboard.account_details');
+        $userDetail = Auth::user();
+        return view('frontend.userdashboard.account_details', compact('userDetail'));
     } // End Method 
 
 
@@ -69,7 +71,23 @@ class AllUserController extends Controller
     public function OrderTracking(Request $request)
     {
 
-        // 
+        $invoice = $request->code;
+
+        $track = Order::where('invoice_no',$invoice)->first();
+
+        if ($track) {
+           return view('frontend.traking.track_order',compact('track'));
+
+        } else{
+
+            $notification = array(
+            'message' => 'Invoice Code Is Invalid',
+            'alert-type' => 'error'
+        );
+
+        return redirect()->back()->with($notification); 
+
+        }
 
     } // End Method 
 

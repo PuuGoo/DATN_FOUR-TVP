@@ -17,203 +17,245 @@ class PermissionsTableSeeder extends Seeder
             // Brand
             [
                 'name' => 'brand.menu',
-                'guard_name' => 'brand',
+                'group_name' => 'brand',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'brand.list',
-                'guard_name' => 'brand',
+                'group_name' => 'brand',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'brand.add',
-                'guard_name' => 'brand',
+                'group_name' => 'brand',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'brand.edit',
-                'guard_name' => 'brand',
+                'group_name' => 'brand',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'brand.delete',
-                'guard_name' => 'brand',
+                'group_name' => 'brand',
+                'guard_name' => 'web'
             ],
 
             // Category
             [
                 'name' => 'category.menu',
-                'guard_name' => 'category',
+                'group_name' => 'category',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'category.list',
-                'guard_name' => 'category',
+                'group_name' => 'category',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'category.add',
-                'guard_name' => 'category',
+                'group_name' => 'category',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'category.edit',
-                'guard_name' => 'category',
+                'group_name' => 'category',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'category.delete',
-                'guard_name' => 'category',
+                'group_name' => 'category',
+                'guard_name' => 'web'
             ],
 
             // Product
             [
                 'name' => 'product.menu',
-                'guard_name' => 'product',
+                'group_name' => 'product',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'product.list',
-                'guard_name' => 'product',
+                'group_name' => 'product',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'product.add',
-                'guard_name' => 'product',
+                'group_name' => 'product',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'product.edit',
-                'guard_name' => 'product',
+                'group_name' => 'product',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'product.delete',
-                'guard_name' => 'product',
+                'group_name' => 'product',
+                'guard_name' => 'web'
             ],
 
             // Slider
             [
                 'name' => 'slider.menu',
-                'guard_name' => 'slider',
+                'group_name' => 'slider',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'slider.list',
-                'guard_name' => 'slider',
+                'group_name' => 'slider',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'slider.add',
-                'guard_name' => 'slider',
+                'group_name' => 'slider',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'slider.edit',
-                'guard_name' => 'slider',
+                'group_name' => 'slider',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'slider.delete',
-                'guard_name' => 'slider',
+                'group_name' => 'slider',
+                'guard_name' => 'web'
             ],
 
             // Banner
             [
                 'name' => 'banner.menu',
-                'guard_name' => 'banner',
+                'group_name' => 'banner',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'banner.list',
-                'guard_name' => 'banner',
+                'group_name' => 'banner',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'banner.add',
-                'guard_name' => 'banner',
+                'group_name' => 'banner',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'banner.edit',
-                'guard_name' => 'banner',
+                'group_name' => 'banner',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'banner.delete',
-                'guard_name' => 'banner',
+                'group_name' => 'banner',
+                'guard_name' => 'web'
             ],
 
             // Coupon
             [
                 'name' => 'coupon.menu',
-                'guard_name' => 'coupon',
+                'group_name' => 'coupon',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'coupon.list',
-                'guard_name' => 'coupon',
+                'group_name' => 'coupon',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'coupon.add',
-                'guard_name' => 'coupon',
+                'group_name' => 'coupon',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'coupon.edit',
-                'guard_name' => 'coupon',
+                'group_name' => 'coupon',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'coupon.delete',
-                'guard_name' => 'coupon',
+                'group_name' => 'coupon',
+                'guard_name' => 'web'
             ],
 
             // Vendor
             [
                 'name' => 'vendor.menu',
-                'guard_name' => 'vendor',
+                'group_name' => 'vendor',
+                'guard_name' => 'web'
             ],
 
             // Order
             [
                 'name' => 'order.menu',
-                'guard_name' => 'order',
+                'group_name' => 'order',
+                'guard_name' => 'web'
             ],
             [
                 'name' => 'order.list',
-                'guard_name' => 'order',
+                'group_name' => 'order',
+                'guard_name' => 'web'
             ],
 
             // Return
             [
                 'name' => 'return.order.menu',
-                'guard_name' => 'return',
+                'group_name' => 'return',
+                'guard_name' => 'web'
             ],
 
             // User
             [
                 'name' => 'user.management.menu',
-                'guard_name' => 'user',
+                'group_name' => 'user',
+                'guard_name' => 'web'
             ],
 
             // Review
             [
                 'name' => 'review.menu',
-                'guard_name' => 'review',
+                'group_name' => 'review',
+                'guard_name' => 'web'
             ],
 
             // Blog
             [
                 'name' => 'blog.menu',
-                'guard_name' => 'blog',
+                'group_name' => 'blog',
+                'guard_name' => 'web'
             ],
 
             // Setting
             [
                 'name' => 'site.menu',
-                'guard_name' => 'setting',
+                'group_name' => 'setting',
+                'guard_name' => 'web'
             ],
 
             // Role
             [
                 'name' => 'role.permission.menu',
-                'guard_name' => 'role',
+                'group_name' => 'role',
+                'guard_name' => 'web'
             ],
 
             // Admin
             [
                 'name' => 'admin.user.menu',
-                'guard_name' => 'admin',
+                'group_name' => 'admin',
+                'guard_name' => 'web'
             ],
 
             // Stock
             [
                 'name' => 'stock.menu',
-                'guard_name' => 'stock',
+                'group_name' => 'stock',
+                'guard_name' => 'web'
             ],
 
             // Report
             [
                 'name' => 'report.menu',
-                'guard_name' => 'report',
+                'group_name' => 'report',
+                'guard_name' => 'web'
             ],
         ]);
     }

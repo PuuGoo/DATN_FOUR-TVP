@@ -46,7 +46,7 @@
 										<h6 class="mb-0">Group Name</h6>
 									</div>
 									<div class="form-group col-sm-9 text-secondary">
-										<select name="guard_name" class="form-select mb-3" aria-label="Default select example">
+										<select name="group_name" class="form-select mb-3" aria-label="Default select example">
 											<option selected="">Open this select Group</option>
 											<option value="brand">Brand</option>
 											<option value="category">Category</option>

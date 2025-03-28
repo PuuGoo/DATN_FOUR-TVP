@@ -7,6 +7,7 @@ use App\Models\Banner;
 use App\Models\Category;
 use App\Models\multi_imgs;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,23 +30,23 @@ class IndexController extends Controller
       $checkvariant = DB::table('infor_option')->where('idproduct', $id)->get();
       $arrvalue = [];
 
-      if(!empty($checkvariant)){
+      if (!empty($checkvariant)) {
          $variants_value = DB::table('variant_name')
-               ->select(
-                  'variant_name.name as variant_name',
-                  'infor_option.idproduct',
-                  DB::raw('GROUP_CONCAT(variant_attribute.value SEPARATOR ", ") as variant_value'),
-               )
-               ->join('variant_attribute', 'variant_name.id', '=', 'variant_attribute.idvariantname')
-               ->join('variant_option', 'variant_attribute.id', '=', 'variant_option.varant_attribute_id')
-               ->join('infor_option', 'variant_option.infor_option_id', '=', 'infor_option.id')
-               ->where('infor_option.idproduct', $id) // Lọc theo sản phẩm
-               ->groupBy('variant_name.name', 'infor_option.idproduct')
-               ->orderByDesc('variant_name.name') // Sắp xếp giảm dần theo tên biến thể
-               ->get();
+            ->select(
+               'variant_name.name as variant_name',
+               'infor_option.idproduct',
+               DB::raw('GROUP_CONCAT(variant_attribute.value SEPARATOR ", ") as variant_value'),
+            )
+            ->join('variant_attribute', 'variant_name.id', '=', 'variant_attribute.idvariantname')
+            ->join('variant_option', 'variant_attribute.id', '=', 'variant_option.varant_attribute_id')
+            ->join('infor_option', 'variant_option.infor_option_id', '=', 'infor_option.id')
+            ->where('infor_option.idproduct', $id) // Lọc theo sản phẩm
+            ->groupBy('variant_name.name', 'infor_option.idproduct')
+            ->orderByDesc('variant_name.name') // Sắp xếp giảm dần theo tên biến thể
+            ->get();
 
          $a = [];
-         for ($i=0; $i < count($variants_value); $i++) { 
+         for ($i = 0; $i < count($variants_value); $i++) {
             # code...
             $a[] = explode(', ', $variants_value[$i]->variant_value);
             $arrvalue[] = [$variants_value[$i]->variant_name, array_values(array_unique($a[$i]))];
@@ -64,46 +65,47 @@ class IndexController extends Controller
       $product = Product::where('id', $id)->first();
 
       if (!$product) {
-          abort(404); // Nếu không tìm thấy sản phẩm, trả về lỗi 404
+         abort(404); // Nếu không tìm thấy sản phẩm, trả về lỗi 404
       }
 
       return view('frontend.product.product_details', compact('arrvalue', 'product'));
    } // End Method 
 
 
-   public function jsonvariantproduct($id){
+   public function jsonvariantproduct($id)
+   {
       $option_variant = DB::table('variant_name')
-      ->select(
-          'infor_option.id as id_infor',
-          'infor_option.idproduct',
-          DB::raw('
+         ->select(
+            'infor_option.id as id_infor',
+            'infor_option.idproduct',
+            DB::raw('
               GROUP_CONCAT(
                   CONCAT(variant_name.name, " ")
                   ORDER BY variant_name.name DESC 
                   SEPARATOR ", "
               ) as variant_name
           '),
-          DB::raw('
+            DB::raw('
               GROUP_CONCAT(
                   CONCAT(variant_attribute.value)
                   ORDER BY variant_name.name DESC 
                   SEPARATOR ", "
               ) as variant_value
           '),
-          'infor_option.price',
-          'infor_option.quantity',
-      )
-      ->join('variant_attribute', 'variant_name.id', '=', 'variant_attribute.idvariantname')
-      ->join('variant_option', 'variant_attribute.id', '=', 'variant_option.varant_attribute_id')
-      ->join('infor_option', 'variant_option.infor_option_id', '=', 'infor_option.id')
-      ->where('infor_option.idproduct', $id) // Lọc theo sản phẩm cụ thể
-      ->groupBy('infor_option.id', 'infor_option.idproduct', 'infor_option.code', 'infor_option.price', 'infor_option.quantity')
-      ->orderBy('infor_option.id') // Đảm bảo thứ tự sản phẩm
-      ->get();
+            'infor_option.price',
+            'infor_option.quantity',
+         )
+         ->join('variant_attribute', 'variant_name.id', '=', 'variant_attribute.idvariantname')
+         ->join('variant_option', 'variant_attribute.id', '=', 'variant_option.varant_attribute_id')
+         ->join('infor_option', 'variant_option.infor_option_id', '=', 'infor_option.id')
+         ->where('infor_option.idproduct', $id) // Lọc theo sản phẩm cụ thể
+         ->groupBy('infor_option.id', 'infor_option.idproduct', 'infor_option.code', 'infor_option.price', 'infor_option.quantity')
+         ->orderBy('infor_option.id') // Đảm bảo thứ tự sản phẩm
+         ->get();
       $product = DB::table('products')->where('id', $id)->first();
 
 
-      
+
       return response()->json(array(
          'ms' => 'thanh cong',
          'status' => 200,
@@ -115,14 +117,17 @@ class IndexController extends Controller
    public function VendorDetails($id)
    {
 
-      return view('frontend.vendor.vendor_details');
-   } // End Method 
+      $vendor = User::findOrFail($id);
+      $vproduct = Product::where('vendor_id', $id)->get();
+      return view('frontend.vendor.vendor_details', compact('vendor', 'vproduct'));
+   } // End Method  
 
 
    public function VendorAll()
    {
 
-      return view('frontend.vendor.vendor_all');
+      $vendors = User::where('status', 'active')->where('role', 'vendor')->orderBy('id', 'DESC')->get();
+      return view('frontend.vendor.vendor_all', compact('vendors'));
    } // End Method 
 
 
@@ -189,60 +194,60 @@ class IndexController extends Controller
 
    public function ProductViewAjax($id)
    {
-      $product = Product::with('category','brand')->findOrFail($id);
+      $product = Product::with('category', 'brand')->findOrFail($id);
       $multi_images = multi_imgs::where('id', $id)->get();
       $option_variant = DB::table('variant_name')
-      ->select(
-          'infor_option.id as id_infor',
-          'infor_option.idproduct',
-          DB::raw('
+         ->select(
+            'infor_option.id as id_infor',
+            'infor_option.idproduct',
+            DB::raw('
               GROUP_CONCAT(
                   CONCAT(variant_name.name, " ")
                   ORDER BY variant_name.name DESC 
                   SEPARATOR ", "
               ) as variant_name
           '),
-          DB::raw('
+            DB::raw('
               GROUP_CONCAT(
                   CONCAT(variant_attribute.value)
                   ORDER BY variant_name.name DESC 
                   SEPARATOR ", "
               ) as variant_value
           '),
-          'infor_option.price',
-          'infor_option.quantity',
-      )
-      ->join('variant_attribute', 'variant_name.id', '=', 'variant_attribute.idvariantname')
-      ->join('variant_option', 'variant_attribute.id', '=', 'variant_option.varant_attribute_id')
-      ->join('infor_option', 'variant_option.infor_option_id', '=', 'infor_option.id')
-      ->where('infor_option.idproduct', $id) // Lọc theo sản phẩm cụ thể
-      ->groupBy('infor_option.id', 'infor_option.idproduct', 'infor_option.code', 'infor_option.price', 'infor_option.quantity')
-      ->orderBy('infor_option.id') // Đảm bảo thứ tự sản phẩm
-      ->get();
+            'infor_option.price',
+            'infor_option.quantity',
+         )
+         ->join('variant_attribute', 'variant_name.id', '=', 'variant_attribute.idvariantname')
+         ->join('variant_option', 'variant_attribute.id', '=', 'variant_option.varant_attribute_id')
+         ->join('infor_option', 'variant_option.infor_option_id', '=', 'infor_option.id')
+         ->where('infor_option.idproduct', $id) // Lọc theo sản phẩm cụ thể
+         ->groupBy('infor_option.id', 'infor_option.idproduct', 'infor_option.code', 'infor_option.price', 'infor_option.quantity')
+         ->orderBy('infor_option.id') // Đảm bảo thứ tự sản phẩm
+         ->get();
 
       $variants_value = DB::table('variant_name')
-      ->select(
-         'variant_name.name as variant_name',
-         'infor_option.idproduct',
-         DB::raw('GROUP_CONCAT(variant_attribute.value SEPARATOR ", ") as variant_value'),
-      )
-      ->join('variant_attribute', 'variant_name.id', '=', 'variant_attribute.idvariantname')
-      ->join('variant_option', 'variant_attribute.id', '=', 'variant_option.varant_attribute_id')
-      ->join('infor_option', 'variant_option.infor_option_id', '=', 'infor_option.id')
-      ->where('infor_option.idproduct', $id) // Lọc theo sản phẩm
-      ->groupBy('variant_name.name', 'infor_option.idproduct')
-      ->orderByDesc('variant_name.name') // Sắp xếp giảm dần theo tên biến thể
-      ->get();
+         ->select(
+            'variant_name.name as variant_name',
+            'infor_option.idproduct',
+            DB::raw('GROUP_CONCAT(variant_attribute.value SEPARATOR ", ") as variant_value'),
+         )
+         ->join('variant_attribute', 'variant_name.id', '=', 'variant_attribute.idvariantname')
+         ->join('variant_option', 'variant_attribute.id', '=', 'variant_option.varant_attribute_id')
+         ->join('infor_option', 'variant_option.infor_option_id', '=', 'infor_option.id')
+         ->where('infor_option.idproduct', $id) // Lọc theo sản phẩm
+         ->groupBy('variant_name.name', 'infor_option.idproduct')
+         ->orderByDesc('variant_name.name') // Sắp xếp giảm dần theo tên biến thể
+         ->get();
 
       $a = [];
       $arrvalue = [];
-      for ($i=0; $i < count($variants_value); $i++) { 
+      for ($i = 0; $i < count($variants_value); $i++) {
          # code...
          $a[] = explode(', ', $variants_value[$i]->variant_value);
          $arrvalue[] = [$variants_value[$i]->variant_name, array_values(array_unique($a[$i]))];
       }
 
-        return response()->json(array( 
+      return response()->json(array(
          'ms' => 'thanh cong',
          'status' => 200,
          'data' => ['product' => $product, 'multi_images' => $multi_images, 'option_variant' => $option_variant, 'showvariant' => $arrvalue]
@@ -253,13 +258,24 @@ class IndexController extends Controller
 
    public function ProductSearch(Request $request)
    {
-      return view('frontend.product.search');
+      $request->validate(['search' => "required"]);
+
+      $item = $request->search;
+      $categories = Category::orderBy('category_name', 'ASC')->get();
+      $products = Product::where('product_name', 'LIKE', "%$item%")->get();
+      $newProduct = Product::orderBy('id', 'DESC')->limit(3)->get();
+      return view('frontend.product.search', compact('products', 'item', 'categories', 'newProduct'));
    } // End Method 
 
 
    public function SearchProduct(Request $request)
    {
-      return view('frontend.product.search_product');
+      $request->validate(['search' => "required"]);
+
+      $item = $request->search;
+      $products = Product::where('product_name', 'LIKE', "%$item%")->select('product_name', 'product_slug', 'product_thambnail', 'selling_price', 'id')->limit(6)->get();
+
+      return view('frontend.product.search_product', compact('products'));
    } // End Method 
 
 

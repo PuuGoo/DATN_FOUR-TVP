@@ -12,12 +12,12 @@
             <div class="row align-items-center">
                 <div class="col-xl-3">
                     <h3 class="mb-15">
-                        Fresh Fruit
+                        {{ $blog_category->blog_category_name }}
                     </h3>
                     <div class="breadcrumb">
                         <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                         <span></span>
-                        Fresh Fruit
+                        {{ $blog_category->blog_category_name }}
                     </div>
                 </div>
 
@@ -75,28 +75,34 @@
                 </div>
                 <div class="loop-grid loop-list pr-30 mb-50">
 
-
+                    <!-- Start post -->
+                    @foreach($blogs as $bg)
                     <article class="wow fadeIn animated hover-up mb-30 animated animated" style="visibility: visible;">
-                        <div class="post-thumb" style="background-image: url(https://digi-poly.id.vn/upload/blog/1742527645651585.jpg)">
+                        <div class="post-thumb" style="background-image: url({{ $bg->post_image }})">
                             <div class="entry-meta">
-                                <a class="entry-meta meta-2" href="blog-category-grid.html"><i class="fi-rs-play-alt"></i></a>
+                                <a class="entry-meta meta-2" href="blog-category-grid.html"><i
+                                        class="fi-rs-play-alt"></i></a>
                             </div>
                         </div>
                         <div class="entry-content-2 pl-50">
                             <h3 class="post-title mb-20">
-                                <a href="https://digi-poly.id.vn/post/details/3/1easy-italian-chicken-dinner-i-make-over-and-over-again">1Easy Italian Chicken Dinner I Make Over and Over Again</a>
+                                <a href="{{ route('blog.details', ['id'=>$bg->id, 'slug'=>$bg->post_slug]) }}">
+                                    {{ $bg->post_title }}</a>
                             </h3>
-                            <p class="post-exerpt mb-40">11 orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p class="post-exerpt mb-40">{{ $bg->post_short_description }}.</p>
                             <div class="entry-meta meta-1 font-xs color-grey mt-10 pb-10">
                                 <div>
-                                    <span class="post-on">Aug 29 2022</span>
+                                    <span class="post-on">{{$bg->created_at}}</span>
 
                                 </div>
-                                <a href="https://digi-poly.id.vn/post/details/3/1easy-italian-chicken-dinner-i-make-over-and-over-again" class="text-brand font-heading font-weight-bold">Read more <i class="fi-rs-arrow-right"></i></a>
+                                <a href="{{ route('blog.details', ['id'=>$bg->id, 'slug'=>$bg->post_slug]) }}"
+                                    class="text-brand font-heading font-weight-bold">Read more <i
+                                        class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
-
+                    @endforeach
+                    <!-- end post -->
 
 
 
@@ -119,9 +125,11 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-lg-3 primary-sidebar sticky-sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+            <div class="col-lg-3 primary-sidebar sticky-sidebar"
+                style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
 
-                <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+                <div class="theiaStickySidebar"
+                    style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
                     <div class="widget-area">
                         <div class="sidebar-widget-2 widget_search mb-50">
                             <div class="search-form">
@@ -137,22 +145,30 @@
 
 
                                 <li>
-                                    <a href="https://digi-poly.id.vn/post/category/4/baking-material"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg" alt="">Baking material</a><span class="count">0</span>
+                                    <a href="https://digi-poly.id.vn/post/category/4/baking-material"> <img
+                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            alt="">Baking material</a><span class="count">0</span>
                                 </li>
 
 
                                 <li>
-                                    <a href="https://digi-poly.id.vn/post/category/3/fresh-fruit"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg" alt="">Fresh Fruit</a><span class="count">0</span>
+                                    <a href="https://digi-poly.id.vn/post/category/3/fresh-fruit"> <img
+                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            alt="">Fresh Fruit</a><span class="count">0</span>
                                 </li>
 
 
                                 <li>
-                                    <a href="https://digi-poly.id.vn/post/category/2/pet-foods"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg" alt="">Pet Foods</a><span class="count">2</span>
+                                    <a href="https://digi-poly.id.vn/post/category/2/pet-foods"> <img
+                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            alt="">Pet Foods</a><span class="count">2</span>
                                 </li>
 
 
                                 <li>
-                                    <a href="https://digi-poly.id.vn/post/category/1/clothing"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg" alt="">Clothing</a><span class="count">1</span>
+                                    <a href="https://digi-poly.id.vn/post/category/1/clothing"> <img
+                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            alt="">Clothing</a><span class="count">1</span>
                                 </li>
                             </ul>
                         </div>
@@ -164,7 +180,8 @@
 
                         <!--Tags-->
 
-                        <div class="banner-img wow fadeIn mb-50 animated d-lg-block d-none" style="visibility: hidden; animation-name: none;">
+                        <div class="banner-img wow fadeIn mb-50 animated d-lg-block d-none"
+                            style="visibility: hidden; animation-name: none;">
                             <img src="https://digi-poly.id.vn/frontend/assets/imgs/banner/banner-11.png" alt="">
                             <div class="banner-text">
                                 <span>Oganic</span>

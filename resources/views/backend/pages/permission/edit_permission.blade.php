@@ -48,26 +48,26 @@
 										<h6 class="mb-0">Group Name</h6>
 									</div>
 									<div class="form-group col-sm-9 text-secondary">
-										<select name="guard_name" class="form-select mb-3" aria-label="Default select example">
+										<select name="group_name" class="form-select mb-3" aria-label="Default select example">
 											<option selected="">Open this select Group</option>
-											<option value="brand" {{ $permission->guard_name == 'brand' ? 'selected': ''}}>Brand</option>
-											<option value="category" {{ $permission->guard_name == 'category' ? 'selected': ''}}>Category</option>
-											<option value="subcategory" {{ $permission->guard_name == 'subcategory' ? 'selected': ''}}>Subcategory</option>
-											<option value="product" {{ $permission->guard_name == 'product' ? 'selected': ''}}>Product</option>
-											<option value="slider" {{ $permission->guard_name == 'slider' ? 'selected': ''}}>Slider</option>
-											<option value="banner" {{ $permission->guard_name == 'banner' ? 'selected': ''}}>Banner</option>
-											<option value="coupon" {{ $permission->guard_name == 'coupon' ? 'selected': ''}}>Coupon</option>
-											<option value="vendor" {{ $permission->guard_name == 'vendor' ? 'selected': ''}}>Vendor</option>
-											<option value="order" {{ $permission->guard_name == 'order' ? 'selected': ''}}>Order</option>
-											<option value="return" {{ $permission->guard_name == 'return' ? 'selected': ''}}>Return</option>
-											<option value="report" {{ $permission->guard_name == 'report' ? 'selected': ''}}>Report</option>
-											<option value="user" {{ $permission->guard_name == 'user' ? 'selected': ''}}>User Management</option>
-											<option value="review" {{ $permission->guard_name == 'review' ? 'selected': ''}}>Review</option>
-											<option value="setting" {{ $permission->guard_name == 'setting' ? 'selected': ''}}>Setting</option>
-											<option value="blog" {{ $permission->guard_name == 'blog' ? 'selected': ''}}>Blog</option>
-											<option value="role" {{ $permission->guard_name == 'role' ? 'selected': ''}}>Role</option>
-											<option value="admin" {{ $permission->guard_name == 'admin' ? 'selected': ''}}>Admin</option>
-											<option value="stock" {{ $permission->guard_name == 'stock' ? 'selected': ''}}>Stock</option>
+											<option value="brand" {{ $permission->group_name == 'brand' ? 'selected': ''}}>Brand</option>
+											<option value="category" {{ $permission->group_name == 'category' ? 'selected': ''}}>Category</option>
+											<option value="subcategory" {{ $permission->group_name == 'subcategory' ? 'selected': ''}}>Subcategory</option>
+											<option value="product" {{ $permission->group_name == 'product' ? 'selected': ''}}>Product</option>
+											<option value="slider" {{ $permission->group_name == 'slider' ? 'selected': ''}}>Slider</option>
+											<option value="banner" {{ $permission->group_name == 'banner' ? 'selected': ''}}>Banner</option>
+											<option value="coupon" {{ $permission->group_name == 'coupon' ? 'selected': ''}}>Coupon</option>
+											<option value="vendor" {{ $permission->group_name == 'vendor' ? 'selected': ''}}>Vendor</option>
+											<option value="order" {{ $permission->group_name == 'order' ? 'selected': ''}}>Order</option>
+											<option value="return" {{ $permission->group_name == 'return' ? 'selected': ''}}>Return</option>
+											<option value="report" {{ $permission->group_name == 'report' ? 'selected': ''}}>Report</option>
+											<option value="user" {{ $permission->group_name == 'user' ? 'selected': ''}}>User Management</option>
+											<option value="review" {{ $permission->group_name == 'review' ? 'selected': ''}}>Review</option>
+											<option value="setting" {{ $permission->group_name == 'setting' ? 'selected': ''}}>Setting</option>
+											<option value="blog" {{ $permission->group_name == 'blog' ? 'selected': ''}}>Blog</option>
+											<option value="role" {{ $permission->group_name == 'role' ? 'selected': ''}}>Role</option>
+											<option value="admin" {{ $permission->group_name == 'admin' ? 'selected': ''}}>Admin</option>
+											<option value="stock" {{ $permission->group_name == 'stock' ? 'selected': ''}}>Stock</option>
 										</select>
 									</div>
 								</div>
