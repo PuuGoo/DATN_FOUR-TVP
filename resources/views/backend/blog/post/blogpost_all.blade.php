@@ -42,9 +42,9 @@
         <td>{{ $key + 1 }}</td>
         <td>{{ $post->category->name ?? 'No Category' }}</td>
         <td>
-            <img src="{{ asset($post->image) }}" style="width: 70px; height:40px;">
+            <img src="{{ asset($post->post_image) }}" style="width: 70px; height:40px;">
         </td>
-        <td>{{ $post->title }}</td>
+        <td>{{ $post->post_title }}</td>
         <td>
             <a href="{{ route('edit.blog.post', $post->id) }}" class="btn btn-info">Edit</a>
             <a href="{{ route('delete.blog.post', $post->id) }}" class="btn btn-danger" id="delete">Delete</a>

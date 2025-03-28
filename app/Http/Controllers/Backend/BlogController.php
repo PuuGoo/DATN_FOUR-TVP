@@ -9,6 +9,7 @@ use App\Models\BlogPost;
 use Image;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -45,15 +46,16 @@ class BlogController extends Controller
     {
         $data = new BlogPost();
         $data->category_id = $request->category_id;
-        $data->title = $request->post_title;
-        $data->blog_short_decs = $request->post_short_description;
-        $data->blog_long_decs = $request->detailed_description;
+        $data->post_title = $request->post_title;
+        $data->post_slug = Str::slug($request->post_title);
+        $data->post_short_description = $request->post_short_description;
+        $data->post_long_description = $request->detailed_description;
 
         if ($request->file('post_image')) {
             $file = $request->file('post_image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('upload/blog_images'), $filename);
-            $data->image = 'upload/blog_images/' . $filename;
+            $data->post_image = 'upload/blog_images/' . $filename;
         }
 
         $data->save();
@@ -73,9 +75,12 @@ class BlogController extends Controller
     {
         $data = BlogPost::findOrFail($request->id);
         $data->category_id = $request->category_id;
-        $data->title = $request->post_title;
-        $data->blog_short_decs = $request->post_short_description;
-        $data->blog_long_decs = $request->detailed_description;
+        $data->post_title = $request->post_title;
+        $data->post_slug = Str::slug($request->post_title);
+        $data->post_short_description = $request->post_short_description;
+        $data->post_long_description = $request->detailed_description;
+
+
 
         if ($request->file('post_image')) {
             $file = $request->file('post_image');
@@ -87,7 +92,7 @@ class BlogController extends Controller
 
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('upload/blog_images'), $filename);
-            $data->image = 'upload/blog_images/' . $filename;
+            $data->post_image = 'upload/blog_images/' . $filename;
         }
 
         $data->save();
@@ -100,8 +105,8 @@ class BlogController extends Controller
         $blogpost = BlogPost::findOrFail($id);
 
         // Xóa ảnh nếu có
-        if (File::exists(public_path($blogpost->image))) {
-            File::delete(public_path($blogpost->image));
+        if (File::exists(public_path($blogpost->post_image))) {
+            File::delete(public_path($blogpost->post_image));
         }
 
         $blogpost->delete();
@@ -114,12 +119,19 @@ class BlogController extends Controller
 
     public function AllBlog()
     {
-        return view('frontend.blog.home_blog');
+        $blogposts = BlogPost::all();
+        return view('frontend.blog.home_blog', compact('blogposts'));
     } // End Method 
 
     public function BlogDetails($id, $slug)
     {
-        return view('frontend.blog.blog_details');
+        $blogpost = BlogPost::findOrFail($id);
+
+        if ($blogpost->post_slug !== $slug) {
+            abort(404);
+        }
+
+        return view('frontend.blog.blog_details', compact('blogpost'));
     } // End Method 
 
 

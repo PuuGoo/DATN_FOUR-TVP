@@ -61,7 +61,7 @@
 					<h6 class="mb-0">Blog Post</h6>
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
-					<input type="text" name="post_title" class="form-control"  value="{{ $blogpost->title }}" />
+					<input type="text" name="post_title" class="form-control"  value="{{ $blogpost->post_title }}" />
 				</div>
 			</div>
 
@@ -73,7 +73,7 @@
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
 					<textarea name="post_short_description" class="form-control" id="inputProductDescription" rows="3">
-					{{ $blogpost->blog_short_decs }}
+					{{ $blogpost->post_short_description }}
 					</textarea>
 				</div>
 			</div>
@@ -86,7 +86,7 @@
 				<div class="form-group col-sm-9 text-secondary">
                     <div class="mb-3">
                         <div id="snow-editor" style="height: 150px;"></div> <!-- end Snow-editor-->
-                        <input type="hidden" value="{{ $blogpost->blog_long_decs }}" name="detailed_description" id="conten">
+                        <input type="hidden" value="{{ $blogpost->post_long_description }}" name="detailed_description" id="conten">
                     </div>
 				</div>
 			</div>
@@ -112,7 +112,7 @@
 					<h6 class="mb-0"> </h6>
 				</div>
 				<div class="col-sm-9 text-secondary">
-					 <img id="showImage" src="{{ asset($blogpost->image) }}" alt="Admin" style="width:100px; height: 100px;"  >
+					 <img id="showImage" src="{{ asset($blogpost->post_image) }}" alt="Admin" style="width:100px; height: 100px;"  >
 				</div>
 			</div>
 

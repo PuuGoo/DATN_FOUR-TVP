@@ -39,7 +39,7 @@
     @foreach($categories as $key => $category)
     <tr>
         <td>{{ $key+1 }}</td>
-        <td>{{ $category->category_name }}</td>
+        <td>{{ $category->blog_category_name }}</td>
         <td>
             <a href="{{ route('edit.blog.category', $category->id) }}" class="btn btn-info">Edit</a>
             <a href="{{ route('delete.blog.category', $category->id) }}" class="btn btn-danger" id="delete">Delete</a>

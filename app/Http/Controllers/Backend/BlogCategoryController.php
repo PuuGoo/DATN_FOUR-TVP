@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BlogCategory;
 use Image;
-
+use Illuminate\Support\Str;
 class BlogCategoryController extends Controller
 {
     public function AllBlogCategory()
@@ -30,7 +30,8 @@ class BlogCategoryController extends Controller
         ]);
 
         BlogCategory::create([
-            'category_name' => $request->category_name,
+            'blog_category_name' => $request->category_name,
+            'blog_category_slug' => Str::slug($request->category_name)
         ]);
 
         return redirect()->route('admin.blog.category')->with('success', 'Thêm danh mục thành công!');
@@ -80,7 +81,8 @@ class BlogCategoryController extends Controller
     }
 
     $category->update([
-        'category_name' => $request->blog_category_name,
+        'blog_category_name' => $request->blog_category_name,
+        'blog_category_slug' => Str::slug($request->blog_category_name),
     ]);
 
     return redirect()->route('admin.blog.category')->with('success', 'Cập nhật danh mục thành công!');

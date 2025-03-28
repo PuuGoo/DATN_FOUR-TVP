@@ -11,10 +11,11 @@ Category
         <div class="archive-header">
             <div class="row align-items-center">
                 <div class="col-xl-3">
-                    <h5 class="mb-15">Electronics</h5>
+                    <h5 class="mb-15"> <span></span> {{ $category_name }}
+                    </h5>
                     <div class="breadcrumb">
                         <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                        <span></span> Electronics
+                        <span></span> {{ $category_name }}
                     </div>
                 </div>
 
@@ -27,7 +28,7 @@ Category
         <div class="col-lg-4-5">
             <div class="shop-product-fillter">
                 <div class="totall-product">
-                    <p>We found <strong class="text-brand">6</strong> items for you!</p>
+                    <p>We found <strong class="text-brand">{{ $product_category_number }}</strong> items for you!</p>
                 </div>
                 <div class="sort-by-product-area">
                     <div class="sort-by-cover mr-10">
@@ -36,19 +37,32 @@ Category
                                 <span><i class="fi-rs-apps"></i>Show:</span>
                             </div>
                             <div class="sort-by-dropdown-wrap">
-                                <span> 50 <i class="fi-rs-angle-small-down"></i></span>
+                                <span id="selectedLimit">
+                                    {{ request('limit', 'All') }} <i class="fi-rs-angle-small-down"></i>
+                                </span>
+                                <ul id="limitDropdown" class="hidden">
+                                    <li><a href="{{ request()->fullUrlWithQuery(['limit' => 1]) }}">1</a></li>
+                                    <li><a href="{{ request()->fullUrlWithQuery(['limit' => 20]) }}">20</a></li>
+                                    <li><a href="{{ request()->fullUrlWithQuery(['limit' => 50]) }}">50</a></li>
+                                    <li><a href="{{ request()->fullUrlWithQuery(['limit' => 'all']) }}">All</a></li>
+                                </ul>
                             </div>
                         </div>
+
+                        <!-- Start sort by count -->
                         <div class="sort-by-dropdown">
                             <ul>
-                                <li><a class="active" href="#">50</a></li>
-                                <li><a href="#">100</a></li>
-                                <li><a href="#">150</a></li>
-                                <li><a href="#">200</a></li>
-                                <li><a href="#">All</a></li>
+                                <li><a href="javascript:void(0);" onclick="updateProductLimit(1)">1 </a></li>
+                                <li><a href="javascript:void(0);" onclick="updateProductLimit(20)">20 </a></li>
+                                <li><a href="javascript:void(0);" onclick="updateProductLimit(50)">50 </a></li>
+                                <li><a href="javascript:void(0);" onclick="updateProductLimit('all')">ALL</a></li>
                             </ul>
                         </div>
+                        <!-- End sort by count -->
+
+
                     </div>
+
                     <div class="sort-by-cover">
                         <div class="sort-by-product-wrap">
                             <div class="sort-by">
@@ -60,50 +74,71 @@ Category
                         </div>
                         <div class="sort-by-dropdown">
                             <ul>
-                                <li><a class="active" href="#">Featured</a></li>
-                                <li><a href="#">Price: Low to High</a></li>
-                                <li><a href="#">Price: High to Low</a></li>
-                                <li><a href="#">Release Date</a></li>
-                                <li><a href="#">Avg. Rating</a></li>
+                                <li>
+                                    <a class="{{ request('sort') == 'desc' ? 'active' : '' }}"
+                                        href="{{ request()->fullUrlWithQuery(['sort' => 'desc']) }}">
+                                        Price: High to Low
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="{{ request('sort') == 'asc' ? 'active' : '' }}"
+                                        href="{{ request()->fullUrlWithQuery(['sort' => 'asc']) }}">
+                                        Price: Low to High
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
             <div class="row product-grid">
 
+                @foreach ($product_category as $pd)
 
                 <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                     <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
                                 <a href="https://digi-poly.id.vn/product/details/18/portronics-por-1196-modesk-plus">
-                                    <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740390741204758.webp" alt="" />
+                                    <img class="default-img" src="{{ $pd->product_thumnail }}" alt="" />
 
                                 </a>
                             </div>
                             <div class="product-action-1">
-                                <a aria-label="Add To Wishlist" class="action-btn" id="18" onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
+                                <a aria-label="Add To Wishlist" class="action-btn" id="18"
+                                    onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
 
-                                <a aria-label="Compare" class="action-btn" id="18" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
+                                <a aria-label="Compare" class="action-btn" id="18" onclick="addToCompare(this.id)"><i
+                                        class="fi-rs-shuffle"></i></a>
 
-                                <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="18" onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
+                                <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
+                                    data-bs-target="#quickViewModal" id="18" onclick="productView(this.id)"><i
+                                        class="fi-rs-eye"></i></a>
                             </div>
 
 
-
                             <div class="product-badges product-badges-position product-badges-mrg">
-
-                                <span class="new">New</span>
-
-
+                                @if ($pd->discount_price && $pd->selling_price > $pd->discount_price)
+                                @php
+                                $discountPercent = round((($pd->selling_price - $pd->discount_price) /
+                                $pd->selling_price) * 100);
+                                @endphp
+                                <span class="hot">-{{ $discountPercent }} %</span>
+                                @endif
                             </div>
                         </div>
                         <div class="product-content-wrap">
                             <div class="product-category">
-                                <a href="shop-grid-right.html">Electronics</a>
+                                <a
+                                    href="{{ route('product.category', ['id' => $pd->category_id, 'slug' => \App\Models\Category::where('id', $pd->category_id)->value('category_slug') ?? 'no-slug']) }}">
+                                    {{ \App\Models\Category::where('id', $pd->category_id)->value('category_name') ?? 'N/A' }}
+                                </a>
+
+
                             </div>
-                            <h2><a href="https://digi-poly.id.vn/product/details/18/portronics-por-1196-modesk-plus"> Portronics POR-1196 Modesk Plus </a></h2>
+                            <h2><a href="https://digi-poly.id.vn/product/details/18/portronics-por-1196-modesk-plus">
+                                    {{ $pd->product_name}}</a></h2>
                             <div class="product-rate-cover">
                                 <div class="product-rate d-inline-block">
                                     <div class="product-rating" style="width: 90%"></div>
@@ -111,7 +146,10 @@ Category
                                 <span class="font-small ml-5 text-muted"> (4.0)</span>
                             </div>
                             <div>
-                                <span class="font-small text-muted">By <a href="vendor-details-1.html">Sony</a></span>
+                                <span class="font-small text-muted">By<a href="vendor-details-1.html">
+                                        {{ \App\Models\Brand::where('id', $pd->brand_id)->value('brand_name') ?? 'N/A' }}
+                                    </a>
+                                </span>
 
 
 
@@ -120,329 +158,31 @@ Category
                             <div class="product-card-bottom">
 
                                 <div class="product-price">
-                                    <span>$700</span>
-
+                                    @if ($pd->discount_price && $pd->selling_price > $pd->discount_price)
+                                    <span
+                                        style="font-size:12px;">${{ number_format($pd->discount_price, 0, ',', '.') }}</span>
+                                    <span class="old-price"
+                                        style="font-size:12px;">${{ number_format($pd->selling_price, 0, ',', '.') }}</span>
+                                    @else
+                                    <span
+                                        style="font-size:12px;">${{ number_format($pd->selling_price, 0, ',', '.') }}</span>
+                                    @endif
                                 </div>
 
 
 
 
                                 <div class="add-cart">
-                                    <a class="add" href="https://digi-poly.id.vn/product/details/18/portronics-por-1196-modesk-plus"><i class="fi-rs-shopping-cart mr-5"></i>Details </a>
+                                    <a class="add"
+                                        href="https://digi-poly.id.vn/product/details/18/portronics-por-1196-modesk-plus"><i
+                                            class="fi-rs-shopping-cart mr-5"></i>Details </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--end product card-->
-                <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
-                    <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                        <div class="product-img-action-wrap">
-                            <div class="product-img product-img-zoom">
-                                <a href="https://digi-poly.id.vn/product/details/17/meraki-wonder-adjustable-cell-phone-holder">
-                                    <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740390669284753.webp" alt="" />
-
-                                </a>
-                            </div>
-                            <div class="product-action-1">
-                                <a aria-label="Add To Wishlist" class="action-btn" id="17" onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
-
-                                <a aria-label="Compare" class="action-btn" id="17" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
-
-                                <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="17" onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
-                            </div>
-
-
-
-                            <div class="product-badges product-badges-position product-badges-mrg">
-
-                                <span class="hot"> 17 %</span>
-
-
-                            </div>
-                        </div>
-                        <div class="product-content-wrap">
-                            <div class="product-category">
-                                <a href="shop-grid-right.html">Electronics</a>
-                            </div>
-                            <h2><a href="https://digi-poly.id.vn/product/details/17/meraki-wonder-adjustable-cell-phone-holder"> Meraki Wonder Adjustable Cell Phone Holder </a></h2>
-                            <div class="product-rate-cover">
-                                <div class="product-rate d-inline-block">
-                                    <div class="product-rating" style="width: 90%"></div>
-                                </div>
-                                <span class="font-small ml-5 text-muted"> (4.0)</span>
-                            </div>
-                            <div>
-                                <span class="font-small text-muted">By <a href="vendor-details-1.html">Nest Food.,Ltd</a></span>
-
-
-
-
-                            </div>
-                            <div class="product-card-bottom">
-
-                                <div class="product-price">
-                                    <span>$1000</span>
-                                    <span class="old-price">$1200</span>
-                                </div>
-
-
-
-                                <div class="add-cart">
-                                    <a class="add" href="https://digi-poly.id.vn/product/details/17/meraki-wonder-adjustable-cell-phone-holder"><i class="fi-rs-shopping-cart mr-5"></i>Details </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end product card-->
-                <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
-                    <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                        <div class="product-img-action-wrap">
-                            <div class="product-img product-img-zoom">
-                                <a href="https://digi-poly.id.vn/product/details/16/epson-l3200-multi-function-color">
-                                    <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740390521459260.jpeg" alt="" />
-
-                                </a>
-                            </div>
-                            <div class="product-action-1">
-                                <a aria-label="Add To Wishlist" class="action-btn" id="16" onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
-
-                                <a aria-label="Compare" class="action-btn" id="16" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
-
-                                <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="16" onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
-                            </div>
-
-
-
-                            <div class="product-badges product-badges-position product-badges-mrg">
-
-                                <span class="hot"> 67 %</span>
-
-
-                            </div>
-                        </div>
-                        <div class="product-content-wrap">
-                            <div class="product-category">
-                                <a href="shop-grid-right.html">Electronics</a>
-                            </div>
-                            <h2><a href="https://digi-poly.id.vn/product/details/16/epson-l3200-multi-function-color"> Epson L3200 Multi-function Color </a></h2>
-                            <div class="product-rate-cover">
-                                <div class="product-rate d-inline-block">
-                                    <div class="product-rating" style="width: 90%"></div>
-                                </div>
-                                <span class="font-small ml-5 text-muted"> (4.0)</span>
-                            </div>
-                            <div>
-                                <span class="font-small text-muted">By <a href="vendor-details-1.html">Nest Food.,Ltd</a></span>
-
-
-
-
-                            </div>
-                            <div class="product-card-bottom">
-
-                                <div class="product-price">
-                                    <span>$400</span>
-                                    <span class="old-price">$1200</span>
-                                </div>
-
-
-
-                                <div class="add-cart">
-                                    <a class="add" href="https://digi-poly.id.vn/product/details/16/epson-l3200-multi-function-color"><i class="fi-rs-shopping-cart mr-5"></i>Details </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end product card-->
-                <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
-                    <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                        <div class="product-img-action-wrap">
-                            <div class="product-img product-img-zoom">
-                                <a href="https://digi-poly.id.vn/product/details/15/brother-dcp-t220-multi-function">
-                                    <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740390426441547.webp" alt="" />
-
-                                </a>
-                            </div>
-                            <div class="product-action-1">
-                                <a aria-label="Add To Wishlist" class="action-btn" id="15" onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
-
-                                <a aria-label="Compare" class="action-btn" id="15" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
-
-                                <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="15" onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
-                            </div>
-
-
-
-                            <div class="product-badges product-badges-position product-badges-mrg">
-
-                                <span class="hot"> 15 %</span>
-
-
-                            </div>
-                        </div>
-                        <div class="product-content-wrap">
-                            <div class="product-category">
-                                <a href="shop-grid-right.html">Electronics</a>
-                            </div>
-                            <h2><a href="https://digi-poly.id.vn/product/details/15/brother-dcp-t220-multi-function"> brother DCP-T220 Multi-function </a></h2>
-                            <div class="product-rate-cover">
-                                <div class="product-rate d-inline-block">
-                                    <div class="product-rating" style="width: 90%"></div>
-                                </div>
-                                <span class="font-small ml-5 text-muted"> (4.0)</span>
-                            </div>
-                            <div>
-                                <span class="font-small text-muted">By <a href="vendor-details-1.html">Walton</a></span>
-
-
-
-
-                            </div>
-                            <div class="product-card-bottom">
-
-                                <div class="product-price">
-                                    <span>$500</span>
-                                    <span class="old-price">$590</span>
-                                </div>
-
-
-
-                                <div class="add-cart">
-                                    <a class="add" href="https://digi-poly.id.vn/product/details/15/brother-dcp-t220-multi-function"><i class="fi-rs-shopping-cart mr-5"></i>Details </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end product card-->
-                <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
-                    <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                        <div class="product-img-action-wrap">
-                            <div class="product-img product-img-zoom">
-                                <a href="https://digi-poly.id.vn/product/details/14/hp-315-multi-function-color-printe">
-                                    <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740390365626068.webp" alt="" />
-
-                                </a>
-                            </div>
-                            <div class="product-action-1">
-                                <a aria-label="Add To Wishlist" class="action-btn" id="14" onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
-
-                                <a aria-label="Compare" class="action-btn" id="14" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
-
-                                <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="14" onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
-                            </div>
-
-
-
-                            <div class="product-badges product-badges-position product-badges-mrg">
-
-                                <span class="new">New</span>
-
-
-                            </div>
-                        </div>
-                        <div class="product-content-wrap">
-                            <div class="product-category">
-                                <a href="shop-grid-right.html">Electronics</a>
-                            </div>
-                            <h2><a href="https://digi-poly.id.vn/product/details/14/hp-315-multi-function-color-printe"> HP 315 Multi-function Color Printe </a></h2>
-                            <div class="product-rate-cover">
-                                <div class="product-rate d-inline-block">
-                                    <div class="product-rating" style="width: 90%"></div>
-                                </div>
-                                <span class="font-small ml-5 text-muted"> (4.0)</span>
-                            </div>
-                            <div>
-                                <span class="font-small text-muted">By <a href="vendor-details-1.html">Walton</a></span>
-
-
-
-
-                            </div>
-                            <div class="product-card-bottom">
-
-                                <div class="product-price">
-                                    <span>$300</span>
-
-                                </div>
-
-
-
-
-                                <div class="add-cart">
-                                    <a class="add" href="https://digi-poly.id.vn/product/details/14/hp-315-multi-function-color-printe"><i class="fi-rs-shopping-cart mr-5"></i>Details </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end product card-->
-                <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
-                    <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                        <div class="product-img-action-wrap">
-                            <div class="product-img product-img-zoom">
-                                <a href="https://digi-poly.id.vn/product/details/13/canon-pixma-g1010-single-function">
-                                    <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740390277372812.webp" alt="" />
-
-                                </a>
-                            </div>
-                            <div class="product-action-1">
-                                <a aria-label="Add To Wishlist" class="action-btn" id="13" onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
-
-                                <a aria-label="Compare" class="action-btn" id="13" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
-
-                                <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="13" onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
-                            </div>
-
-
-
-                            <div class="product-badges product-badges-position product-badges-mrg">
-
-                                <span class="hot"> 17 %</span>
-
-
-                            </div>
-                        </div>
-                        <div class="product-content-wrap">
-                            <div class="product-category">
-                                <a href="shop-grid-right.html">Electronics</a>
-                            </div>
-                            <h2><a href="https://digi-poly.id.vn/product/details/13/canon-pixma-g1010-single-function"> Canon PIXMA G1010 Single Function </a></h2>
-                            <div class="product-rate-cover">
-                                <div class="product-rate d-inline-block">
-                                    <div class="product-rating" style="width: 90%"></div>
-                                </div>
-                                <span class="font-small ml-5 text-muted"> (4.0)</span>
-                            </div>
-                            <div>
-                                <span class="font-small text-muted">By <a href="vendor-details-1.html">Nest Food.,Ltd</a></span>
-
-
-
-
-                            </div>
-                            <div class="product-card-bottom">
-
-                                <div class="product-price">
-                                    <span>$1000</span>
-                                    <span class="old-price">$1200</span>
-                                </div>
-
-
-
-                                <div class="add-cart">
-                                    <a class="add" href="https://digi-poly.id.vn/product/details/13/canon-pixma-g1010-single-function"><i class="fi-rs-shopping-cart mr-5"></i>Details </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end product card-->
-
-
+                @endforeach
 
 
 
@@ -452,20 +192,62 @@ Category
             <div class="pagination-area mt-20 mb-20">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-start">
-                        <li class="page-item">
-                            <a class="page-link" href="#"><i class="fi-rs-arrow-small-left"></i></a>
+                        @if ($total_pages > 1)
+                        {{-- Nút Prev --}}
+                        @if ($product_category->onFirstPage())
+                        <li class="page-item disabled">
+                            <span class="page-link"><i class="fi-rs-arrow-small-left"></i></span>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link dot" href="#">...</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                        @else
                         <li class="page-item">
-                            <a class="page-link" href="#"><i class="fi-rs-arrow-small-right"></i></a>
+                            <a class="page-link" href="{{ $product_category->previousPageUrl() }}">
+                                <i class="fi-rs-arrow-small-left"></i>
+                            </a>
                         </li>
+                        @endif
+
+                        {{-- Hiển thị số trang --}}
+                        @for ($i = 1; $i <= $total_pages; $i++) @if ($i==$product_category->currentPage())
+                            <li class="page-item active">
+                                <span class="page-link">{{ $i }}</span>
+                            </li>
+                            @else
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $product_category->url($i) }}">{{ $i }}</a>
+                            </li>
+                            @endif
+                            @endfor
+
+                            {{-- Nút Next --}}
+                            @if ($product_category->hasMorePages())
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $product_category->nextPageUrl() }}">
+                                    <i class="fi-rs-arrow-small-right"></i>
+                                </a>
+                            </li>
+                            @else
+                            <li class="page-item disabled">
+                                <span class="page-link"><i class="fi-rs-arrow-small-right"></i></span>
+                            </li>
+                            @endif
+                            @else
+                            {{-- Nếu chỉ hiển thị 1 sản phẩm, chỉ hiện số trang 1 --}}
+                            <li class="page-item active">
+                                <span class="page-link">1</span>
+                            </li>
+                            @endif
                     </ul>
                 </nav>
             </div>
+
+
+
+
+
+
+
+
+
 
             <!--End Deals-->
 
@@ -478,64 +260,20 @@ Category
 
 
 
+                    @foreach ($categories as $ct)
 
                     <li>
-                        <a href="shop-grid-right.html"> <img src=" https://digi-poly.id.vn/upload/category/1740388475103826.webp " alt="" />Appliances</a><span class="count">0</span>
+                        <a href="{{ route('product.category', ['id' => $ct->id, 'slug' => $ct->category_slug]) }}"> <img
+                                src="{{ $ct->category_image }}" alt="" />{{ $ct->category_name}}</a><span
+                            class="count">{{ \App\Models\Product::where('category_id', $ct->id)->count() }}</span>
                     </li>
 
-
-
-                    <li>
-                        <a href="shop-grid-right.html"> <img src=" https://digi-poly.id.vn/upload/category/1740388510925410.webp " alt="" />Beauty</a><span class="count">0</span>
-                    </li>
+                    @endforeach
 
 
 
-                    <li>
-                        <a href="shop-grid-right.html"> <img src=" https://digi-poly.id.vn/upload/category/1740388410112488.webp " alt="" />Electronics</a><span class="count">6</span>
-                    </li>
 
 
-
-                    <li>
-                        <a href="shop-grid-right.html"> <img src=" https://digi-poly.id.vn/upload/category/1740388456845535.webp " alt="" />Fashion</a><span class="count">7</span>
-                    </li>
-
-
-
-                    <li>
-                        <a href="shop-grid-right.html"> <img src=" https://digi-poly.id.vn/upload/category/1740388599418960.webp " alt="" />Furniture</a><span class="count">0</span>
-                    </li>
-
-
-
-                    <li>
-                        <a href="shop-grid-right.html"> <img src=" https://digi-poly.id.vn/upload/category/1740388649576724.webp " alt="" />Grocery</a><span class="count">0</span>
-                    </li>
-
-
-
-                    <li>
-                        <a href="shop-grid-right.html"> <img src=" https://digi-poly.id.vn/upload/category/1740388203907617.png " alt="" />Meat &amp; Fish</a><span class="count">0</span>
-                    </li>
-
-
-
-                    <li>
-                        <a href="shop-grid-right.html"> <img src=" https://digi-poly.id.vn/upload/category/1740388616630915.webp " alt="" />Mobiles</a><span class="count">5</span>
-                    </li>
-
-
-
-                    <li>
-                        <a href="shop-grid-right.html"> <img src=" https://digi-poly.id.vn/upload/category/1740388444682193.webp " alt="" />Sweet Home</a><span class="count">5</span>
-                    </li>
-
-
-
-                    <li>
-                        <a href="shop-grid-right.html"> <img src=" https://digi-poly.id.vn/upload/category/1740388803723655.webp " alt="" />Travel</a><span class="count">0</span>
-                    </li>
 
                 </ul>
             </div>
@@ -550,7 +288,8 @@ Category
                         <img src="https://digi-poly.id.vn/upload/products/thambnail/1740391997743770.webp" alt="#" />
                     </div>
                     <div class="content pt-10">
-                        <p><a href="https://digi-poly.id.vn/product/details/28/apple-iphone-13-(starlight,-128-gb)">APPLE iPhone 13 (Starlight, 128 GB)</a></p>
+                        <p><a href="https://digi-poly.id.vn/product/details/28/apple-iphone-13-(starlight,-128-gb)">APPLE
+                                iPhone 13 (Starlight, 128 GB)</a></p>
 
                         <p class="price mb-0 mt-5">$1000</p>
 
@@ -564,7 +303,8 @@ Category
                         <img src="https://digi-poly.id.vn/upload/products/thambnail/1740391924552351.webp" alt="#" />
                     </div>
                     <div class="content pt-10">
-                        <p><a href="https://digi-poly.id.vn/product/details/27/apple-iphone-13-(pink,-128-gb">APPLE iPhone 13 (Pink, 128 GB</a></p>
+                        <p><a href="https://digi-poly.id.vn/product/details/27/apple-iphone-13-(pink,-128-gb">APPLE
+                                iPhone 13 (Pink, 128 GB</a></p>
 
                         <p class="price mb-0 mt-5">$1000</p>
 
@@ -578,7 +318,8 @@ Category
                         <img src="https://digi-poly.id.vn/upload/products/thambnail/1740391863075855.webp" alt="#" />
                     </div>
                     <div class="content pt-10">
-                        <p><a href="https://digi-poly.id.vn/product/details/26/samsung-galaxy-f13">SAMSUNG Galaxy F13</a></p>
+                        <p><a href="https://digi-poly.id.vn/product/details/26/samsung-galaxy-f13">SAMSUNG Galaxy
+                                F13</a></p>
 
                         <p class="price mb-0 mt-5">$500</p>
 
@@ -596,6 +337,15 @@ Category
         </div>
     </div>
 </div>
+
+
+<script>
+function updateProductLimit(limit) {
+    let url = new URL(window.location.href);
+    url.searchParams.set('limit', limit); // Cập nhật tham số limit trên URL
+    window.location.href = url.toString(); // Load lại trang với tham số mới
+}
+</script>
 
 
 

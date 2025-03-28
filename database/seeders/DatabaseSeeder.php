@@ -24,6 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call(ReviewsTableSeeder::class);
         $this->call(PermissionsTableSeeder::class);
         $this->call(AreaTableSeeder::class);
+        $this->call(BlogCategorySeeder::class);
+        $this->call(BlogPostSeeder::class);
+        $this->call(BannerSeeder::class);
         // User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

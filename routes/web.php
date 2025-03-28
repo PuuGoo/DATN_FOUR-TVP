@@ -253,7 +253,7 @@ require __DIR__ . '/auth.php';
 
 // Xử lý Front-End
 // Quang Thanh Start
-Route::get('/', [IndexController::class, 'Index']);
+Route::get('/', [IndexController::class, 'Index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -346,12 +346,12 @@ Route::get('/api/product/variant/{id}', [IndexController::class, 'jsonvariantpro
 /// Frontend Product Details All Route 
 
 Route::get('/api/product/variant/{id}', [IndexController::class, 'jsonvariantproduct']);
-Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails'])->name('product.detail');;
 Route::get('/vendor/details/{id}', [IndexController::class, 'VendorDetails'])->name('vendor.details');
 
 Route::get('/vendor/all', [IndexController::class, 'VendorAll'])->name('vendor.all');
 
-Route::get('/product/category/{id}/{slug}', [IndexController::class, 'CatWiseProduct']);
+Route::get('/product/category/{id}/{slug}', [IndexController::class, 'CatWiseProduct'])->name('product.category');
 
 // Duc Phu End
 
@@ -406,7 +406,7 @@ Route::controller(CartController::class)->group(function () {
 Route::controller(BlogController::class)->group(function () {
 
     Route::get('/blog', 'AllBlog')->name('home.blog');
-    Route::get('/post/details/{id}/{slug}', 'BlogDetails');
+    Route::get('/post/details/{id}/{slug}', 'BlogDetails')->name('blog.details');
     Route::get('/post/category/{id}/{slug}', 'BlogPostCategory');
 });
 

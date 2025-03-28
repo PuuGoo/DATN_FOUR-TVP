@@ -8,10 +8,11 @@ class BlogPost extends Model
 {
     protected $fillable = [
         'category_id',
-        'title',
-        'blog_short_decs',
-        'blog_long_decs',
-        'image',
+        'post_title',
+        'post_slug',
+        'post_image',
+        'post_short_description',
+        'post_long_description',
     ];
 
     public function category()

@@ -72,87 +72,124 @@ Blog Page
                 </div>
                 <div class="loop-grid loop-list pr-30 mb-50">
 
+                    @foreach ($blogposts as $blg)
+
 
                     <article class="wow fadeIn animated hover-up mb-30 animated animated" style="visibility: visible;">
-                        <div class="post-thumb" style="background-image: url(https://digi-poly.id.vn/upload/blog/1742527821092388.jpg)">
+                        <div class="post-thumb" style="background-image: url({{ $blg->post_image }})">
                             <div class="entry-meta">
-                                <a class="entry-meta meta-2" href="blog-category-grid.html"><i class="fi-rs-play-alt"></i></a>
-                            </div>
+                                <a class="entry-meta meta-2" href="blog-category-grid.html"><i
+                                        class="fi-rs-play-alt"></i></a>
+                            </div>~
                         </div>
                         <div class="entry-content-2 pl-50">
                             <h3 class="post-title mb-20">
-                                <a href="https://digi-poly.id.vn/post/details/4/1easy-italian-chicken-dinner-i-make-over-and-over-again">1Easy Italian Chicken Dinner I Make Over and Over Again</a>
+                                <a
+                                    href="{{ route('blog.details', ['id' => $blg->id, 'slug' => $blg->post_slug]) }}">{{ $blg->post_title }}</a>
                             </h3>
-                            <p class="post-exerpt mb-40">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p class="post-exerpt mb-40">{{ $blg->post_short_description }}</p>
                             <div class="entry-meta meta-1 font-xs color-grey mt-10 pb-10">
                                 <div>
-                                    <span class="post-on">Aug 29 2022</span>
+                                    <span class="post-on">{{$blg->created_at}}</span>
 
                                 </div>
-                                <a href="https://digi-poly.id.vn/post/details/4/1easy-italian-chicken-dinner-i-make-over-and-over-again" class="text-brand font-heading font-weight-bold">Read more <i class="fi-rs-arrow-right"></i></a>
+                                <a href="{{ route('blog.details', ['id' => $blg->id, 'slug' => $blg->post_slug]) }}"
+                                    class="text-brand font-heading font-weight-bold">Read more <i
+                                        class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
-
+                    @endforeach
                     <article class="wow fadeIn animated hover-up mb-30 animated animated" style="visibility: visible;">
-                        <div class="post-thumb" style="background-image: url(https://digi-poly.id.vn/upload/blog/1742527645651585.jpg)">
+                        <div class="post-thumb"
+                            style="background-image: url(https://digi-poly.id.vn/upload/blog/1742527645651585.jpg)">
                             <div class="entry-meta">
-                                <a class="entry-meta meta-2" href="blog-category-grid.html"><i class="fi-rs-play-alt"></i></a>
+                                <a class="entry-meta meta-2" href="blog-category-grid.html"><i
+                                        class="fi-rs-play-alt"></i></a>
                             </div>
                         </div>
                         <div class="entry-content-2 pl-50">
                             <h3 class="post-title mb-20">
-                                <a href="https://digi-poly.id.vn/post/details/3/1easy-italian-chicken-dinner-i-make-over-and-over-again">1Easy Italian Chicken Dinner I Make Over and Over Again</a>
+                                <a
+                                    href="https://digi-poly.id.vn/post/details/3/1easy-italian-chicken-dinner-i-make-over-and-over-again">1Easy
+                                    Italian Chicken Dinner I Make Over and Over Again</a>
                             </h3>
-                            <p class="post-exerpt mb-40">11 orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p class="post-exerpt mb-40">11 orem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.</p>
                             <div class="entry-meta meta-1 font-xs color-grey mt-10 pb-10">
                                 <div>
                                     <span class="post-on">Aug 29 2022</span>
 
                                 </div>
-                                <a href="https://digi-poly.id.vn/post/details/3/1easy-italian-chicken-dinner-i-make-over-and-over-again" class="text-brand font-heading font-weight-bold">Read more <i class="fi-rs-arrow-right"></i></a>
+                                <a href="https://digi-poly.id.vn/post/details/3/1easy-italian-chicken-dinner-i-make-over-and-over-again"
+                                    class="text-brand font-heading font-weight-bold">Read more <i
+                                        class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="wow fadeIn animated hover-up mb-30 animated" style="visibility: hidden; animation-name: none;">
-                        <div class="post-thumb" style="background-image: url(https://digi-poly.id.vn/upload/blog/1742526462113580.png)">
+                    <article class="wow fadeIn animated hover-up mb-30 animated"
+                        style="visibility: hidden; animation-name: none;">
+                        <div class="post-thumb"
+                            style="background-image: url(https://digi-poly.id.vn/upload/blog/1742526462113580.png)">
                             <div class="entry-meta">
-                                <a class="entry-meta meta-2" href="blog-category-grid.html"><i class="fi-rs-play-alt"></i></a>
+                                <a class="entry-meta meta-2" href="blog-category-grid.html"><i
+                                        class="fi-rs-play-alt"></i></a>
                             </div>
                         </div>
                         <div class="entry-content-2 pl-50">
                             <h3 class="post-title mb-20">
-                                <a href="https://digi-poly.id.vn/post/details/2/you-to-grow-a-home-herb-garden-today">You to Grow a Home Herb Garden Today</a>
+                                <a href="https://digi-poly.id.vn/post/details/2/you-to-grow-a-home-herb-garden-today">You
+                                    to Grow a Home Herb Garden Today</a>
                             </h3>
-                            <p class="post-exerpt mb-40">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p class="post-exerpt mb-40">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.</p>
                             <div class="entry-meta meta-1 font-xs color-grey mt-10 pb-10">
                                 <div>
                                     <span class="post-on">Aug 29 2022</span>
 
                                 </div>
-                                <a href="https://digi-poly.id.vn/post/details/2/you-to-grow-a-home-herb-garden-today" class="text-brand font-heading font-weight-bold">Read more <i class="fi-rs-arrow-right"></i></a>
+                                <a href="https://digi-poly.id.vn/post/details/2/you-to-grow-a-home-herb-garden-today"
+                                    class="text-brand font-heading font-weight-bold">Read more <i
+                                        class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="wow fadeIn animated hover-up mb-30 animated" style="visibility: hidden; animation-name: none;">
-                        <div class="post-thumb" style="background-image: url(https://digi-poly.id.vn/upload/blog/1742526401515749.jpg)">
+                    <article class="wow fadeIn animated hover-up mb-30 animated"
+                        style="visibility: hidden; animation-name: none;">
+                        <div class="post-thumb"
+                            style="background-image: url(https://digi-poly.id.vn/upload/blog/1742526401515749.jpg)">
                             <div class="entry-meta">
-                                <a class="entry-meta meta-2" href="blog-category-grid.html"><i class="fi-rs-play-alt"></i></a>
+                                <a class="entry-meta meta-2" href="blog-category-grid.html"><i
+                                        class="fi-rs-play-alt"></i></a>
                             </div>
                         </div>
                         <div class="entry-content-2 pl-50">
                             <h3 class="post-title mb-20">
-                                <a href="https://digi-poly.id.vn/post/details/1/9-tasty-ideas-that-will-inspire-you-to-grow">9 Tasty Ideas That Will Inspire You to Grow</a>
+                                <a
+                                    href="https://digi-poly.id.vn/post/details/1/9-tasty-ideas-that-will-inspire-you-to-grow">9
+                                    Tasty Ideas That Will Inspire You to Grow</a>
                             </h3>
-                            <p class="post-exerpt mb-40">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p class="post-exerpt mb-40">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.</p>
                             <div class="entry-meta meta-1 font-xs color-grey mt-10 pb-10">
                                 <div>
                                     <span class="post-on">Aug 29 2022</span>
 
                                 </div>
-                                <a href="https://digi-poly.id.vn/post/details/1/9-tasty-ideas-that-will-inspire-you-to-grow" class="text-brand font-heading font-weight-bold">Read more <i class="fi-rs-arrow-right"></i></a>
+                                <a href="https://digi-poly.id.vn/post/details/1/9-tasty-ideas-that-will-inspire-you-to-grow"
+                                    class="text-brand font-heading font-weight-bold">Read more <i
+                                        class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
@@ -179,9 +216,11 @@ Blog Page
                     </nav>
                 </div>
             </div>
-            <div class="col-lg-3 primary-sidebar sticky-sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+            <div class="col-lg-3 primary-sidebar sticky-sidebar"
+                style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
 
-                <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+                <div class="theiaStickySidebar"
+                    style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
                     <div class="widget-area">
                         <div class="sidebar-widget-2 widget_search mb-50">
                             <div class="search-form">
@@ -197,22 +236,30 @@ Blog Page
 
 
                                 <li>
-                                    <a href="https://digi-poly.id.vn/post/category/4/baking-material"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg" alt="">Baking material</a><span class="count">0</span>
+                                    <a href="https://digi-poly.id.vn/post/category/4/baking-material"> <img
+                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            alt="">Baking material</a><span class="count">0</span>
                                 </li>
 
 
                                 <li>
-                                    <a href="https://digi-poly.id.vn/post/category/3/fresh-fruit"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg" alt="">Fresh Fruit</a><span class="count">0</span>
+                                    <a href="https://digi-poly.id.vn/post/category/3/fresh-fruit"> <img
+                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            alt="">Fresh Fruit</a><span class="count">0</span>
                                 </li>
 
 
                                 <li>
-                                    <a href="https://digi-poly.id.vn/post/category/2/pet-foods"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg" alt="">Pet Foods</a><span class="count">0</span>
+                                    <a href="https://digi-poly.id.vn/post/category/2/pet-foods"> <img
+                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            alt="">Pet Foods</a><span class="count">0</span>
                                 </li>
 
 
                                 <li>
-                                    <a href="https://digi-poly.id.vn/post/category/1/clothing"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg" alt="">Clothing</a><span class="count">0</span>
+                                    <a href="https://digi-poly.id.vn/post/category/1/clothing"> <img
+                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            alt="">Clothing</a><span class="count">0</span>
                                 </li>
                             </ul>
                         </div>
@@ -224,7 +271,8 @@ Blog Page
 
                         <!--Tags-->
 
-                        <div class="banner-img wow fadeIn mb-50 animated d-lg-block d-none" style="visibility: hidden; animation-name: none;">
+                        <div class="banner-img wow fadeIn mb-50 animated d-lg-block d-none"
+                            style="visibility: hidden; animation-name: none;">
                             <img src="https://digi-poly.id.vn/frontend/assets/imgs/banner/banner-11.png" alt="">
                             <div class="banner-text">
                                 <span>Oganic</span>
