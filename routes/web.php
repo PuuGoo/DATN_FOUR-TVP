@@ -369,7 +369,7 @@ Route::get('/minicart/product/remove/{rowId}', [CartController::class, 'RemoveMi
 
 // Phuong Thai Start
 /// Add to cart store data For Product Details Page 
-Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails']);
+Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails'])->name('cart.add');
 
 /// Add to Wishlist 
 Route::post('/add-to-wishlist/{product_id}', [WishlistController::class, 'AddToWishList']);
@@ -446,7 +446,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::controller(CompareController::class)->group(function () {
         Route::get('/compare', 'AllCompare')->name('compare');
         Route::get('/get-compare-product', 'GetCompareProduct');
-        Route::get('/compare-remove/{id}', 'CompareRemove');
+        Route::post('/compare-remove/{id}', 'CompareRemove')->name('compare.remove');
     });
     // Phuong Thai End
 

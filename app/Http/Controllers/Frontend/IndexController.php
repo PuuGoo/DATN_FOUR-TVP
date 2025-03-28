@@ -60,8 +60,14 @@ class IndexController extends Controller
       // print_r($arrvalue);
       // echo "</pre>";
 
+      // Tìm sản phẩm theo ID và Slug
+      $product = Product::where('id', $id)->first();
 
-      return view('frontend.product.product_details', compact('arrvalue'));
+      if (!$product) {
+          abort(404); // Nếu không tìm thấy sản phẩm, trả về lỗi 404
+      }
+
+      return view('frontend.product.product_details', compact('arrvalue', 'product'));
    } // End Method 
 
 
@@ -183,7 +189,6 @@ class IndexController extends Controller
 
    public function ProductViewAjax($id)
    {
-
       $product = Product::with('category','brand')->findOrFail($id);
       $multi_images = multi_imgs::where('id', $id)->get();
       $option_variant = DB::table('variant_name')
@@ -230,6 +235,7 @@ class IndexController extends Controller
       ->get();
 
       $a = [];
+      $arrvalue = [];
       for ($i=0; $i < count($variants_value); $i++) { 
          # code...
          $a[] = explode(', ', $variants_value[$i]->variant_value);

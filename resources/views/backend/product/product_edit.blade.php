@@ -254,20 +254,24 @@
 
 				  <div class="form-group col-12">
 					<label for="inputVendor" class="form-label">Product Category <span class="text-danger">*</span></label>
-					<select name="category_id" onchange="select_categorymain(this)" class="form-select">
-
-                            @foreach ($show_categories as $i)
-                                @if ($i->id == $show_product->category_id)
-								    <option value="{{$i->id}}" selected>{{$i->category_name}}</option>
-                                @else
-                                    <option value="{{$i->id}}">{{$i->category_name}}</option>
-                                @endif
-							@endforeach
-
+					<select name="category_id" id="" class="form-control">
+						<option value="0">Root Category</option>
+						<!-- Viết hàm đệ quy để hiện thị danh mục lồng nhau -->
+						@php
+						function buildCategoryOptions($categories, $parent_id = 0, $prefix = '') {
+						foreach($categories as $category) {
+						if($category->parent_id == $parent_id) {
+						echo "<option value='$category->id'>$prefix $category->category_name</option>";
+						buildCategoryOptions($categories, $category->id, $prefix . "-- ");
+						}
+						}
+						}
+						buildCategoryOptions($categories);
+						@endphp
 					</select>
 				  </div>
 
-				  <div class="form-group col-12">
+				  {{-- <div class="form-group col-12">
 					<label for="inputCollection" class="form-label">Product SubCategory <span class="text-danger">*</span></label>
 					<select name="subcategory_id" class="form-select" id="subcate">
 
@@ -282,7 +286,7 @@
 
 					  </select>
 
-				  </div>
+				  </div> --}}
 
 
 				  <div class="form-group col-12">

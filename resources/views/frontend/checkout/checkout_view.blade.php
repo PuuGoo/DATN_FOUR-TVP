@@ -46,10 +46,9 @@
 	        <div class="custom_select">
 	            <select name="division_id" class="form-control">
 	                <option value="">Select Division...</option>
-	                @foreach($divisions as $item)
-	                <option value="{{ $item->id }}">{{ $item->division_name }}</option>
-	                @endforeach
-	                 
+	                <option value="">aaaaa</option>
+	                <option value="">bbbb</option>
+	                <option value="">ccccc</option>
 	            </select>
 	        </div>
 	    </div>
@@ -121,8 +120,7 @@
                         <h6 class="w-160 mb-5"><a href="shop-product-full.html" class="text-heading">{{ $item->name }}</a></h6></span>
                         <div class="product-rate-cover">
 
-                         <strong>Color :{{ $item->options->color }} </strong>
-                         <strong>Size : {{ $item->options->size }}</strong>
+                         <strong>{{ $item->options->variant_pd }} </strong>
                              
                         </div>
                     </td>

@@ -32,49 +32,29 @@
                     <table class="table" style="background:#F4F6FA;font-weight: 600;">
                         <tr>
                             <th>Shipping Name:</th>
-                            <th>User</th>
+                            <th>{{ $order->name }}</th>
                         </tr>
-
+                        
                         <tr>
                             <th>Shipping Phone:</th>
-                            <th>4343434111</th>
+                            <th>{{ $order->phone }}</th>
                         </tr>
-
+                        
                         <tr>
                             <th>Shipping Email:</th>
-                            <th>user@gmail.com</th>
+                            <th>{{ $order->email }}</th>
                         </tr>
-
+                        
                         <tr>
                             <th>Shipping Address:</th>
-                            <th>usa</th>
+                            <th>{{ $order->address }}</th>
                         </tr>
-
-
-                        <tr>
-                            <th>Division:</th>
-                            <th>Dhaka</th>
-                        </tr>
-
-                        <tr>
-                            <th>District:</th>
-                            <th>Gazipur</th>
-                        </tr>
-
-                        <tr>
-                            <th>State :</th>
-                            <th>Gazipur Sadar Upazila11</th>
-                        </tr>
-
-                        <tr>
-                            <th>Post Code :</th>
-                            <th>3333</th>
-                        </tr>
-
+                        
                         <tr>
                             <th>Order Date :</th>
-                            <th>29 August 2022</th>
+                            <th>{{ $order->date }}</th>
                         </tr>
+                        
 
                     </table>
 
@@ -95,40 +75,42 @@
                 <div class="card-body">
                     <table class="table" style="background:#F4F6FA;font-weight: 600;">
                         <tr>
-                            <th> Name :</th>
-                            <th>User</th>
+                            <th>Name :</th>
+                            <th>{{ $order->name }}</th>
                         </tr>
-
+                        
                         <tr>
                             <th>Phone :</th>
-                            <th>4343434111</th>
+                            <th>{{ $order->phone }}</th>
                         </tr>
-
+                        
                         <tr>
                             <th>Payment Type:</th>
-                            <th>Cash On Delivery</th>
+                            <th>{{ $order->payment_method }}</th>
                         </tr>
-
-
+                        
                         <tr>
                             <th>Transx ID:</th>
-                            <th></th>
+                            <th>{{ $order->transaction_id }}</th>
                         </tr>
-
+                        
                         <tr>
                             <th>Invoice:</th>
-                            <th class="text-danger">EOS82094998</th>
+                            <th class="text-danger">{{ $order->invoice_no }}</th>
                         </tr>
-
+                        
                         <tr>
-                            <th>Order Amonut:</th>
-                            <th>$320.00</th>
+                            <th>Order Amount:</th>
+                            <th>${{ number_format($order->amount, 2) }}</th>
                         </tr>
-
+                        
                         <tr>
                             <th>Order Status:</th>
-                            <th><span class="badge bg-danger" style="font-size: 15px;">deliverd</span></th>
+                            <th>
+                                <span class="badge bg-danger" style="font-size: 15px;">{{ $order->status }}</span>
+                            </th>
                         </tr>
+                        
 
 
 

@@ -46,10 +46,10 @@
 									</a>
 								</div>
 								<div class="product-action-1">
-									<a aria-label="Add To Wishlist" class="action-btn"><i class="fi-rs-heart"></i></a>
-									<a aria-label="Compare" class="action-btn"><i class="fi-rs-shuffle"></i></a>
+									<a aria-label="Add To Wishlist" class="action-btn" id="{{ $pd->id }}" onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
+									<a aria-label="Compare" class="action-btn"  id="{{ $pd->id }}" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
 									<a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
-										data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+										data-bs-target="#quickViewModal" id="{{ $pd->id }}" onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
 								</div>
 
 								<div class="product-badges product-badges-position product-badges-mrg">
@@ -182,13 +182,10 @@
 									</a>
 								</div>
 								<div class="product-action-1">
-									<a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i
-											class="fi-rs-heart"></i></a>
-									<a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
-											class="fi-rs-shuffle"></i></a>
+									<a aria-label="Add To Wishlist" class="action-btn" id="{{ $product->id }}" onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
+									<a aria-label="Compare" class="action-btn"  id="{{ $product->id }}" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
 									<a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
-										data-bs-target="#quickViewModal" id="{{ $product->id }}"
-										onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
+										data-bs-target="#quickViewModal" id="{{ $product->id }}" onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
 								</div>
 								<div class="product-badges product-badges-position product-badges-mrg">
 									@if ($product->discount_price && $product->selling_price >
@@ -251,3 +248,47 @@
 		<!--End tab-content-->
 	</div>
 </section>
+
+<script>
+	function addToWishList(productId) {
+		fetch(`/add-to-wishlist/${productId}`, {
+			method: "POST",
+			headers: {
+				"X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({})
+		})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					alert(data.success);
+				} else {
+					alert(data.error || data.message);
+				}
+			})
+			.catch(error => console.error('Lỗi:', error));
+	}
+
+	function addToCompare(productId) {
+		fetch(`/add-to-compare/${productId}`, {
+			method: "POST",
+			headers: {
+				"X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({})
+		})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					alert(data.success);
+				} else {
+					alert(data.error || data.message);
+				}
+			})
+			.catch(error => console.error('Lỗi:', error));
+	}
+
+
+</script>

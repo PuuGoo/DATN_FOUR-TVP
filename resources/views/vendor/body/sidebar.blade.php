@@ -1,7 +1,8 @@
 <div class="sidebar-wrapper" data-simplebar="true">
 	<div class="sidebar-header">
 		<div>
-			<img src="https://digi-poly.id.vn/adminbackend/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+			<img src="https://digi-poly.id.vn/adminbackend/assets/images/logo-icon.png" class="logo-icon"
+				alt="logo icon">
 		</div>
 		<div>
 			<h4 class="logo-text">Vendor</h4>
@@ -29,9 +30,11 @@
 				<div class="menu-title">Product Manage </div>
 			</a>
 			<ul>
-				<li> <a href="https://digi-poly.id.vn/vendor/all/product"><i class="bx bx-right-arrow-alt"></i>All Product</a>
+				<li> <a href="https://digi-poly.id.vn/vendor/all/product"><i class="bx bx-right-arrow-alt"></i>All
+						Product</a>
 				</li>
-				<li> <a href="https://digi-poly.id.vn/vendor/add/product"><i class="bx bx-right-arrow-alt"></i>Add Product</a>
+				<li> <a href="https://digi-poly.id.vn/vendor/add/product"><i class="bx bx-right-arrow-alt"></i>Add
+						Product</a>
 				</li>
 
 			</ul>
@@ -43,13 +46,15 @@
 				<div class="menu-title"> Order Manage </div>
 			</a>
 			<ul>
-				<li> <a href="https://digi-poly.id.vn/vendor/order"><i class="bx bx-right-arrow-alt"></i>Vendor Order</a>
+				<li> <a href="{{ route('vendor.order') }}"><i class="bx bx-right-arrow-alt"></i>Vendor Order</a>
 				</li>
 
-				<li> <a href="https://digi-poly.id.vn/vendor/return/order"><i class="bx bx-right-arrow-alt"></i>Return Order</a>
+				<li><a href="{{ route('vendor.return.order') }}"><i class="bx bx-right-arrow-alt"></i>Return
+						Order</a>
 				</li>
 
-				<li> <a href="https://digi-poly.id.vn/vendor/complete/return/order"><i class="bx bx-right-arrow-alt"></i>Complete Return Order</a>
+				<li> <a href="{{ route('vendor.complete.return.order') }}"><i class="bx bx-right-arrow-alt"></i>Complete
+						Return Order</a>
 				</li>
 
 
@@ -64,7 +69,8 @@
 				<div class="menu-title"> Review Manage </div>
 			</a>
 			<ul>
-				<li> <a href="https://digi-poly.id.vn/vendor/all/review"><i class="bx bx-right-arrow-alt"></i>All Review</a>
+				<li> <a href="{{ route('vendor.all.review') }}"><i class="bx bx-right-arrow-alt"></i>All
+						Review</a>
 				</li>
 
 

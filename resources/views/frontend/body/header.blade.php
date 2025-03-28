@@ -1,4 +1,7 @@
   <!-- Header  -->
+  @php
+  $categories = \App\Models\Category::inRandomOrder()->limit(6)->get();
+  @endphp
   <header class="header-area header-style-1 header-height-2">
       <div class="mobile-promotion">
           <span>Grand opening, <strong>up to 15%</strong> off all items. Only <strong>3 days</strong> left</span>
@@ -103,29 +106,29 @@
                               </div>
 
                               <div class="header-action-icon-2">
-                                  <a href="https://digi-poly.id.vn/compare">
+                                  <a href="{{ route('compare') }}">
                                       <img class="svgInject" alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-compare.svg" />
                                   </a>
-                                  <a href="https://digi-poly.id.vn/compare"><span class="lable ml-0">Compare</span></a>
+                                  <a href="{{ route('compare') }}"><span class="lable ml-0">Compare</span></a>
                               </div>
 
                               <div class="header-action-icon-2">
-                                  <a href="https://digi-poly.id.vn/wishlist">
+                                  <a href="{{ route('wishlist') }}">
                                       <img class="svgInject" alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-heart.svg" />
                                       <span class="pro-count blue" id="wishQty">0 </span>
                                   </a>
-                                  <a href="https://digi-poly.id.vn/wishlist"><span class="lable">Wishlist</span></a>
+                                  <a href="{{ route('wishlist') }}"><span class="lable">Wishlist</span></a>
                               </div>
 
 
 
 
                               <div class="header-action-icon-2">
-                                  <a class="mini-cart-icon" href="shop-cart.html">
+                                  <a class="mini-cart-icon" href="{{ route('mycart') }}">
                                       <img alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-cart.svg" />
                                       <span class="pro-count blue" id="cartQty">0</span>
                                   </a>
-                                  <a href="/mycart"><span class="lable">Cart</span></a>
+                                  <a href="{{ route('mycart') }}"><span class="lable">Cart</span></a>
                                   <div class="cart-dropdown-wrap cart-dropdown-hm2">
 
 
@@ -145,8 +148,8 @@
                                               <h4>Total <span id="cartSubTotal"> </span></h4>
                                           </div>
                                           <div class="shopping-cart-button">
-                                              <a href="shop-cart.html" class="outline">View cart</a>
-                                              <a href="shop-checkout.html">Checkout</a>
+                                              <a href="{{ route('mycart') }}" class="outline">View cart</a>
+                                              <a href="{{ route('checkout') }}">Checkout</a>
                                           </div>
                                       </div>
                                   </div>
@@ -163,7 +166,7 @@
                                   </a>
 
 
-                                  <a href="https://digi-poly.id.vn/login"><span class="lable ml-0">Login</span></a>
+                                  <a href="{{ route('login') }}"><span class="lable ml-0">Login</span></a>
 
                                   <span class="lable" style="margin-left: 2px; margin-right: 2px;"> | </span>
 

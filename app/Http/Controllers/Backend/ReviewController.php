@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\Review;
 
 class ReviewController extends Controller
 {
@@ -35,12 +36,10 @@ class ReviewController extends Controller
 
     public function VendorAllReview()
     {
-
-
-        return view('vendor.backend.review.approve_review');
-    } // End Method 
-
-
+        $vendorId = Auth::id(); // Lấy ID của vendor
+        $reviews = Review::where('vendor_id', $vendorId)->with('product', 'user')->latest()->get();
+        return view('vendor.backend.review.approve_review', compact('reviews'));
+    }
 
 
 

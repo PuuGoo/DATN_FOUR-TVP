@@ -40,18 +40,24 @@
 						</tr>
 					</thead>
 					<tbody>
-
-
-
-
-
-
-
-
-
-
-
-
+						@foreach($orders as $key => $order)
+						<tr>
+							<td>{{ $key + 1 }}</td>
+							<td>{{ $order->created_at->format('d-m-Y') }}</td>
+							<td>{{ $order->invoice_no }}</td>
+							<td>${{ number_format($order->total_amount, 2) }}</td>
+							<td>{{ $order->payment_method }}</td>
+							<td>{{ $order->return_reason ?? 'N/A' }}</td>
+							<td>
+								<span class="badge bg-warning">{{ ucfirst($order->status) }}</span>
+							</td>
+							<td>
+								<a href="{{ route('vendor.order.details', $order->id) }}" class="btn btn-info btn-sm">
+									View
+								</a>
+							</td>
+						</tr>
+						@endforeach
 					</tbody>
 					<tfoot>
 						<tr>

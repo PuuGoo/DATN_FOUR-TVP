@@ -43,52 +43,28 @@
 					</thead>
 					<tbody>
 
+						<tbody>
+							@foreach ($orders as $key => $order)
+							<tr>
+								<td>{{ $key + 1 }}</td>
+								<td>{{ $order->created_at->format('d M Y') }}</td>
+								<td>{{ $order->invoice_no }}</td>
+								<td>${{ number_format($order->amount, 2) }}</td>
+								<td>{{ $order->payment_method }}</td>
+								<td>{{ $order->return_reason }}</td>
+								<td>
+									<span class="badge rounded-pill bg-success"> Done </span>
+								</td>
+								<td>
+									<a href="{{ url('vendor/order/details/' . $order->id) }}" class="btn btn-info" title="Details">
+										<i class="fa fa-eye"></i>
+									</a>
+								</td>
+							</tr>
+							@endforeach
+						</tbody>
 
 
-
-
-
-
-
-						<tr>
-							<td> 7 </td>
-							<td>29 August 2022</td>
-							<td>EOS82094998</td>
-							<td>$320.00</td>
-							<td>Cash On Delivery</td>
-							<td>Not Happy</td>
-							<td>
-								<span class="badge rounded-pill bg-success"> Done </span>
-
-							</td>
-
-							<td>
-								<a href="https://digi-poly.id.vn/vendor/order/details/7" class="btn btn-info" title="Details"><i class="fa fa-eye"></i> </a>
-
-
-							</td>
-						</tr>
-
-
-
-						<tr>
-							<td> 9 </td>
-							<td>22 August 2022</td>
-							<td>EOS32084004</td>
-							<td>$960.00</td>
-							<td>Stripe</td>
-							<td>Broken</td>
-							<td>
-								<span class="badge rounded-pill bg-success"> Done </span>
-
-							</td>
-
-							<td>
-								<a href="https://digi-poly.id.vn/vendor/order/details/3" class="btn btn-info" title="Details"><i class="fa fa-eye"></i> </a>
-
-
-							</td>
-						</tr>
 
 
 

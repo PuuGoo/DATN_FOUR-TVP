@@ -105,7 +105,10 @@ class CartController extends Controller
 
     public function MyCart()
     {
-        return view('frontend.mycart.view_mycart');
+        // $cart = session()->get('cart', []);
+        $carts = Cart::content();
+        // dd($cart); // Kiểm tra dữ liệu giỏ hàng
+        return view('frontend.mycart.view_mycart', compact('carts'));
     } // End Method
 
 
@@ -191,8 +194,10 @@ class CartController extends Controller
 
     public function CheckoutCreate()
     {
-
-        return view('frontend.checkout.checkout_view');
+        $carts = Cart::content();
+        $cartQty = Cart::count();
+        $cartTotal = Cart::total();
+        return view('frontend.checkout.checkout_view', compact('carts', 'cartQty', 'cartTotal'));
         // 
     } // End Method
 

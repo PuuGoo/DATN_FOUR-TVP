@@ -41,48 +41,8 @@ MyCart Page
                         </tr>
                     </thead>
                     <tbody id="cartPage">
-                        <tr class="pt-30">
-                            <td class="custome-checkbox pl-30">
-
-                            </td>
-                            <td class="image product-thumbnail pt-40"><img src="/upload/products/thambnail/1740389527616484.webp " alt="#"></td>
-                            <td class="product-des product-name">
-                                <h6 class="mb-5"><a class="product-name mb-10 text-heading" href="shop-product-right.html">Color Block Men Hooded Neck Red </a></h6>
-
-                            </td>
-                            <td class="price" data-title="Price">
-                                <h4 class="text-body">$400 </h4>
-                            </td>
-
-                            <td class="price" data-title="Price">
-                                <h6 class="text-body">Red </h6>
-                            </td>
-
-                            <td class="price" data-title="Price">
-                                <h6 class="text-body">Small </h6>
-                            </td>
-
-
-                            <td class="text-center detail-info" data-title="Stock">
-                                <div class="detail-extralink mr-15">
-                                    <div class="detail-qty border radius">
-
-                                        <a type="submit" class="qty-down" id="e5c76720323ef976275d4d4a34698675" onclick="cartDecrement(this.id)"><i class="fi-rs-angle-small-down"></i></a>
-
-                                        <input type="text" name="quantity" class="qty-val" value="1" min="1">
-
-                                        <a type="submit" class="qty-up" id="e5c76720323ef976275d4d4a34698675" onclick="cartIncrement(this.id)"><i class="fi-rs-angle-small-up"></i></a>
-
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="price" data-title="Price">
-                                <h4 class="text-brand">$400 </h4>
-                            </td>
-                            <td class="action text-center" data-title="Remove">
-                                <a type="submit" class="text-body" id="e5c76720323ef976275d4d4a34698675" onclick="cartRemove(this.id)"><i class="fi-rs-trash"></i></a>
-                            </td>
-                        </tr>
+                        
+                        
                     </tbody>
                 </table>
             </div>

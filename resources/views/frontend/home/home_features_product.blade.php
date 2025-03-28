@@ -35,16 +35,10 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-
-                                            <a aria-label="Add To Wishlist" class="action-btn" id="26"
-                                                onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
-
-                                            <a aria-label="Compare" class="action-btn" id="26"
-                                                onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
-
+                                            <a aria-label="Add To Wishlist" class="action-btn" id="{{ $pd->id }}" onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn"  id="{{ $pd->id }}" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
                                             <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
-                                                data-bs-target="#quickViewModal" id="26"
-                                                onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
+                                                data-bs-target="#quickViewModal" id="{{ $pd->id }}" onclick="productView(this.id)"><i class="fi-rs-eye"></i></a>
                                         </div>
 
 
