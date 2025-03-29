@@ -44,7 +44,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/12/regular-fit-men-beige-cotton-blend-trousers">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740390147168644.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740390147168644.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -110,7 +110,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/11/pack-of-2-solid-men-black,-blue-track">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740390058801111.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740390058801111.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -176,7 +176,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/10/skinny-men-blue-jeans">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740389985066584.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740389985066584.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -241,7 +241,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/9/color-block-men-round-neck-pink-t-shirt">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740389864437655.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740389864437655.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -308,7 +308,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/8/solid-men-mandarin-collar-black">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740389783829401.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740389783829401.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -411,7 +411,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/23/furinno-solid-wood-king-box-bed">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740391448274795.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740391448274795.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -471,7 +471,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/22/furniturekraft-nancy-metal-double">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740391379244561.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740391379244561.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -531,7 +531,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/21/aakriti-solar-laughing-buddha-holding">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740391171768623.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740391171768623.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -593,7 +593,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/20/fashion-bizz-antique-handmade-vintag">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740391100708280.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740391100708280.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -654,7 +654,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/19/chhariya-crafts-metal-feng-shui-tortoise">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740391009693051.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740391009693051.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -755,7 +755,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/27/apple-iphone-13-(pink,-128-gb">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740391924552351.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740391924552351.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -815,7 +815,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/26/samsung-galaxy-f13">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740391863075855.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740391863075855.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -876,7 +876,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/25/samsung-galaxy-f22">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740391793359745.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740391793359745.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -937,7 +937,7 @@ Home Easy Multi Vendor Shop
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play">
-                                        <img class="default-img" src="https://digi-poly.id.vn/upload/products/thambnail/1740391723890141.webp" alt="" />
+                                        <img class="default-img" src="{{ asset('upload/products/thambnail/1740391723890141.webp')}}" alt="" />
 
                                     </a>
                                 </div>
@@ -1026,7 +1026,7 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391997743770.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391997743770.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -1047,7 +1047,7 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391924552351.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391924552351.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -1068,7 +1068,7 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391793359745.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391793359745.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -1103,7 +1103,7 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391863075855.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391863075855.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -1125,7 +1125,7 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391793359745.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391793359745.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -1146,7 +1146,7 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391723890141.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391723890141.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -1177,11 +1177,11 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391924552351.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391924552351.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
-                                <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"> APPLE iPhone 13 (Pink, 128 GB </a>
+                                <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"> APPLE iPhone 13 Pink, 128 GB </a>
                             </h6>
                             <div class="product-rate-cover">
                                 <div class="product-rate d-inline-block">
@@ -1198,7 +1198,7 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391863075855.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391863075855.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -1220,7 +1220,7 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391793359745.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391793359745.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -1251,7 +1251,7 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391997743770.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391997743770.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -1272,7 +1272,7 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391924552351.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391924552351.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
@@ -1293,7 +1293,7 @@ Home Easy Multi Vendor Shop
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="https://digi-poly.id.vn/upload/products/thambnail/1740391863075855.webp" alt="" /></a>
+                            <a href="https://digi-poly.id.vn/product/details/24/infinix-hot-12-play"><img src="{{ asset('upload/products/thambnail/1740391863075855.webp')}}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>

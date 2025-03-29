@@ -49,7 +49,7 @@ class AdminController extends Controller
         $vendor->status = $vendor->status == 'active' ? 'inactive' : 'active';
         $vendor->save();
 
-        $path = $vendor->status == 'Active' ? 'active.vendor' : 'inactive.vendor';
+        $path = $vendor->status == 'active' ? 'active.vendor' : 'inactive.vendor';
         return redirect()->route($path)->with('success', 'Vendor status updated successfully.');
     } // End Method
 

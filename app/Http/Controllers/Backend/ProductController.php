@@ -32,7 +32,8 @@ class ProductController extends Controller
     public function AddProduct(){
         $show_brands = Brand::all();
         $categories = Category::latest()->get();
-        return view('backend.product.product_add', compact('show_brands','categories'));
+        $show_vendor = User::where('role', 'vendor')->get();
+        return view('backend.product.product_add', compact('show_brands','categories', 'show_vendor'));
     } // End Method 
 
     public function InactiveProduct($id){
@@ -83,9 +84,9 @@ class ProductController extends Controller
             'discount_price' => 'nullable|numeric|min:0|lt:selling_price',
             'short_descp' => 'required|string|max:500',
             'detailed_description' => 'required|string',
-            'product_thambnail' => 'required|image|mimes:jpg,png,jpeg,gif|max:2048',
+            'product_thambnail' => 'required|image|mimes:jpg,png,jpeg,gif,webp|max:2048',
             'list_image' => 'required|array',
-            'list_image.*' => 'image|mimes:jpg,png,jpeg,gif|max:2048'
+            'list_image.*' => 'image|mimes:jpg,png,jpeg,gif,webp|max:2048'
         ], [
             'brand_id.required' => 'Vui lòng chọn thương hiệu.',
             'category_id.required' => 'Vui lòng chọn danh mục.',
@@ -487,11 +488,10 @@ class ProductController extends Controller
 
     public function EditProduct($id){
         $show_brands = Brand::all();
-        $show_categories = Category::where('parent_id', 0)->get();
+        $categories = Category::latest()->get();
         $show_product = Product::where('id', $id)->first();
         $show_multi_imgs = multi_imgs::where('product_id', $id)->get();
-        $show_subcate = Category::where('parent_id', $show_product->category_id)->get();
-        $show_vendor = User::all();
+        $show_vendor = User::where('role', 'vendor')->get();
         $option_variant = DB::table('infor_option')
                 ->select(
                     'infor_option.id as id_infor',
@@ -508,8 +508,9 @@ class ProductController extends Controller
                 ->groupBy('infor_option.id')
                 ->get();
     
+        $categories = Category::latest()->get();
 
-        return view('backend.product.product_edit', compact('show_brands','show_categories', 'show_product','show_multi_imgs', 'show_subcate','show_vendor','option_variant'));
+        return view('backend.product.product_edit', compact('show_brands','categories', 'show_product','show_multi_imgs','show_vendor','option_variant'));
     }
 
     public function UpdateProduct(Request $request){

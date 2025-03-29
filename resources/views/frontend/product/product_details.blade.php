@@ -25,35 +25,35 @@
                                 <!-- MAIN SLIDES -->
                                 <div class="product-image-slider">
                                     <figure class="border-radius-10">
-                                        <img src="https://digi-poly.id.vn/upload/products/multi-image/1740389527975545.webp "
+                                        <img src="{{ asset('upload/products/multi-image/1740389527975545.webp')}}"
                                             alt="product image" />
                                     </figure>
                                     <figure class="border-radius-10">
-                                        <img src="https://digi-poly.id.vn/upload/products/multi-image/1740389528534003.webp "
+                                        <img src="{{ asset('upload/products/multi-image/1740389528534003.webp')}}"
                                             alt="product image" />
                                     </figure>
                                     <figure class="border-radius-10">
-                                        <img src="https://digi-poly.id.vn/upload/products/multi-image/1740389528913299.webp "
+                                        <img src="{{ asset('upload/products/multi-image/1740389528913299.webp')}}"
                                             alt="product image" />
                                     </figure>
                                     <figure class="border-radius-10">
-                                        <img src="https://digi-poly.id.vn/upload/products/multi-image/1740389529241966.webp "
+                                        <img src="{{ asset('upload/products/multi-image/1740389529241966.webp')}}"
                                             alt="product image" />
                                     </figure>
                                 </div>
                                 <!-- THUMBNAILS -->
                                 <div class="slider-nav-thumbnails">
                                     <div><img
-                                            src="https://digi-poly.id.vn/upload/products/multi-image/1740389527975545.webp"
+                                            src="{{ asset('upload/products/multi-image/1740389527975545.webp')}}"
                                             alt="product image" /></div>
                                     <div><img
-                                            src="https://digi-poly.id.vn/upload/products/multi-image/1740389528534003.webp"
+                                            src="{{ asset('upload/products/multi-image/1740389528534003.webp')}}"
                                             alt="product image" /></div>
                                     <div><img
-                                            src="https://digi-poly.id.vn/upload/products/multi-image/1740389528913299.webp"
+                                            src="{{ asset('upload/products/multi-image/1740389528913299.webp')}}"
                                             alt="product image" /></div>
                                     <div><img
-                                            src="https://digi-poly.id.vn/upload/products/multi-image/1740389529241966.webp"
+                                            src="{{ asset('upload/products/multi-image/1740389529241966.webp')}}"
                                             alt="product image" /></div>
 
                                 </div>
@@ -86,7 +86,10 @@
 
 
                                     <div class="product-price primary-color float-left">
-                                        <span class="current-price text-brand" priceproduct>$400</span>
+                                        <span>
+                                            <span class="current-price text-brand">$</span>
+                                            <span class="current-price text-brand" priceproduct>400</span>
+                                        </span>
                                         <span>
                                             <span class="save-price font-md color3 ml-15">20% Off</span>
                                             <span class="old-price font-md ml-15">$500</span>
@@ -112,6 +115,15 @@
 
                                 </div>
 
+                                {{-- <div class="attr-detail attr-size mb-30">
+                                    <strong class="mr-10 namevariant" style="width:100px;">chọn : </strong>
+                                    <select class="form-control unicase-form-control valvariant" onchange="selectvari()" id="dsize">
+                                        <option selected="" disabled="" value="">--Choose Size--</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div> --}}
                                 
 
 
@@ -142,6 +154,7 @@
                                         <input type="hidden" id="dproduct_id" value="6">
 
                                         <input type="hidden" id="vproduct_id" value="16">
+                                        <input type="hidden" id="idproduct" value="{{ $product->id }}">
 
                                         <button type="button" class="button button-add-to-cart" data-id="{{ $product->id }}"
                                             onclick="addToCartDetails(this)">
@@ -408,7 +421,7 @@
 
                                 <div class="tab-pane fade" id="Vendor-info">
                                     <div class="vendor-logo d-flex mb-30">
-                                        <img src="https://digi-poly.id.vn/upload/vendor_images/202208060516logo0000.png"
+                                        <img src="{{ asset('upload/vendor_images/202208060516logo0000.png')}}"
                                             alt="" />
                                         <div class="vendor-name ml-15">
                                             <h6>
@@ -425,10 +438,10 @@
                                     </div>
 
                                     <ul class="contact-infor mb-50">
-                                        <li><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-location.svg"
+                                        <li><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-location.svg')}}"
                                                 alt="" /><strong>Address: </strong> <span>Abila Fashion Garments(PVT) Ltd.
                                                 Plot - 127 Bscic 1/A Anayetenagor Fatullah</span></li>
-                                        <li><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-contact.svg"
+                                        <li><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-contact.svg')}}"
                                                 alt="" /><strong>Contact Seller:</strong><span>01578522545</span></li>
                                     </ul>
 
@@ -455,7 +468,7 @@
                                                     <div class="single-comment justify-content-between d-flex mb-30">
                                                         <div class="user justify-content-between d-flex">
                                                             <div class="thumb text-center">
-                                                                <img src="https://digi-poly.id.vn/upload/user_images/2022082912100bfc3c5b20c439c4972383592e1c26bc.jpg"
+                                                                <img src="{{ asset('upload/user_images/2022082912100bfc3c5b20c439c4972383592e1c26bc.jpg')}}"
                                                                     alt="" />
                                                                 <a href="#" class="font-heading text-brand">kazi</a>
                                                             </div>
@@ -640,7 +653,7 @@
                                                 <a href="https://digi-poly.id.vn/product/details/12/regular-fit-men-beige-cotton-blend-trousers"
                                                     tabindex="0">
                                                     <img class="default-img"
-                                                        src="https://digi-poly.id.vn/upload/products/thambnail/1740390147168644.webp"
+                                                        src="{{ asset('upload/products/thambnail/1740390147168644.webp')}}"
                                                         alt="" />
 
                                                 </a>
@@ -686,7 +699,7 @@
                                                 <a href="https://digi-poly.id.vn/product/details/11/pack-of-2-solid-men-black,-blue-track"
                                                     tabindex="0">
                                                     <img class="default-img"
-                                                        src="https://digi-poly.id.vn/upload/products/thambnail/1740390058801111.webp"
+                                                        src="{{ asset('upload/products/thambnail/1740390058801111.webp')}}"
                                                         alt="" />
 
                                                 </a>
@@ -732,7 +745,7 @@
                                                 <a href="https://digi-poly.id.vn/product/details/10/skinny-men-blue-jeans"
                                                     tabindex="0">
                                                     <img class="default-img"
-                                                        src="https://digi-poly.id.vn/upload/products/thambnail/1740389985066584.webp"
+                                                        src="{{ asset('upload/products/thambnail/1740389985066584.webp')}}"
                                                         alt="" />
 
                                                 </a>
@@ -778,7 +791,7 @@
                                                 <a href="https://digi-poly.id.vn/product/details/9/color-block-men-round-neck-pink-t-shirt"
                                                     tabindex="0">
                                                     <img class="default-img"
-                                                        src="https://digi-poly.id.vn/upload/products/thambnail/1740389864437655.webp"
+                                                        src="{{ asset('upload/products/thambnail/1740389864437655.webp')}}"
                                                         alt="" />
 
                                                 </a>
@@ -863,6 +876,10 @@
 
     </script>
 
-
+{{-- <script type="text/javascript">
+    function selectvar() {
+        alert("Bạn đã chọn kích thước: ");
+    }
+</script> --}}
 
 @endsection

@@ -704,7 +704,7 @@
 						${columinputvariant(result[i])}
 
 						<div class="mx-2">
-							<label for="">giá tiền ( VNĐ )</label>
+							<label for="">giá tiền ( $ )</label>
 							<input type="number" name="price_attribute[]" class="form-control mt-2" placeholder="Nhập giá tiền" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "10">
 						</div>
 						<div class="mx-2">

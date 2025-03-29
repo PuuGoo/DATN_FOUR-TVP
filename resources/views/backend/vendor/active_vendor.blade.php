@@ -58,11 +58,11 @@
 @foreach($activeVendors as $key => $vendor)
 <tr>
     <td>{{ $key + 1 }}</td>
-    <td>{{ $vendor->shop_name }}</td>
-    <td>{{ $vendor->vendor_username }}</td>
-    <td>{{ $vendor->join_date }}</td>
-    <td>{{ $vendor->vendor_email }}</td>
-    <td><span class="btn btn-success">Active</span></td>
+    <td>{{ $vendor->name }}</td>
+    <td>{{ $vendor->username }}</td>
+    <td>{{ $vendor->created_at }}</td>
+    <td>{{ $vendor->email }}</td>
+    <td><span class="badge bg-success">Active</span></td>
     <td>
         <a href="{{ route('active.vendor.details', $vendor->id) }}" class="btn btn-info">Vendor Details</a>
         

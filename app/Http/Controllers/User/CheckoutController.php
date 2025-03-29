@@ -23,12 +23,12 @@ class CheckoutController extends Controller
 
         $order->user_id = Auth::id();
         // $order->coupon_id = 1;
-        $order->name = 'vinh';
-        $order->email = 'v@gmail.com';
+        $order->name = $request->shipping_name;
+        $order->email = $request->shipping_email;
         $order->phone = 02151551;
-        // $order->address = 1;
-        // $order->notes = 1;
-        // $order->payment_method = 1;
+        $order->address = $request->shipping_address;
+        $order->notes = $request->notes;
+        $order->payment_method = 'COD';
         // $order->transaction_id = 1;
         $order->amount = Cart::count();
         // $order->discount_amount = 1;
@@ -74,7 +74,9 @@ class CheckoutController extends Controller
         // foreach ($carts as $i) {
         //     echo "Tên sản phẩm: " . $i->name . "<br>";
         // }
-        return redirect()->route('return.order.page');
+
+        Cart::destroy();
+        return redirect()->route('user.order.page');
         
 
     }

@@ -16,35 +16,40 @@ class BlogCategorySeeder extends Seeder
     {
         DB::table('blog_categories')->insert([
             [
-                'blog_category_name' => 'Technology',
-                'blog_category_slug' => 'technology',
-                'created_at' => now(),
-                'updated_at' => now(),
+                'id' => 1, 
+                'blog_category_name' => 'Technology', 
+                'blog_category_slug' => 'technology', 
+                'created_at' => '2025-03-28 13:41:25', 
+                'updated_at' => '2025-03-28 13:41:25'
             ],
             [
-                'blog_category_name' => 'Health',
-                'blog_category_slug' => 'health',
-                'created_at' => now(),
-                'updated_at' => now(),
+                'id' => 2, 
+                'blog_category_name' => 'Entertainment', 
+                'blog_category_slug' => 'entertainment', 
+                'created_at' => '2025-03-28 13:41:54', 
+                'updated_at' => '2025-03-28 13:41:54'
             ],
             [
-                'blog_category_name' => 'Lifestyle',
-                'blog_category_slug' => 'lifestyle',
-                'created_at' => now(),
-                'updated_at' => now(),
+                'id' => 3, 
+                'blog_category_name' => 'Business', 
+                'blog_category_slug' => 'business', 
+                'created_at' => '2025-03-28 13:43:49', 
+                'updated_at' => '2025-03-28 13:43:49'
             ],
             [
-                'blog_category_name' => 'Business',
-                'blog_category_slug' => 'business',
-                'created_at' => now(),
-                'updated_at' => now(),
+                'id' => 4, 
+                'blog_category_name' => 'Life', 
+                'blog_category_slug' => 'life', 
+                'created_at' => '2025-03-28 13:44:38', 
+                'updated_at' => '2025-03-28 13:44:38'
             ],
             [
-                'blog_category_name' => 'Entertainment',
-                'blog_category_slug' => 'entertainment',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]
+                'id' => 5, 
+                'blog_category_name' => 'Sport', 
+                'blog_category_slug' => 'sport', 
+                'created_at' => '2025-03-28 13:45:01', 
+                'updated_at' => '2025-03-28 13:45:01'
+            ],
         ]);
     }
 }

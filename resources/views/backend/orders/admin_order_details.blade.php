@@ -214,7 +214,7 @@
                                 <tr>
                                     <td class="col-md-1">
                                         <label><img
-                                                src="https://digi-poly.id.vn/upload/products/thambnail/1740389864437655.webp"
+                                                src="{{ asset('upload/products/thambnail/1740389864437655.webp')}}"
                                                 style="width:50px; height:50px;"> </label>
                                     </td>
                                     <td class="col-md-2">

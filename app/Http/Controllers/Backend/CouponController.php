@@ -25,10 +25,9 @@ class CouponController extends Controller
 
             // Lưu dữ liệu vào database
             Coupon::create([
-                'name' => $request->name,
-                'code' => $request->code, 
-                'discount' => $request->discount,
-                'expiry_date' => $request->expiry_date, 
+                'coupon_name' => $request->name,
+                'coupon_discount' => $request->discount,
+                'coupon_validity' => $request->expiry_date, 
             ]);
 
             return redirect()->route('all.coupon')->with('success', 'Coupon added successfully.');
@@ -51,9 +50,9 @@ class CouponController extends Controller
         ]);
 
         $coupon->update([
-            'name' => $request->name,
-            'discount' => $request->discount,
-            'expiry_date' => $request->expiry_date,
+            'coupon_name' => $request->name,
+            'coupon_discount' => $request->discount,
+            'coupon_validity' => $request->expiry_date,
         ]);
 
         return redirect()->route('all.coupon')->with('success', 'Coupon updated successfully.');

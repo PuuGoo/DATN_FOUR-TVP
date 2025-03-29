@@ -146,28 +146,28 @@
 
                                 <li>
                                     <a href="https://digi-poly.id.vn/post/category/4/baking-material"> <img
-                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            src="{{ asset('frontend/assets/imgs/theme/icons/category-1.svg')}}"
                                             alt="">Baking material</a><span class="count">0</span>
                                 </li>
 
 
                                 <li>
                                     <a href="https://digi-poly.id.vn/post/category/3/fresh-fruit"> <img
-                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            src="{{ asset('frontend/assets/imgs/theme/icons/category-1.svg')}}"
                                             alt="">Fresh Fruit</a><span class="count">0</span>
                                 </li>
 
 
                                 <li>
                                     <a href="https://digi-poly.id.vn/post/category/2/pet-foods"> <img
-                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            src="{{ asset('frontend/assets/imgs/theme/icons/category-1.svg')}}"
                                             alt="">Pet Foods</a><span class="count">2</span>
                                 </li>
 
 
                                 <li>
                                     <a href="https://digi-poly.id.vn/post/category/1/clothing"> <img
-                                            src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                            src="{{ asset('frontend/assets/imgs/theme/icons/category-1.svg')}}"
                                             alt="">Clothing</a><span class="count">1</span>
                                 </li>
                             </ul>
@@ -182,7 +182,7 @@
 
                         <div class="banner-img wow fadeIn mb-50 animated d-lg-block d-none"
                             style="visibility: hidden; animation-name: none;">
-                            <img src="https://digi-poly.id.vn/frontend/assets/imgs/banner/banner-11.png" alt="">
+                            <img src="{{ asset('frontend/assets/imgs/banner/banner-11.png')}}" alt="">
                             <div class="banner-text">
                                 <span>Oganic</span>
                                 <h4>

@@ -238,7 +238,7 @@
 
                         <tr>
                             <td class="col-md-1">
-                                <label><img src="https://digi-poly.id.vn/upload/products/thambnail/1740390277372812.webp" style="width:50px; height:50px;"> </label>
+                                <label><img src="{{ asset('upload/products/thambnail/1740390277372812.webp')}}" style="width:50px; height:50px;"> </label>
                             </td>
                             <td class="col-md-2">
                                 <label>Canon PIXMA G1010 Single Function</label>
@@ -268,7 +268,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-1">
-                                <label><img src="https://digi-poly.id.vn/upload/products/thambnail/1740389985066584.webp" style="width:50px; height:50px;"> </label>
+                                <label><img src="{{ asset('upload/products/thambnail/1740389985066584.webp')}}" style="width:50px; height:50px;"> </label>
                             </td>
                             <td class="col-md-2">
                                 <label>Skinny Men Blue Jeans</label>
@@ -298,7 +298,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-1">
-                                <label><img src="https://digi-poly.id.vn/upload/products/thambnail/1740389527616484.webp" style="width:50px; height:50px;"> </label>
+                                <label><img src="{{ asset('upload/products/thambnail/1740389527616484.webp')}}" style="width:50px; height:50px;"> </label>
                             </td>
                             <td class="col-md-2">
                                 <label>Color Block Men Hooded Neck Red</label>

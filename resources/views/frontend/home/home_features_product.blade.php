@@ -107,7 +107,7 @@
                                             <a
                                                 href="https://digi-poly.id.vn/product/details/27/apple-iphone-13-(pink,-128-gb">
                                                 <img class="default-img"
-                                                    src="https://digi-poly.id.vn/upload/products/thambnail/1740391924552351.webp"
+                                                    src="{{ asset('upload/products/thambnail/1740391924552351.webp')}}"
                                                     alt="" />
 
                                             </a>
@@ -170,7 +170,7 @@
                                         <div class="product-img product-img-zoom">
                                             <a href="https://digi-poly.id.vn/product/details/26/samsung-galaxy-f13">
                                                 <img class="default-img"
-                                                    src="https://digi-poly.id.vn/upload/products/thambnail/1740391863075855.webp"
+                                                    src="{{ asset('upload/products/thambnail/1740391863075855.webp')}}"
                                                     alt="" />
 
                                             </a>

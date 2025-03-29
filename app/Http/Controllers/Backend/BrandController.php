@@ -28,7 +28,7 @@ class BrandController extends Controller
 
         $rq->validate([
             'brand_name' => 'required|string|max:255',
-            'brand_image' => 'required|image|mimes:jpg,png,jpeg,gif|max:2048',
+            'brand_image' => 'required|image|mimes:jpg,png,jpeg,gif,webp|max:2048',
         ], [
             'brand_name.required' => 'Tên sản phẩm không được để trống.',
             'brand_image.required' => 'Vui lòng tải lên hình ảnh sản phẩm.',

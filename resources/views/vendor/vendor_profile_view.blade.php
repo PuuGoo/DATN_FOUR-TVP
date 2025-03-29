@@ -29,7 +29,7 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="d-flex flex-column align-items-center text-center">
-								<img src="https://digi-poly.id.vn/upload/vendor_images/202207212102vendor-16 (1).png" alt="Vendor" class="rounded-circle p-1 bg-primary" width="110">
+								<img src="{{ asset('upload/vendor_images/202207212102vendor-16 (1).png')}}" alt="Vendor" class="rounded-circle p-1 bg-primary" width="110">
 								<div class="mt-3">
 									<h4>Nest Food.,Ltd</h4>
 									<p class="text-secondary mb-1">vendor@gmail.com</p>
@@ -154,7 +154,7 @@
 										<h6 class="mb-0"> </h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-										<img id="showImage" src="https://digi-poly.id.vn/upload/vendor_images/202207212102vendor-16 (1).png" alt="Vendor" style="width:100px; height: 100px;">
+										<img id="showImage" src="{{ asset('upload/vendor_images/202207212102vendor-16 (1).png')}}" alt="Vendor" style="width:100px; height: 100px;">
 									</div>
 								</div>
 

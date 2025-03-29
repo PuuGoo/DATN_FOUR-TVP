@@ -45,7 +45,7 @@
                                                 <ul class="text-grey-5 d-inline-block">
                                                     <li class="mr-5">
                                                         <a href="#"><img
-                                                                src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-bookmark.svg"
+                                                                src="{{ asset('frontend/assets/imgs/theme/icons/icon-bookmark.svg')}}"
                                                                 alt=""></a>
                                                     </li>
 
@@ -344,7 +344,7 @@
                                         <li>
                                             <a
                                                 href="{{ route('blog.category', ['id'=>$ct->id, 'slug'=>$ct->blog_category_slug]) }}">
-                                                <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/category-1.svg"
+                                                <img src="{{ asset('frontend/assets/imgs/theme/icons/category-1.svg')}}"
                                                     alt="">{{ $ct->blog_category_name }}</a><span
                                                 class="count">{{ \App\Models\BlogPost::where('category_id', $ct->id)->count() }}
                                             </span>
@@ -358,7 +358,7 @@
 
                                 <div class="banner-img wow fadeIn mb-50 animated d-lg-block d-none animated"
                                     style="visibility: visible;">
-                                    <img src="https://digi-poly.id.vn/frontend/assets/imgs/banner/banner-11.png" alt="">
+                                    <img src="{{ asset('frontend/assets/imgs/banner/banner-11.png')}}" alt="">
                                     <div class="banner-text">
                                         <span>Oganic</span>
                                         <h4>

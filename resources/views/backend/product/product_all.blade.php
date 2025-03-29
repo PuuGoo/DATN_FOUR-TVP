@@ -63,7 +63,7 @@
 
 		<td>
 			@if (!empty($value->discount_price))
-				<span class="badge rounded-pill bg-danger"> {{ ($value->discount_price / $value->selling_price) * 100 }}% </span>
+				<span class="badge rounded-pill bg-danger"> {{ round(($value->discount_price / $value->selling_price) * 100, 1) }}% </span>
 			@else
 				<span class="badge rounded-pill bg-info">No Discount</span>
 			@endif

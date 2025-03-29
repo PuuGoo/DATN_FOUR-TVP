@@ -5,7 +5,10 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
+@php
 
+$route = Route::current()->getName();
+@endphp
 <div class="page-header breadcrumb-wrap">
     <div class="container">
         <div class="breadcrumb">
@@ -26,32 +29,53 @@
                         <div class="dashboard-menu">
                             <ul class="nav flex-column" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link  " href="https://digi-poly.id.vn/dashboard"><i class="fi-rs-settings-sliders mr-10"></i>Dashboard</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="https://digi-poly.id.vn/user/order/page"><i class="fi-rs-shopping-bag mr-10"></i>Orders</a>
+                                    <a class="nav-link {{ ($route ==  'dashboard')? 'active':  '' }} " href="{{ route('dashboard') }}"><i
+                                            class="fi-rs-settings-sliders mr-10"></i>Dashboard</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="https://digi-poly.id.vn/return/order/page"><i class="fi-rs-shopping-bag mr-10"></i>Return Orders</a>
+                                    <a class="nav-link {{ ($route ==  'user.order.page')? 'active':  '' }}"
+                                        href="{{ route('user.order.page') }}"><i class="fi-rs-shopping-bag mr-10"></i>Orders</a>
                                 </li>
+
                                 <li class="nav-item">
-                                    <a class="nav-link " href="https://digi-poly.id.vn/user/track/order"><i class="fi-rs-shopping-cart-check mr-10"></i>Track Your Order</a>
+                                    @if(isset($order))
+                                    <a class="nav-link" href="{{ route('return.order', ['order_id' => $order->id]) }}">
+                                        <i class="fi-rs-shopping-bag mr-10"></i>Return Orders
+                                    </a>
+                                    @else
+                                    <a class="nav-link disabled" href="#">
+                                        <i class="fi-rs-shopping-bag mr-10"></i>Return Orders
+                                    </a>
+                                    @endif
                                 </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link {{ ($route ==  'user.track.order')? 'active':  '' }}"
+                                        href="{{ route('user.track.order') }}"><i class="fi-rs-shopping-cart-check mr-10"></i>Track Your Order</a>
+                                </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="#address"><i class="fi-rs-marker mr-10"></i>My Address</a>
                                 </li>
+
                                 <li class="nav-item">
-                                    <a class="nav-link " href="https://digi-poly.id.vn/user/account/page"><i class="fi-rs-user mr-10"></i>Account details</a>
+                                    <a class="nav-link {{ ($route ==  'user.account.page')? 'active':  '' }}"
+                                        href="{{ route('user.account.page') }}"><i class="fi-rs-user mr-10"></i>Account details</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link " href="https://digi-poly.id.vn/user/change/password"><i class="fi-rs-user mr-10"></i>Change Password</a>
+                                    <a class="nav-link {{ ($route ==  'user.change.password')? 'active':  '' }}"
+                                        href="{{ route('user.change.password') }}"><i class="fi-rs-user mr-10"></i>Change Password</a>
                                 </li>
 
 
                                 <li class="nav-item" style="background:#ddd;">
-                                    <a class="nav-link" href="https://digi-poly.id.vn/user/logout"><i class="fi-rs-sign-out mr-10"></i>Logout</a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button class="nav-link w-100" style="background: none; border: none;"><i
+                                                class="fi-rs-sign-out mr-10"></i>Logout</button>
+                                    </form>
                                 </li>
                             </ul>
                         </div>

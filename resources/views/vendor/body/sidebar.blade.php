@@ -1,7 +1,7 @@
 <div class="sidebar-wrapper" data-simplebar="true">
 	<div class="sidebar-header">
 		<div>
-			<img src="https://digi-poly.id.vn/adminbackend/assets/images/logo-icon.png" class="logo-icon"
+			<img src="{{ asset('adminbackend/assets/images/logo-icon.png')}}" class="logo-icon"
 				alt="logo icon">
 		</div>
 		<div>

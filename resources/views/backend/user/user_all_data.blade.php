@@ -44,12 +44,8 @@
 									<tr>
 										<td> {{ $user->id }} </td>
 										<td>
-											@if($user->photo)
-												<img src="{{ asset('upload/user_images/' . $user->photo) }}" alt="Admin"
-													class="rounded-circle p-1 bg-primary" width="60" height="60">
-											@else
-												No Image
-											@endif
+											<img src="{{ $user->photo == null ? 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png' : asset('upload/user_images/' . $user->photo) }}" alt="Admin"
+												class="rounded-circle p-1 bg-primary" width="60" height="60">
 										</td>
 										<td> {{ $user->name }} </td>
 										<td> {{ $user->email }} </td>
@@ -87,7 +83,7 @@
 
 							{{-- <tr>
 								<td> 2 </td>
-								<td> <img src="https://digi-poly.id.vn/upload/no_image.jpg" alt="Admin"
+								<td> <img upload/no_image.jpg" alt="Admin"
 										class="rounded-circle p-1 bg-primary" width="60" height="60"></td>
 								<td> Khan </td>
 								<td> khan@gmail.com </td>
@@ -108,7 +104,7 @@
 							<tr>
 								<td> 3 </td>
 								<td> <img
-										src="https://digi-poly.id.vn/upload/user_images/2022082912100bfc3c5b20c439c4972383592e1c26bc.jpg"
+										upload/user_images/2022082912100bfc3c5b20c439c4972383592e1c26bc.jpg"
 										alt="Admin" class="rounded-circle p-1 bg-primary" width="60" height="60"></td>
 								<td> kazi </td>
 								<td> kazi@gmail.com </td>
@@ -128,7 +124,7 @@
 
 							<tr>
 								<td> 4 </td>
-								<td> <img src="https://digi-poly.id.vn/upload/user_images/202207242133images (1).png"
+								<td> <img upload/user_images/202207242133images (1).png"
 										alt="Admin" class="rounded-circle p-1 bg-primary" width="60" height="60"></td>
 								<td> User </td>
 								<td> user@gmail.com </td>

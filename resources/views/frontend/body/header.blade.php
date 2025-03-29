@@ -40,17 +40,17 @@
                                   <ul class="language-dropdown">
                                       <li>
                                           <a href="#"><img
-                                                  src="https://digi-poly.id.vn/frontend/assets/imgs/theme/flag-fr.png"
+                                                  src="{{ asset('frontend/assets/imgs/theme/flag-fr.png')}}"
                                                   alt="" />Français</a>
                                       </li>
                                       <li>
                                           <a href="#"><img
-                                                  src="https://digi-poly.id.vn/frontend/assets/imgs/theme/flag-dt.png"
+                                                  src="{{ asset('frontend/assets/imgs/theme/flag-dt.png')}}"
                                                   alt="" />Deutsch</a>
                                       </li>
                                       <li>
                                           <a href="#"><img
-                                                  src="https://digi-poly.id.vn/frontend/assets/imgs/theme/flag-ru.png"
+                                                  src="{{ asset('frontend/assets/imgs/theme/flag-ru.png')}}"
                                                   alt="" />Pусский</a>
                                       </li>
                                   </ul>
@@ -68,7 +68,7 @@
           <div class="container">
               <div class="header-wrap">
                   <div class="logo logo-width-1">
-                      <a href="index.html"><img src="https://digi-poly.id.vn/upload/logo/1743021438232663.png"
+                      <a href="index.html"><img src="{{ asset('upload/logo/1743021438232663.png')}}"
                               alt="logo" /></a>
                   </div>
                   <div class="header-right">
@@ -116,7 +116,7 @@
                               <div class="header-action-icon-2">
                                   <a href="{{ route('compare') }}">
                                       <img class="svgInject" alt="Nest"
-                                          src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-compare.svg" />
+                                          src="{{ asset('frontend/assets/imgs/theme/icons/icon-compare.svg')}}" />
                                   </a>
                                   <a href="{{ route('compare') }}"><span class="lable ml-0">Compare</span></a>
                               </div>
@@ -124,7 +124,7 @@
                               <div class="header-action-icon-2">
                                   <a href="{{ route('wishlist') }}">
                                       <img class="svgInject" alt="Nest"
-                                          src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-heart.svg" />
+                                          src="{{ asset('frontend/assets/imgs/theme/icons/icon-heart.svg')}}" />
                                       <span class="pro-count blue" id="wishQty">0 </span>
                                   </a>
                                   <a href="{{ route('wishlist') }}"><span class="lable">Wishlist</span></a>
@@ -136,7 +136,7 @@
                               <div class="header-action-icon-2">
                                   <a class="mini-cart-icon" href="{{ route('mycart') }}">
                                       <img alt="Nest"
-                                          src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-cart.svg" />
+                                          src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg')}}" />
                                       <span class="pro-count blue" id="cartQty">0</span>
                                   </a>
                                   <a href="{{ route('mycart') }}"><span class="lable">Cart</span></a>
@@ -172,9 +172,9 @@
 
 
                               <div class="header-action-icon-2">
-                                  <a href="page-account.html">
+                                  <a href="{{ route('login') }}">
                                       <img class="svgInject" alt="Nest"
-                                          src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-user.svg" />
+                                          src="{{ asset('frontend/assets/imgs/theme/icons/icon-user.svg')}}" />
                                   </a>
 
 
@@ -183,7 +183,7 @@
                                   <span class="lable" style="margin-left: 2px; margin-right: 2px;"> | </span>
 
 
-                                  <a href="https://digi-poly.id.vn/register"><span
+                                  <a href="{{ route('register')}}"><span
                                           class="lable ml-0">Register</span></a>
 
 
@@ -209,7 +209,7 @@
           <div class="container">
               <div class="header-wrap header-space-between position-relative">
                   <div class="logo logo-width-1 d-block d-lg-none">
-                      <a href="index.html"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/logo.svg"
+                      <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg')}}"
                               alt="logo" /></a>
                   </div>
                   <div class="header-nav d-none d-lg-flex">
@@ -237,24 +237,24 @@
                                       <ul>
                                           <li>
                                               <a href="shop-grid-right.html"> <img
-                                                      src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-1.svg"
+                                                      src="{{ asset('frontend/assets/imgs/theme/icons/icon-1.svg')}}"
                                                       alt="" />Milks and Dairies</a>
                                           </li>
                                           <li>
                                               <a href="shop-grid-right.html"> <img
-                                                      src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-2.svg"
+                                                      src="{{ asset('frontend/assets/imgs/theme/icons/icon-2.svg')}}"
                                                       alt="" />Clothing & beauty</a>
                                           </li>
                                       </ul>
                                       <ul class="end">
                                           <li>
                                               <a href="shop-grid-right.html"> <img
-                                                      src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-3.svg"
+                                                      src="{{ asset('frontend/assets/imgs/theme/icons/icon-3.svg')}}"
                                                       alt="" />Wines & Drinks</a>
                                           </li>
                                           <li>
                                               <a href="shop-grid-right.html"> <img
-                                                      src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-4.svg"
+                                                      src="{{ asset('frontend/assets/imgs/theme/icons/icon-4.svg')}}"
                                                       alt="" />Fresh Seafood</a>
                                           </li>
                                       </ul>
@@ -308,7 +308,7 @@
 
 
                   <div class="hotline d-none d-lg-flex">
-                      <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-headphone.svg"
+                      <img src="{{ asset('frontend/assets/imgs/theme/icons/icon-headphone.svg')}}"
                           alt="hotline" />
                       <p>1900 - 882<span>24/7 Support Center</span></p>
                   </div>
@@ -324,14 +324,14 @@
                           <div class="header-action-icon-2">
                               <a href="shop-wishlist.html">
                                   <img alt="Nest"
-                                      src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-heart.svg" />
+                                      src="{{ asset('frontend/assets/imgs/theme/icons/icon-heart.svg')}}" />
                                   <span class="pro-count white">4</span>
                               </a>
                           </div>
                           <div class="header-action-icon-2">
                               <a class="mini-cart-icon" href="#">
                                   <img alt="Nest"
-                                      src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-cart.svg" />
+                                      src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg')}}" />
                                   <span class="pro-count white">2</span>
                               </a>
                               <div class="cart-dropdown-wrap cart-dropdown-hm2">
@@ -339,7 +339,7 @@
                                       <li>
                                           <div class="shopping-cart-img">
                                               <a href="shop-product-right.html"><img alt="Nest"
-                                                      src="https://digi-poly.id.vn/frontend/assets/imgs/shop/thumbnail-3.jpg" /></a>
+                                                      src="{{ asset('frontend/assets/imgs/shop/thumbnail-3.jpg')}}" /></a>
                                           </div>
                                           <div class="shopping-cart-title">
                                               <h4><a href="shop-product-right.html">Plain Striola Shirts</a></h4>
@@ -352,7 +352,7 @@
                                       <li>
                                           <div class="shopping-cart-img">
                                               <a href="shop-product-right.html"><img alt="Nest"
-                                                      src="https://digi-poly.id.vn/frontend/assets/imgs/shop/thumbnail-4.jpg" /></a>
+                                                      src="{{ asset('frontend/assets/imgs/shop/thumbnail-4.jpg')}}" /></a>
                                           </div>
                                           <div class="shopping-cart-title">
                                               <h4><a href="shop-product-right.html">Macbook Pro 2022</a></h4>
@@ -411,7 +411,7 @@ function search_result_hide() {
       <div class="mobile-header-wrapper-inner">
           <div class="mobile-header-top">
               <div class="mobile-header-logo">
-                  <a href="index.html"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/logo.svg"
+                  <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg')}}"
                           alt="logo" /></a>
               </div>
               <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
@@ -564,17 +564,17 @@ function search_result_hide() {
               <div class="mobile-social-icon mb-50">
                   <h6 class="mb-15">Follow Us</h6>
                   <a href="#"><img
-                          src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-facebook-white.svg"
+                          src="{{ asset('frontend/assets/imgs/theme/icons/icon-facebook-white.svg')}}"
                           alt="" /></a>
-                  <a href="#"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-twitter-white.svg"
-                          alt="" /></a>
-                  <a href="#"><img
-                          src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-instagram-white.svg"
+                  <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-twitter-white.svg')}}"
                           alt="" /></a>
                   <a href="#"><img
-                          src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-pinterest-white.svg"
+                          src="{{ asset('frontend/assets/imgs/theme/icons/icon-instagram-white.svg')}}"
                           alt="" /></a>
-                  <a href="#"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-youtube-white.svg"
+                  <a href="#"><img
+                          src="{{ asset('frontend/assets/imgs/theme/icons/icon-pinterest-white.svg')}}"
+                          alt="" /></a>
+                  <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-youtube-white.svg')}}"
                           alt="" /></a>
               </div>
               <div class="site-copyright">Copyright 2022 © Nest. All rights reserved. Powered by AliThemes.</div>

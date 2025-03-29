@@ -284,15 +284,15 @@
 						<option value="0">Root Category</option>
 						<!-- Viết hàm đệ quy để hiện thị danh mục lồng nhau -->
 						@php
-						function buildCategoryOptions($categories, $parent_id = 0, $prefix = '') {
-						foreach($categories as $category) {
-						if($category->parent_id == $parent_id) {
-						echo "<option value='$category->id'>$prefix $category->category_name</option>";
-						buildCategoryOptions($categories, $category->id, $prefix . "-- ");
-						}
-						}
-						}
-						buildCategoryOptions($categories);
+							function buildCategoryOptions($categories, $parent_id = 0, $prefix = '') {
+								foreach($categories as $category) {
+									if($category->parent_id == $parent_id) {
+										echo "<option value='$category->id'>$prefix $category->category_name</option>";
+										buildCategoryOptions($categories, $category->id, $prefix . "-- ");
+									}
+								}
+							}
+							buildCategoryOptions($categories);
 						@endphp
 					</select>
 				  </div>
@@ -318,12 +318,9 @@
 					<label for="inputCollection" class="form-label">Select Vendor</label>
 					<select name="vendor_id" class="form-select" id="inputCollection">
 						<option></option>
-						<option value="2">Nest Food.,Ltd</option>
-						<option value="14">Walton</option>
-						<option value="15">Sony</option>
-						<option value="16">Expart Fashion</option>
-						<option value="22">halal</option>
-						<option value="24">FOUR-TVP</option>
+						@foreach ($show_vendor as $i)
+                                <option value="{{$i->id}}">{{$i->name}}</option>
+                        @endforeach
 					</select>
 				  </div>
 
@@ -904,7 +901,7 @@
 						${columinputvariant(result[i])}
 
 						<div class="mx-2">
-							<label for="">giá tiền ( VNĐ )</label>
+							<label for="">giá tiền ( $ )</label>
 							<input type="number" name="price_attribute[]" class="form-control mt-2" placeholder="Nhập giá tiền" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "10">
 						</div>
 						<div class="mx-2">

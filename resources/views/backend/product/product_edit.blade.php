@@ -258,15 +258,18 @@
 						<option value="0">Root Category</option>
 						<!-- Viết hàm đệ quy để hiện thị danh mục lồng nhau -->
 						@php
-						function buildCategoryOptions($categories, $parent_id = 0, $prefix = '') {
-						foreach($categories as $category) {
-						if($category->parent_id == $parent_id) {
-						echo "<option value='$category->id'>$prefix $category->category_name</option>";
-						buildCategoryOptions($categories, $category->id, $prefix . "-- ");
-						}
-						}
-						}
-						buildCategoryOptions($categories);
+							$idc = $show_product->category_id;
+
+							function buildCategoryOptions($categories, $idcate, $parent_id = 0, $prefix = '') {
+								foreach($categories as $category) {
+									if($category->parent_id == $parent_id) {
+										$selec = $idcate == $category->id ? 'selected' : '';
+										echo "<option value='$category->id' $selec>$prefix $category->category_name</option>";
+										buildCategoryOptions($categories, $idcate, $category->id, $prefix . "-- ");
+									}
+								}
+							}
+							buildCategoryOptions($categories, $idc);
 						@endphp
 					</select>
 				  </div>
@@ -408,7 +411,7 @@
 
                                 
                                 <div class="mx-2">
-                                    <label for="">giá tiền ( VNĐ )</label>
+                                    <label for="">giá tiền ( $ )</label>
                                     <input type="number" name="price_attribute[]" class="form-control mt-2" value="{{ $i->price }}" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "10">
                                 </div>
                                 <div class="mx-2">

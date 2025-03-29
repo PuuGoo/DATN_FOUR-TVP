@@ -36,17 +36,7 @@ class CartController extends Controller
         } else {
 
 
-        // $data = [
-        //     'id' => $id,
-        //     'name' => $product->product_name,
-        //     'qty' => $request->qty,
-        //     'price' => $request->price,
-        //     'weight' => 1,
-        //     'options' => [
-        //         'image' => $product->product_thumnail,
-        //         'variant_pd' => $request->variant_pd,
-        //     ],
-        // ];
+        
         
             Cart::add([
                 'id' => $id,
@@ -63,6 +53,17 @@ class CartController extends Controller
         }
         return response()->json(['success' => 'Successfully Added on Your Cart' ]);
         
+        // $data = [
+        //     'id' => $id,
+        //     'name' => $product->product_name,
+        //     'qty' => $request->qty,
+        //     'price' => $request->price,
+        //     'weight' => 1,
+        //     'options' => [
+        //         'image' => $product->product_thumnail,
+        //         'variant_pd' => $request->variant_pd,
+        //     ],
+        // ];
 
         // return response()->json(array(
         //     'ms' => 'thanh cong',

@@ -20,25 +20,33 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(CategoriesTableSeeder::class);
         $this->call(BrandsTableSeeder::class);
+        $this->call(CouponSeeder::class);
         $this->call(ProductsTableSeeder::class);
+        $this->call(VariantsSeeder::class);
+        $this->call(MultiImagesSeeder::class);
+        $this->call(OrderSeeder::class);
+        $this->call(OrderItemSeeder::class);
+        $this->call(SiteSettingSeeder::class);
         $this->call(ReviewsTableSeeder::class);
         $this->call(PermissionsTableSeeder::class);
-        $this->call(AreaTableSeeder::class);
         $this->call(BlogCategorySeeder::class);
         $this->call(BlogPostSeeder::class);
         $this->call(BannerSeeder::class);
+        $this->call(AreaTableSeeder::class);
         $this->call(RoleTableSeeder::class);
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
 
-        // Seed coupons trước
-        Coupon::factory()->count(5)->create();
 
-        // Sau đó mới seed orders
-        Order::factory()->count(10)->create();
 
-        $this->call(VendorSeeder::class);
+        
+        // // User::factory()->create([
+        // //     'name' => 'Test User',
+        // //     'email' => 'test@example.com',
+        // // ]);
+
+        // // Seed coupons trước
+        // Coupon::factory()->count(5)->create();
+
+        // // Sau đó mới seed orders
+        // Order::factory()->count(10)->create();
     }
 }

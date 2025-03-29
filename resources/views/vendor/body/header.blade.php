@@ -271,7 +271,7 @@
 					<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
 
-						<img src="https://digi-poly.id.vn/upload/vendor_images/202207212102vendor-16 (1).png" class="user-img" alt="user avatar">
+						<img src="{{ asset('upload/vendor_images/202207212102vendor-16 (1).png')}}" class="user-img" alt="user avatar">
 
 
 						<div class="user-info ps-3">

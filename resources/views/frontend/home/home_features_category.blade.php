@@ -29,7 +29,7 @@
 
                 <!-- <div class="card-2 bg-9 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                     <figure class="img-hover-scale overflow-hidden">
-                        <a href="https://digi-poly.id.vn/product/category/5/beauty"><img src="https://digi-poly.id.vn/upload/category/1740388510925410.webp" alt="" /></a>
+                        <a href="https://digi-poly.id.vn/product/category/5/beauty"><img upload/category/1740388510925410.webp" alt="" /></a>
                     </figure>
                     <h6><a href="https://digi-poly.id.vn/product/category/5/beauty">Beauty</a></h6>
 
@@ -38,7 +38,7 @@
                 </div>
                 <div class="card-2 bg-9 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                     <figure class="img-hover-scale overflow-hidden">
-                        <a href="https://digi-poly.id.vn/product/category/2/electronics"><img src="https://digi-poly.id.vn/upload/category/1740388410112488.webp" alt="" /></a>
+                        <a href="https://digi-poly.id.vn/product/category/2/electronics"><img upload/category/1740388410112488.webp" alt="" /></a>
                     </figure>
                     <h6><a href="https://digi-poly.id.vn/product/category/2/electronics">Electronics</a></h6>
 
@@ -47,7 +47,7 @@
                 </div>
                 <div class="card-2 bg-9 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                     <figure class="img-hover-scale overflow-hidden">
-                        <a href="https://digi-poly.id.vn/product/category/1/fashion"><img src="https://digi-poly.id.vn/upload/category/1740388456845535.webp" alt="" /></a>
+                        <a href="https://digi-poly.id.vn/product/category/1/fashion"><img upload/category/1740388456845535.webp" alt="" /></a>
                     </figure>
                     <h6><a href="https://digi-poly.id.vn/product/category/1/fashion">Fashion</a></h6>
 
@@ -56,7 +56,7 @@
                 </div>
                 <div class="card-2 bg-9 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                     <figure class="img-hover-scale overflow-hidden">
-                        <a href="https://digi-poly.id.vn/product/category/8/furniture"><img src="https://digi-poly.id.vn/upload/category/1740388599418960.webp" alt="" /></a>
+                        <a href="https://digi-poly.id.vn/product/category/8/furniture"><img upload/category/1740388599418960.webp" alt="" /></a>
                     </figure>
                     <h6><a href="https://digi-poly.id.vn/product/category/8/furniture">Furniture</a></h6>
 
@@ -65,7 +65,7 @@
                 </div>
                 <div class="card-2 bg-9 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                     <figure class="img-hover-scale overflow-hidden">
-                        <a href="https://digi-poly.id.vn/product/category/10/grocery"><img src="https://digi-poly.id.vn/upload/category/1740388649576724.webp" alt="" /></a>
+                        <a href="https://digi-poly.id.vn/product/category/10/grocery"><img upload/category/1740388649576724.webp" alt="" /></a>
                     </figure>
                     <h6><a href="https://digi-poly.id.vn/product/category/10/grocery">Grocery</a></h6>
 
@@ -74,7 +74,7 @@
                 </div>
                 <div class="card-2 bg-9 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                     <figure class="img-hover-scale overflow-hidden">
-                        <a href="https://digi-poly.id.vn/product/category/7/meat-&amp;-fish"><img src="https://digi-poly.id.vn/upload/category/1740388203907617.png" alt="" /></a>
+                        <a href="https://digi-poly.id.vn/product/category/7/meat-&amp;-fish"><img upload/category/1740388203907617.png" alt="" /></a>
                     </figure>
                     <h6><a href="https://digi-poly.id.vn/product/category/7/meat-&amp;-fish">Meat &amp; Fish</a></h6>
 
@@ -84,7 +84,7 @@
                 <!-- <div class="card-2 bg-9 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                     <figure class="img-hover-scale overflow-hidden">
                         <a href="https://digi-poly.id.vn/product/category/9/mobiles"><img
-                                src="https://digi-poly.id.vn/upload/category/1740388616630915.webp" alt="" /></a>
+                                upload/category/1740388616630915.webp" alt="" /></a>
                     </figure>
                     <h6><a href="https://digi-poly.id.vn/product/category/9/mobiles">Mobiles</a></h6>
 
@@ -94,7 +94,7 @@
                 <div class="card-2 bg-9 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                     <figure class="img-hover-scale overflow-hidden">
                         <a href="https://digi-poly.id.vn/product/category/3/sweet-home"><img
-                                src="https://digi-poly.id.vn/upload/category/1740388444682193.webp" alt="" /></a>
+                                upload/category/1740388444682193.webp" alt="" /></a>
                     </figure>
                     <h6><a href="https://digi-poly.id.vn/product/category/3/sweet-home">Sweet Home</a></h6>
 
@@ -104,7 +104,7 @@
                 <div class="card-2 bg-9 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                     <figure class="img-hover-scale overflow-hidden">
                         <a href="https://digi-poly.id.vn/product/category/11/travel"><img
-                                src="https://digi-poly.id.vn/upload/category/1740388803723655.webp" alt="" /></a>
+                                upload/category/1740388803723655.webp" alt="" /></a>
                     </figure>
                     <h6><a href="https://digi-poly.id.vn/product/category/11/travel">Travel</a></h6>
 

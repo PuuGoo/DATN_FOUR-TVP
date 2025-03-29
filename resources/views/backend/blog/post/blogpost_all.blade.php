@@ -40,7 +40,7 @@
     @foreach ($blogposts as $key => $post)
     <tr>
         <td>{{ $key + 1 }}</td>
-        <td>{{ $post->category->name ?? 'No Category' }}</td>
+        <td>{{ $post->category->blog_category_name ?? 'No Category' }}</td>
         <td>
             <img src="{{ asset($post->post_image) }}" style="width: 70px; height:40px;">
         </td>
@@ -55,7 +55,7 @@
 {{-- <tr>
 	<td> 1 </td>
 	<td>Clothing</td>
-	<td> <img src="https://digi-poly.id.vn/upload/blog/1742527821092388.jpg" style="width: 70px; height:40px;" >  </td>
+	<td> <img src="upload/blog/1742527821092388.jpg" style="width: 70px; height:40px;" >  </td>
 	<td>1Easy Italian Chicken Dinner I Make Over and Over Again</td>
 	<td>
 <a href="" class="btn btn-info">Edit</a>
@@ -67,7 +67,7 @@
 <tr>
 	<td> 2 </td>
 	<td>Fresh Fruit</td>
-	<td> <img src="https://digi-poly.id.vn/upload/blog/1742527645651585.jpg" style="width: 70px; height:40px;" >  </td>
+	<td> <img src="upload/blog/1742527645651585.jpg" style="width: 70px; height:40px;" >  </td>
 	<td>1Easy Italian Chicken Dinner I Make Over and Over Again</td>
 	<td>
 <a href="" class="btn btn-info">Edit</a>
@@ -79,7 +79,7 @@
 <tr>
 	<td> 3 </td>
 	<td>Pet Foods</td>
-	<td> <img src="https://digi-poly.id.vn/upload/blog/1742526462113580.png" style="width: 70px; height:40px;" >  </td>
+	<td> <img src="upload/blog/1742526462113580.png" style="width: 70px; height:40px;" >  </td>
 	<td>You to Grow a Home Herb Garden Today</td>
 	<td>
 <a href="" class="btn btn-info">Edit</a>
@@ -91,7 +91,7 @@
 <tr>
 	<td> 4 </td>
 	<td>Pet Foods</td>
-	<td> <img src="https://digi-poly.id.vn/upload/blog/1742526401515749.jpg" style="width: 70px; height:40px;" >  </td>
+	<td> <img src="upload/blog/1742526401515749.jpg" style="width: 70px; height:40px;" >  </td>
 	<td>9 Tasty Ideas That Will Inspire You to Grow</td>
 	<td>
 <a href="" class="btn btn-info">Edit</a>

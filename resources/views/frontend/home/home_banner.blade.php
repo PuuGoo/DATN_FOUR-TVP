@@ -4,7 +4,7 @@
 
              <div class="col-lg-4 col-md-6">
                  <div class="banner-img wow animate__animated animate__fadeInUp" data-wow-delay="0">
-                     <img src="https://digi-poly.id.vn/upload/banner/1740131167837853.png" alt="" />
+                     <img src="{{ asset('upload/banner/1740131167837853.png')}}" alt="" />
                      <div class="banner-text">
                          <h4>
                              Everyday Fresh &amp; Clean with Our Products
@@ -15,7 +15,7 @@
              </div>
              <div class="col-lg-4 col-md-6">
                  <div class="banner-img wow animate__animated animate__fadeInUp" data-wow-delay="0">
-                     <img src="https://digi-poly.id.vn/upload/banner/1740131195664678.png" alt="" />
+                     <img src="{{ asset('upload/banner/1740131195664678.png')}}" alt="" />
                      <div class="banner-text">
                          <h4>
                              Make your Breakfast Healthy and Easy
@@ -26,7 +26,7 @@
              </div>
              <div class="col-lg-4 col-md-6">
                  <div class="banner-img wow animate__animated animate__fadeInUp" data-wow-delay="0">
-                     <img src="https://digi-poly.id.vn/upload/banner/1740131213399656.png" alt="" />
+                     <img src="{{ asset('upload/banner/1740131213399656.png')}}" alt="" />
                      <div class="banner-text">
                          <h4>
                              The best Organic Products Online

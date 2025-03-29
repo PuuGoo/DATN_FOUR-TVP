@@ -42,7 +42,7 @@
 
 <tr>
 	<td> 1 </td> 
-	<td> <img src="https://digi-poly.id.vn/upload/admin_images/202209060824download.jpg" style="width: 50px; height:50px;" >  </td>
+	<td> <img src="{{ asset('upload/admin_images/202209060824download.jpg')}}" style="width: 50px; height:50px;" >  </td>
 
 	<td>ele</td>
 	<td>ele@gmail.com</td>
@@ -60,7 +60,7 @@
 		
 <tr>
 	<td> 2 </td> 
-	<td> <img src="https://digi-poly.id.vn/upload/no_image.jpg" style="width: 50px; height:50px;" >  </td>
+	<td> <img src="{{ asset('upload/no_image.jpg')}}" style="width: 50px; height:50px;" >  </td>
 
 	<td>Manik</td>
 	<td>manik@gmail.com</td>
@@ -78,7 +78,7 @@
 		
 <tr>
 	<td> 3 </td> 
-	<td> <img src="https://digi-poly.id.vn/upload/admin_images/202209060733male-avatar-profile-picture-purple-member-vector-5351353.jpg" style="width: 50px; height:50px;" >  </td>
+	<td> <img src="{{ asset('upload/admin_images/202209060733male-avatar-profile-picture-purple-member-vector-5351353.jpg')}}" style="width: 50px; height:50px;" >  </td>
 
 	<td>Easy</td>
 	<td>easy@gmail.com</td>
@@ -96,7 +96,7 @@
 		
 <tr>
 	<td> 4 </td> 
-	<td> <img src="https://digi-poly.id.vn/upload/admin_images/202209052208download.jpg" style="width: 50px; height:50px;" >  </td>
+	<td> <img src="{{ asset('upload/admin_images/202209052208download.jpg')}}" style="width: 50px; height:50px;" >  </td>
 
 	<td>Raju1</td>
 	<td>raju@gmail.com</td>
@@ -114,7 +114,7 @@
 		
 <tr>
 	<td> 5 </td> 
-	<td> <img src="https://digi-poly.id.vn/upload/admin_images/202502071831giant-panda-eating_square.avif" style="width: 50px; height:50px;" >  </td>
+	<td> <img src="{{ asset('upload/admin_images/202502071831giant-panda-eating_square.avif')}}" style="width: 50px; height:50px;" >  </td>
 
 	<td>Admin</td>
 	<td>admin@gmail.com</td>

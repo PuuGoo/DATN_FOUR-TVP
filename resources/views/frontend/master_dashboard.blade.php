@@ -173,7 +173,9 @@
     {{-- sử lý logic khi select các option variant --}}
 
 <script type="text/javascript">
+// document.addEventListener("DOMContentLoaded", () => {
     function selectvari(idpr = null){
+        console.log('alo');
         var notivariants = document.querySelectorAll("div[notivariant]");
         var idinfors = document.getElementById("idinfor");
         var priceproducts = document.querySelectorAll("span[priceproduct]");
@@ -189,12 +191,14 @@
         });
 
         for (let i = 0; i < valvariant.length; i++) {
+            console.log(valvariant[i].value);
             if(valvariant[i].value == ''){
                 flagv = true;
             }
         }
 
         if(flagv == false){
+            console.log('đã vào');
             var value_ = '';
             for (let i = 0; i < valvariant.length; i++) {
                 value_ += i == --valvariant.length ?  valvariant[i].value : valvariant[i].value + ", ";
@@ -248,11 +252,16 @@
 			.catch(error => console.error('Lỗi:', error));
 
         }
-    }
+
+
+
+
+    };
+// });
 </script>
 
 
-
+{{-- thêm vào giỏ hàng trong với quickview --}}
 <script type="text/javascript">
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -287,6 +296,11 @@ const $$ = document.querySelectorAll.bind(document);
             var qty = $('#qaty').value;
             var pprice = $('#pprice').innerText;
 
+
+            console.log(qty);
+            console.log(pprice);
+            console.log(value_);
+            console.log(idinfors);
 
             var res = {
                 'qty': qty,

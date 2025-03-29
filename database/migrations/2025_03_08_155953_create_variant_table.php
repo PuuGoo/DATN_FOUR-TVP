@@ -26,7 +26,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('idproduct')->constrained('products')->onDelete('cascade');
             $table->string('code',255);
-            $table->double('price',8,2)->nullable();
+            $table->decimal('price', 10, 2)->nullable();
             $table->integer('quantity');
             $table->timestamps();
         });

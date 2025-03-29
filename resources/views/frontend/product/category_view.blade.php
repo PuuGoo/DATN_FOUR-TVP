@@ -285,7 +285,7 @@ Category
 
                 <div class="single-post clearfix">
                     <div class="image">
-                        <img src="https://digi-poly.id.vn/upload/products/thambnail/1740391997743770.webp" alt="#" />
+                        <img src="{{ asset('upload/products/thambnail/1740391997743770.webp')}}" alt="#" />
                     </div>
                     <div class="content pt-10">
                         <p><a href="https://digi-poly.id.vn/product/details/28/apple-iphone-13-(starlight,-128-gb)">APPLE
@@ -300,11 +300,11 @@ Category
                 </div>
                 <div class="single-post clearfix">
                     <div class="image">
-                        <img src="https://digi-poly.id.vn/upload/products/thambnail/1740391924552351.webp" alt="#" />
+                        <img src="{{ asset('upload/products/thambnail/1740391924552351.webp')}}" alt="#" />
                     </div>
                     <div class="content pt-10">
                         <p><a href="https://digi-poly.id.vn/product/details/27/apple-iphone-13-(pink,-128-gb">APPLE
-                                iPhone 13 (Pink, 128 GB</a></p>
+                                iPhone 13 Pink, 128 GB</a></p>
 
                         <p class="price mb-0 mt-5">$1000</p>
 
@@ -315,7 +315,7 @@ Category
                 </div>
                 <div class="single-post clearfix">
                     <div class="image">
-                        <img src="https://digi-poly.id.vn/upload/products/thambnail/1740391863075855.webp" alt="#" />
+                        <img src="{{ asset('upload/products/thambnail/1740391863075855.webp')}}" alt="#" />
                     </div>
                     <div class="content pt-10">
                         <p><a href="https://digi-poly.id.vn/product/details/26/samsung-galaxy-f13">SAMSUNG Galaxy

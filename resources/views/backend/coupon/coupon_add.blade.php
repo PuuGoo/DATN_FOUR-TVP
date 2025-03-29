@@ -40,12 +40,12 @@
                                 </div>
                             
                                 <!-- Coupon Code -->
-                                <div class="row mb-3">
+                                {{-- <div class="row mb-3">
                                     <label for="code" class="col-sm-3 col-form-label">Coupon Code</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="code" id="code" class="form-control" />
                                     </div>
-                                </div>
+                                </div> --}}
                             
                                 <!-- Coupon Discount -->
                                 <div class="row mb-3">
@@ -87,9 +87,9 @@
                 name: {
                     required: true,
                 },
-                code: {
-                    required: true,
-                },
+                // code: {
+                //     required: true,
+                // },
                 discount: {
                     required: true,
                     number: true,
@@ -105,9 +105,9 @@
                 name: {
                     required: 'Please enter coupon name',
                 },
-                code: {
-                    required: 'Please enter coupon code',
-                },
+                // code: {
+                //     required: 'Please enter coupon code',
+                // },
                 discount: {
                     required: 'Please enter coupon discount',
                     number: 'Please enter a valid number',

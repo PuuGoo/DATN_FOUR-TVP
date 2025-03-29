@@ -8,28 +8,28 @@
 
 <div class="page-content">
 				<!--breadcrumb-->
-				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Edit Blog Post </div>
-					<div class="ps-3">
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb mb-0 p-0">
-								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-								</li>
-								<li class="breadcrumb-item active" aria-current="page">Edit Blog Post </li>
-							</ol>
-						</nav>
-					</div>
-					<div class="ms-auto">
+	<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+		<div class="breadcrumb-title pe-3">Edit Blog Post </div>
+		<div class="ps-3">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb mb-0 p-0">
+					<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+					</li>
+					<li class="breadcrumb-item active" aria-current="page">Edit Blog Post </li>
+				</ol>
+			</nav>
+		</div>
+		<div class="ms-auto">
 
-					</div>
-				</div>
-				<!--end breadcrumb-->
-				<div class="container">
-					<div class="main-body">
-						<div class="row">
+		</div>
+	</div>
+	<!--end breadcrumb-->
+	<div class="container">
+		<div class="main-body">
+			<div class="row">
 
 <div class="col-lg-10">
-	<div class="card">
+	<div class="card p-3">
 		<div class="card-body">
 
 		<form id="myForm" method="post" action="{{ route('update.blog.post') }}" enctype="multipart/form-data" >
@@ -47,7 +47,7 @@
                         <option disabled>Choose Category</option>
                         @foreach($blogcategory as $category)
                             <option value="{{ $category->id }}" {{ $category->id == $blogpost->category_id ? 'selected' : '' }}>
-                                {{ $category->category_name }}
+                                {{ $category->blog_category_name }}
                             </option>
                         @endforeach
                     </select>
@@ -66,15 +66,12 @@
 			</div>
 
 
-<div class="row mb-3">
-
+			<div class="row mb-3">
 				<div class="col-sm-3">
 					<h6 class="mb-0">Blog Short Decs</h6>
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
-					<textarea name="post_short_description" class="form-control" id="inputProductDescription" rows="3">
-					{{ $blogpost->post_short_description }}
-					</textarea>
+					<textarea name="post_short_description" class="form-control" id="inputProductDescription" rows="3">{{ $blogpost->post_short_description }}</textarea>
 				</div>
 			</div>
 
@@ -85,7 +82,7 @@
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
                     <div class="mb-3">
-                        <div id="snow-editor" style="height: 150px;"></div> <!-- end Snow-editor-->
+                        <div id="snow-editor" style="min-height: 200px; max-height: 500px; overflow: auto;"></div> <!-- end Snow-editor-->
                         <input type="hidden" value="{{ $blogpost->post_long_description }}" name="detailed_description" id="conten">
                     </div>
 				</div>
@@ -101,7 +98,7 @@
 					<h6 class="mb-0">Blog Post Image </h6>
 				</div>
 				<div class="col-sm-9 text-secondary">
-					<input type="file" name="post_image" class="form-control"  id="image"   />
+					<input type="file" name="post_image" class="form-control"  id="image"/>
 				</div>
 			</div>
 

@@ -57,7 +57,7 @@
 								<td> 2 </td>
 								<td>Make your Breakfast Healthy and Easy</td>
 								<td>https://www.youtube.com/</td>
-								<td> <img src="https://digi-poly.id.vn/upload/banner/1740131195664678.png"
+								<td> <img src="upload/banner/1740131195664678.png"
 										style="width: 70px; height:40px;"> </td>
 
 								<td>
@@ -71,7 +71,7 @@
 								<td> 3 </td>
 								<td>The best Organic Products Online</td>
 								<td>https://www.youtube.com/</td>
-								<td> <img src="https://digi-poly.id.vn/upload/banner/1740131213399656.png"
+								<td> <img src="upload/banner/1740131213399656.png"
 										style="width: 70px; height:40px;"> </td>
 
 								<td>

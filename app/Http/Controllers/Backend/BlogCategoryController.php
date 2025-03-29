@@ -26,7 +26,7 @@ class BlogCategoryController extends Controller
     public function StoreBlogCategory(Request $request)
     {
         $request->validate([
-            'category_name' => 'required|unique:blog_categories|max:255',
+            'category_name' => 'required|max:255',
         ]);
 
         BlogCategory::create([
@@ -71,7 +71,7 @@ class BlogCategoryController extends Controller
     public function UpdateBlogCategory(Request $request, $id)
 {
     $request->validate([
-        'blog_category_name' => 'required|max:255|unique:blog_categories,category_name,' . $id,
+        'blog_category_name' => 'required|max:255' . $id,
     ]);
 
     $category = BlogCategory::find($id);

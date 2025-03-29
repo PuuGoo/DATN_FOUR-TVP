@@ -256,7 +256,7 @@
 					<h6 class="mb-0">Vendor Photo</h6>
 				</div>
 				<div class="col-sm-9 text-secondary">
-					 <img id="showImage" src="https://digi-poly.id.vn/upload/vendor_images/202207212102vendor-16 (1).png" alt="Vendor" style="width:100px; height: 100px;"  >
+					 <img id="showImage" /upload/vendor_images/202207212102vendor-16 (1).png" alt="Vendor" style="width:100px; height: 100px;"  >
 				</div>
 			</div>
 

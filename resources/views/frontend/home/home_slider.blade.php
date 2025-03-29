@@ -5,7 +5,7 @@
                 @foreach ($banners as $bn)
 
                 <div class="single-hero-slider single-animation-wrap"
-                    style="background-image: url({{ $bn->banner_image }})">
+                    style="background-image: url({{ asset('upload/banner/'.$bn->banner_image) }})">
                     <div class="slider-content">
                         <h1 class="display-2 mb-40">
                             {{ $bn->banner_title }}
