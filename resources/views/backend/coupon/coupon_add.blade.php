@@ -87,9 +87,9 @@
                 name: {
                     required: true,
                 },
-                // code: {
-                //     required: true,
-                // },
+                code: {
+                    required: true,
+                },
                 discount: {
                     required: true,
                     number: true,
@@ -105,9 +105,9 @@
                 name: {
                     required: 'Please enter coupon name',
                 },
-                // code: {
-                //     required: 'Please enter coupon code',
-                // },
+                code: {
+                    required: 'Please enter coupon code',
+                },
                 discount: {
                     required: 'Please enter coupon discount',
                     number: 'Please enter a valid number',

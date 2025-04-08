@@ -84,6 +84,7 @@
 
 
 
+<<<<<<< HEAD
 
 
 								<div class="row mb-3">
@@ -121,10 +122,14 @@
 
 
 
+=======
+							</div>
+>>>>>>> gopAT
 						</div>
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
 		</div>
 	</div>
 </div>
@@ -133,6 +138,8 @@
 
 
 </div>
+=======
+>>>>>>> gopAT
 
 
 <script src="{{asset('adminbackend/plugins_rich_text/libs/quill/quill.min.js')}}"></script>

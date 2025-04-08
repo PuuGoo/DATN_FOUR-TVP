@@ -40,11 +40,10 @@
 						</thead>
 						<tbody>
 
-
 							@foreach ($vendors as $vdor)
 								<tr>
 									<td> {{ $vdor->id }} </td>
-									<td> <img src="{{ $vdor->photo == null ? 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png' : asset('upload/vendor_images/' . $vdor->photo) }}" alt="Admin" alt="Admin"
+									<td> <img src="{{ asset('upload/vendor_images/' . $vdor->photo) }}" alt="Admin" alt="Admin"
 											class="rounded-circle p-1 bg-primary" width="60" height="60"></td>
 									<td> {{ $vdor->name }} </td>
 									<td> {{ $vdor->email }} </td>
@@ -65,7 +64,7 @@
 							{{-- <tr>
 								<td> 2 </td>
 								<td> <img
-										upload/vendor_images/202208060510walton-logo-6FFC938D01-seeklogo.com.png"
+										src="https://digi-poly.id.vn/upload/vendor_images/202208060510walton-logo-6FFC938D01-seeklogo.com.png"
 										alt="Admin" class="rounded-circle p-1 bg-primary" width="60" height="60"></td>
 								<td> Walton </td>
 								<td> walton@gmail.com </td>
@@ -83,7 +82,7 @@
 							<tr>
 								<td> 3 </td>
 								<td> <img
-										/upload/vendor_images/202208060514sony-vector-logo-small.png"
+										src="https://digi-poly.id.vn/upload/vendor_images/202208060514sony-vector-logo-small.png"
 										alt="Admin" class="rounded-circle p-1 bg-primary" width="60" height="60"></td>
 								<td> Sony </td>
 								<td> sony@gmail.com </td>
@@ -100,7 +99,7 @@
 
 							<tr>
 								<td> 4 </td>
-								<td> <img /upload/vendor_images/202208060516logo0000.png"
+								<td> <img src="https://digi-poly.id.vn/upload/vendor_images/202208060516logo0000.png"
 										alt="Admin" class="rounded-circle p-1 bg-primary" width="60" height="60"></td>
 								<td> Expart Fashion </td>
 								<td> expart@gmail.com </td>
@@ -117,7 +116,7 @@
 
 							<tr>
 								<td> 5 </td>
-								<td> <img /upload/no_image.jpg" alt="Admin"
+								<td> <img src="https://digi-poly.id.vn/upload/no_image.jpg" alt="Admin"
 										class="rounded-circle p-1 bg-primary" width="60" height="60"></td>
 								<td> halal </td>
 								<td> halal@gmail.com </td>
@@ -134,7 +133,7 @@
 
 							<tr>
 								<td> 6 </td>
-								<td> <img /upload/no_image.jpg" alt="Admin"
+								<td> <img src="https://digi-poly.id.vn/upload/no_image.jpg" alt="Admin"
 										class="rounded-circle p-1 bg-primary" width="60" height="60"></td>
 								<td> FOUR-TVP </td>
 								<td> puugoo002@gmail.com </td>

@@ -271,7 +271,11 @@
 					<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
 
+<<<<<<< HEAD
 						<img src="{{ asset('upload/vendor_images/202207212102vendor-16 (1).png')}}" class="user-img" alt="user avatar">
+=======
+						<img src="https://digi-poly.id.vn/upload/vendor_images/202207212102vendor-16 (1).png" class="user-img" alt="user avatar">
+>>>>>>> gopAT
 
 
 						<div class="user-info ps-3">

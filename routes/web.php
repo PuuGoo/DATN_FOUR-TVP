@@ -120,15 +120,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
 
-    // Coupon All Route 
-    Route::controller(CouponController::class)->group(function () {
-        Route::get('/all/coupon', 'AllCoupon')->name('all.coupon');
-        Route::match(['get', 'post'], '/add/coupon', 'AddCoupon')->name('add.coupon');
-        Route::get('/edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
-        Route::put('/update/coupon/{id}', 'UpdateCoupon')->name('update.coupon');
+   // Coupon All Route 
+   Route::controller(CouponController::class)->group(function () {
+    Route::get('/all/coupon', 'AllCoupon')->name('all.coupon');
+    Route::match(['get', 'post'], '/add/coupon', 'AddCoupon')->name('add.coupon');
+    Route::get('/edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
+    Route::put('/update/coupon/{id}', 'UpdateCoupon')->name('update.coupon');
 
-        Route::delete('/delete/coupon/{id}', [CouponController::class, 'DeleteCoupon'])->name('delete.coupon');
-    });
+    Route::delete('/delete/coupon/{id}', [CouponController::class, 'DeleteCoupon'])->name('delete.coupon');
+
+});
 
     // Admin Order All Route 
     Route::controller(OrderController::class)->group(function () {
@@ -208,12 +209,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
 
+   
     // Site Setting All Route 
     Route::controller(SiteSettingController::class)->group(function () {
-        Route::get('/site/setting', [SiteSettingController::class, 'SiteSetting'])->name('site.setting');
+        Route::get('/site/setting', [SiteSettingController::class, 'editSiteSetting'])->name('site.setting');
 
         Route::get('/seo/setting', 'SeoSetting')->name('seo.setting'); // Hiển thị trang SEO
         Route::post('/site/setting/update/{id}', [SiteSettingController::class, 'UpdateSiteSetting'])->name('site.setting.update');
+
+
+
     });
 
 
@@ -319,7 +324,6 @@ Route::middleware(['auth', 'role:vendor'])->group(function () {
     Route::controller(VendorProductController::class)->group(function () {
         Route::get('/vendor/all/product', 'VendorAllProduct')->name('vendor.all.product');
         Route::get('/vendor/add/product', 'VendorAddProduct')->name('vendor.add.product');
-
 
         Route::post('/vendor/store/product', 'VendorStoreProduct')->name('vendor.store.product');
         Route::get('/vendor/store/product', 'VendorShowStoreProduct')->name('vendor.show.store.product');
