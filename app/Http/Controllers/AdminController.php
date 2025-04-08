@@ -17,14 +17,14 @@ class AdminController extends Controller
 
     public function InactiveVendor()
     {
-        $inactiveVendors = User::where('role','vendor')->where('status', 'inactive')->get();
+        $inactiveVendors = User::where('role', 'vendor')->where('status', 'inactive')->get();
         return view('backend.vendor.inactive_vendor', compact('inactiveVendors'));
     } // End Method
 
 
     public function ActiveVendor()
     {
-        $activeVendors = User::where('role','vendor')->where('status', 'active')->get();
+        $activeVendors = User::where('role', 'vendor')->where('status', 'active')->get();
         return view('backend.vendor.active_vendor', compact('activeVendors'));
     } // End Method
 
@@ -56,7 +56,8 @@ class AdminController extends Controller
 
     public function AllAdmin()
     {
-        return view('backend.admin.all_admin');
+        $admins = User::all();
+        return view('backend.admin.all_admin', compact('admins'));
     } // End Method
 
 
@@ -70,7 +71,6 @@ class AdminController extends Controller
         return view('admin.admin_login');
     } // End Mehtod 
 
-    
     public function AdminDestroy(Request $request)
     {
         Auth::guard('web')->logout();
@@ -81,20 +81,16 @@ class AdminController extends Controller
 
         return redirect('/admin/login');
     } // End Mehtod 
-
-    public function AdminProfile()
+    public function AdminProfile($id)
     {
-
-        $id = Auth::user()->id;
-        $adminData = User::find($id);
+        $adminData = User::findOrFail($id);
         return view('admin.admin_profile_view', compact('adminData'));
-    } // End Mehtod 
+    }
 
-    public function AdminProfileStore(Request $request)
+
+    public function AdminProfileStore(Request $request, $id)
     {
-
-        $id = Auth::user()->id;
-        $data = User::find($id);
+        $data = User::findOrFail($id);
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
@@ -144,4 +140,49 @@ class AdminController extends Controller
         ]);
         return back()->with("status", " Password Changed Successfully");
     } // End Mehtod 
+
+    // delete
+
+    public function DeleteAdmin(Request $request)
+    {
+        $admin = User::findOrFail($request->id);
+
+        if (!$admin) {
+            return redirect()->back()->with('error', 'Can not find this account');
+        }
+
+        // Kiểm tra nếu user có role là SuperAdmin thì không cho xóa
+        if ($admin->role === 'superadmin') {
+            return redirect()->back()->with('error', 'You cannot delete a SuperAdmin account.');
+        }
+
+        $admin->delete();
+        return redirect()->route('all.admin')->with('success', 'Delete Successfully!');
+    }
+    // add user
+
+    public function StoreAdmin(Request $request)
+    {
+        $request->validate([
+            'username' => 'nullable|string|unique:users,username',
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'nullable|string|max:11',
+            'address' => 'nullable|string',
+            'password' => 'required|min:6',
+            'role' => 'required|in:admin,user,vendor'
+        ]);
+
+        User::create([
+            'username' => $request->username,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'password' => Hash::make($request->password),
+            'role' => $request->role
+        ]);
+
+        return redirect()->route('all.admin')->with('success', 'Admin added successfully!');
+    }
 }

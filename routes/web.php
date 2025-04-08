@@ -128,7 +128,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::put('/update/coupon/{id}', 'UpdateCoupon')->name('update.coupon');
 
         Route::delete('/delete/coupon/{id}', [CouponController::class, 'DeleteCoupon'])->name('delete.coupon');
-
     });
 
     // Admin Order All Route 
@@ -209,7 +208,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
 
-   
     // Site Setting All Route 
     Route::controller(SiteSettingController::class)->group(function () {
         Route::get('/site/setting', [SiteSettingController::class, 'SiteSetting'])->name('site.setting');
@@ -262,6 +260,22 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('/all/admin', 'AllAdmin')->name('all.admin');
         Route::get('/add/admin', 'AddAdmin')->name('add.admin');
+
+        Route::post('/admin/store', 'StoreAdmin')->name('admin.store');
+
+        Route::get('/admin/dashboard',  'AdminDashboard')->name('admin.dashboard');
+
+        Route::get('/admin/logout',  'AdminDestroy')->name('admin.logout');
+
+        Route::get('/admin/profile/{id}', 'AdminProfile')->name('admin.profile');
+
+        Route::post('/admin/profile/store/{id}',  'AdminProfileStore')->name('admin.profile.store');
+
+        Route::get('/admin/change/password',  'AdminChangePassword')->name('admin.change.password');
+
+        Route::post('/admin/update/password',  'AdminUpdatePassword')->name('update.password');
+
+        Route::delete('/admin/delete/{id}', 'DeleteAdmin')->name('delete.admin');
     });
 }); // Admin End Middleware 
 
