@@ -1,10 +1,7 @@
   <!-- Header  -->
-<<<<<<< HEAD
   @php
   $categories = \App\Models\Category::inRandomOrder()->limit(6)->get();
   @endphp
-=======
->>>>>>> gopAT
   <header class="header-area header-style-1 header-height-2">
       <div class="mobile-promotion">
           <span>Grand opening, <strong>up to 15%</strong> off all items. Only <strong>3 days</strong> left</span>
@@ -38,7 +35,6 @@
                           <ul>
 
                               <li>
-<<<<<<< HEAD
                                   <a class="language-dropdown-active" href="#">English <i
                                           class="fi-rs-angle-small-down"></i></a>
                                   <ul class="language-dropdown">
@@ -56,18 +52,6 @@
                                           <a href="#"><img
                                                   src="{{ asset('frontend/assets/imgs/theme/flag-ru.png')}}"
                                                   alt="" />Pусский</a>
-=======
-                                  <a class="language-dropdown-active" href="#">English <i class="fi-rs-angle-small-down"></i></a>
-                                  <ul class="language-dropdown">
-                                      <li>
-                                          <a href="#"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/flag-fr.png" alt="" />Français</a>
-                                      </li>
-                                      <li>
-                                          <a href="#"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/flag-dt.png" alt="" />Deutsch</a>
-                                      </li>
-                                      <li>
-                                          <a href="#"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/flag-ru.png" alt="" />Pусский</a>
->>>>>>> gopAT
                                       </li>
                                   </ul>
                               </li>
@@ -84,17 +68,12 @@
           <div class="container">
               <div class="header-wrap">
                   <div class="logo logo-width-1">
-<<<<<<< HEAD
-                      <a href="index.html"><img src="{{ asset('upload/logo/1743021438232663.png')}}"
+                      <a href="{{route('home')}}"><img src="{{ asset('upload/logo/1743021438232663.png')}}"
                               alt="logo" /></a>
-=======
-                      <a href="index.html"><img src="https://digi-poly.id.vn/upload/logo/1743021438232663.png" alt="logo" /></a>
->>>>>>> gopAT
                   </div>
                   <div class="header-right">
                       <div class="search-style-2">
 
-<<<<<<< HEAD
                           <form action="{{ route('product.search') }}" method="post">
                               @csrf
                               <select class="select-active">
@@ -108,24 +87,6 @@
                               </select>
                               <input onfocus="search_result_show()" onblur="search_result_hide()" name="search"
                                   id="search" placeholder="Search for items..." />
-=======
-                          <form action="https://digi-poly.id.vn/search" method="post">
-                              <input type="hidden" name="_token" value="yXYSAa1lWMMSyKjWfSOqUzpQWSEVHQPIcSu4iSel">
-                              <select class="select-active">
-                                  <option>All Categories</option>
-                                  <option>Milks and Dairies</option>
-                                  <option>Wines & Alcohol</option>
-                                  <option>Clothing & Beauty</option>
-                                  <option>Pet Foods & Toy</option>
-                                  <option>Fast food</option>
-                                  <option>Baking material</option>
-                                  <option>Vegetables</option>
-                                  <option>Fresh Seafood</option>
-                                  <option>Noodles & Rice</option>
-                                  <option>Ice cream</option>
-                              </select>
-                              <input onfocus="search_result_show()" onblur="search_result_hide()" name="search" id="search" placeholder="Search for items..." />
->>>>>>> gopAT
                               <div id="searchProducts"></div>
                           </form>
                       </div>
@@ -153,7 +114,6 @@
                               </div>
 
                               <div class="header-action-icon-2">
-<<<<<<< HEAD
                                   <a href="{{ route('compare') }}">
                                       <img class="svgInject" alt="Nest"
                                           src="{{ asset('frontend/assets/imgs/theme/icons/icon-compare.svg')}}" />
@@ -168,40 +128,18 @@
                                       <span class="pro-count blue" id="wishQty">0 </span>
                                   </a>
                                   <a href="{{ route('wishlist') }}"><span class="lable">Wishlist</span></a>
-=======
-                                  <a href="https://digi-poly.id.vn/compare">
-                                      <img class="svgInject" alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-compare.svg" />
-                                  </a>
-                                  <a href="https://digi-poly.id.vn/compare"><span class="lable ml-0">Compare</span></a>
-                              </div>
-
-                              <div class="header-action-icon-2">
-                                  <a href="https://digi-poly.id.vn/wishlist">
-                                      <img class="svgInject" alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-heart.svg" />
-                                      <span class="pro-count blue" id="wishQty">0 </span>
-                                  </a>
-                                  <a href="https://digi-poly.id.vn/wishlist"><span class="lable">Wishlist</span></a>
->>>>>>> gopAT
                               </div>
 
 
 
 
                               <div class="header-action-icon-2">
-<<<<<<< HEAD
                                   <a class="mini-cart-icon" href="{{ route('mycart') }}">
                                       <img alt="Nest"
                                           src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg')}}" />
                                       <span class="pro-count blue" id="cartQty">0</span>
                                   </a>
                                   <a href="{{ route('mycart') }}"><span class="lable">Cart</span></a>
-=======
-                                  <a class="mini-cart-icon" href="shop-cart.html">
-                                      <img alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-cart.svg" />
-                                      <span class="pro-count blue" id="cartQty">0</span>
-                                  </a>
-                                  <a href="https://digi-poly.id.vn/mycart"><span class="lable">Cart</span></a>
->>>>>>> gopAT
                                   <div class="cart-dropdown-wrap cart-dropdown-hm2">
 
 
@@ -221,13 +159,8 @@
                                               <h4>Total <span id="cartSubTotal"> </span></h4>
                                           </div>
                                           <div class="shopping-cart-button">
-<<<<<<< HEAD
                                               <a href="{{ route('mycart') }}" class="outline">View cart</a>
                                               <a href="{{ route('checkout') }}">Checkout</a>
-=======
-                                              <a href="shop-cart.html" class="outline">View cart</a>
-                                              <a href="shop-checkout.html">Checkout</a>
->>>>>>> gopAT
                                           </div>
                                       </div>
                                   </div>
@@ -239,7 +172,6 @@
 
 
                               <div class="header-action-icon-2">
-<<<<<<< HEAD
                                   <a href="{{ route('login') }}">
                                       <img class="svgInject" alt="Nest"
                                           src="{{ asset('frontend/assets/imgs/theme/icons/icon-user.svg')}}" />
@@ -247,24 +179,12 @@
 
 
                                   <a href="{{ route('login') }}"><span class="lable ml-0">Login</span></a>
-=======
-                                  <a href="page-account.html">
-                                      <img class="svgInject" alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-user.svg" />
-                                  </a>
-
-
-                                  <a href="https://digi-poly.id.vn/login"><span class="lable ml-0">Login</span></a>
->>>>>>> gopAT
 
                                   <span class="lable" style="margin-left: 2px; margin-right: 2px;"> | </span>
 
 
-<<<<<<< HEAD
                                   <a href="{{ route('register')}}"><span
                                           class="lable ml-0">Register</span></a>
-=======
-                                  <a href="https://digi-poly.id.vn/register"><span class="lable ml-0">Register</span></a>
->>>>>>> gopAT
 
 
 
@@ -289,12 +209,8 @@
           <div class="container">
               <div class="header-wrap header-space-between position-relative">
                   <div class="logo logo-width-1 d-block d-lg-none">
-<<<<<<< HEAD
-                      <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg')}}"
+                      <a href="{{route('home')}}"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg')}}"
                               alt="logo" /></a>
-=======
-                      <a href="index.html"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/logo.svg" alt="logo" /></a>
->>>>>>> gopAT
                   </div>
                   <div class="header-nav d-none d-lg-flex">
                       <div class="main-categori-wrap d-none d-lg-block">
@@ -305,7 +221,6 @@
                           <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
                               <div class="d-flex categori-dropdown-inner">
                                   <ul>
-<<<<<<< HEAD
                                       @foreach ($categories as $ct )
 
                                       <li>
@@ -314,70 +229,6 @@
                                               <img src="{{ $ct->category_image }}" alt="" />{{ $ct->category_name }}</a>
                                       </li>
                                       @endforeach
-=======
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388475103826.webp" alt="" /> Appliances </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388510925410.webp" alt="" /> Beauty </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388410112488.webp" alt="" /> Electronics </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388456845535.webp" alt="" /> Fashion </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388599418960.webp" alt="" /> Furniture </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388649576724.webp" alt="" /> Grocery </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388203907617.png" alt="" /> Meat &amp; Fish </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388616630915.webp" alt="" /> Mobiles </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388444682193.webp" alt="" /> Sweet Home </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388803723655.webp" alt="" /> Travel </a>
-                                      </li>
-                                  </ul>
-                                  <ul class="end">
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388475103826.webp" alt="" /> Appliances </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388510925410.webp" alt="" /> Beauty </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388410112488.webp" alt="" /> Electronics </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388456845535.webp" alt="" /> Fashion </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388599418960.webp" alt="" /> Furniture </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388649576724.webp" alt="" /> Grocery </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388203907617.png" alt="" /> Meat &amp; Fish </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388616630915.webp" alt="" /> Mobiles </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388444682193.webp" alt="" /> Sweet Home </a>
-                                      </li>
-                                      <li>
-                                          <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/upload/category/1740388803723655.webp" alt="" /> Travel </a>
-                                      </li>
->>>>>>> gopAT
 
                                   </ul>
                               </div>
@@ -385,7 +236,6 @@
                                   <div class="d-flex categori-dropdown-inner">
                                       <ul>
                                           <li>
-<<<<<<< HEAD
                                               <a href="shop-grid-right.html"> <img
                                                       src="{{ asset('frontend/assets/imgs/theme/icons/icon-1.svg')}}"
                                                       alt="" />Milks and Dairies</a>
@@ -394,17 +244,10 @@
                                               <a href="shop-grid-right.html"> <img
                                                       src="{{ asset('frontend/assets/imgs/theme/icons/icon-2.svg')}}"
                                                       alt="" />Clothing & beauty</a>
-=======
-                                              <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-1.svg" alt="" />Milks and Dairies</a>
-                                          </li>
-                                          <li>
-                                              <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-2.svg" alt="" />Clothing & beauty</a>
->>>>>>> gopAT
                                           </li>
                                       </ul>
                                       <ul class="end">
                                           <li>
-<<<<<<< HEAD
                                               <a href="shop-grid-right.html"> <img
                                                       src="{{ asset('frontend/assets/imgs/theme/icons/icon-3.svg')}}"
                                                       alt="" />Wines & Drinks</a>
@@ -413,22 +256,12 @@
                                               <a href="shop-grid-right.html"> <img
                                                       src="{{ asset('frontend/assets/imgs/theme/icons/icon-4.svg')}}"
                                                       alt="" />Fresh Seafood</a>
-=======
-                                              <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-3.svg" alt="" />Wines & Drinks</a>
-                                          </li>
-                                          <li>
-                                              <a href="shop-grid-right.html"> <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-4.svg" alt="" />Fresh Seafood</a>
->>>>>>> gopAT
                                           </li>
                                       </ul>
                                   </div>
                               </div>
-<<<<<<< HEAD
                               <div class="more_categories"><span class="icon"></span> <span class="heading-sm-1">Show
                                       more...</span></div>
-=======
-                              <div class="more_categories"><span class="icon"></span> <span class="heading-sm-1">Show more...</span></div>
->>>>>>> gopAT
                           </div>
                       </div>
                       <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
@@ -436,7 +269,6 @@
                               <ul>
 
                                   <li>
-<<<<<<< HEAD
                                       <a class="active" href="{{ route('home') }}">Home </a>
 
                                   </li>
@@ -463,88 +295,11 @@
                                       </ul>
                                   </li>
                                   @endforeach
-=======
-                                      <a class="active" href="https://digi-poly.id.vn">Home </a>
-
-                                  </li>
 
 
 
                                   <li>
-                                      <a href="https://digi-poly.id.vn/product/category/4/appliances">Appliances <i class="fi-rs-angle-down"></i></a>
-
-
-                                      <ul class="sub-menu">
-
-                                          <li><a href="https://digi-poly.id.vn/product/subcategory/12/refrigerators">Refrigerators</a></li>
-
-                                          <li><a href="https://digi-poly.id.vn/product/subcategory/10/televisions">Televisions</a></li>
-
-                                          <li><a href="https://digi-poly.id.vn/product/subcategory/11/washing-machines">Washing Machines</a></li>
-                                      </ul>
-                                  </li>
-
-                                  <li>
-                                      <a href="https://digi-poly.id.vn/product/category/5/beauty">Beauty <i class="fi-rs-angle-down"></i></a>
-
-
-                                      <ul class="sub-menu">
-
-                                          <li><a href="https://digi-poly.id.vn/product/subcategory/16/woman-mackup">Woman Mackup</a></li>
-                                      </ul>
-                                  </li>
-
-                                  <li>
-                                      <a href="https://digi-poly.id.vn/product/category/2/electronics">Electronics <i class="fi-rs-angle-down"></i></a>
-
-
-                                      <ul class="sub-menu">
-
-                                          <li><a href="https://digi-poly.id.vn/product/subcategory/3/computer-peripherals">Computer Peripherals</a></li>
-
-                                          <li><a href="https://digi-poly.id.vn/product/subcategory/4/mobile-accessory">Mobile Accessory</a></li>
-                                      </ul>
-                                  </li>
-
-                                  <li>
-                                      <a href="https://digi-poly.id.vn/product/category/1/fashion">Fashion <i class="fi-rs-angle-down"></i></a>
-
-
-                                      <ul class="sub-menu">
-
-                                          <li><a href="https://digi-poly.id.vn/product/subcategory/2/mans-bottom-ware">Mans Bottom Ware</a></li>
-
-                                          <li><a href="https://digi-poly.id.vn/product/subcategory/6/mans-top-ware">Mans Top Ware</a></li>
-
-                                          <li><a href="https://digi-poly.id.vn/product/subcategory/7/women-footwear">Women Footwear</a></li>
-                                      </ul>
-                                  </li>
-
-                                  <li>
-                                      <a href="https://digi-poly.id.vn/product/category/8/furniture">Furniture <i class="fi-rs-angle-down"></i></a>
-
-
-                                      <ul class="sub-menu">
-                                      </ul>
-                                  </li>
-
-                                  <li>
-                                      <a href="https://digi-poly.id.vn/product/category/10/grocery">Grocery <i class="fi-rs-angle-down"></i></a>
-
-
-                                      <ul class="sub-menu">
-                                      </ul>
-                                  </li>
->>>>>>> gopAT
-
-
-
-                                  <li>
-<<<<<<< HEAD
                                       <a href="{{ route('home.blog') }}">Blog</a>
-=======
-                                      <a href="https://digi-poly.id.vn/blog">Blog</a>
->>>>>>> gopAT
                                   </li>
                               </ul>
                           </nav>
@@ -553,12 +308,8 @@
 
 
                   <div class="hotline d-none d-lg-flex">
-<<<<<<< HEAD
                       <img src="{{ asset('frontend/assets/imgs/theme/icons/icon-headphone.svg')}}"
                           alt="hotline" />
-=======
-                      <img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-headphone.svg" alt="hotline" />
->>>>>>> gopAT
                       <p>1900 - 882<span>24/7 Support Center</span></p>
                   </div>
                   <div class="header-action-icon-2 d-block d-lg-none">
@@ -572,35 +323,23 @@
                       <div class="header-action-2">
                           <div class="header-action-icon-2">
                               <a href="shop-wishlist.html">
-<<<<<<< HEAD
                                   <img alt="Nest"
                                       src="{{ asset('frontend/assets/imgs/theme/icons/icon-heart.svg')}}" />
-=======
-                                  <img alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-heart.svg" />
->>>>>>> gopAT
                                   <span class="pro-count white">4</span>
                               </a>
                           </div>
                           <div class="header-action-icon-2">
                               <a class="mini-cart-icon" href="#">
-<<<<<<< HEAD
                                   <img alt="Nest"
                                       src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg')}}" />
-=======
-                                  <img alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-cart.svg" />
->>>>>>> gopAT
                                   <span class="pro-count white">2</span>
                               </a>
                               <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                   <ul>
                                       <li>
                                           <div class="shopping-cart-img">
-<<<<<<< HEAD
                                               <a href="shop-product-right.html"><img alt="Nest"
                                                       src="{{ asset('frontend/assets/imgs/shop/thumbnail-3.jpg')}}" /></a>
-=======
-                                              <a href="shop-product-right.html"><img alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/shop/thumbnail-3.jpg" /></a>
->>>>>>> gopAT
                                           </div>
                                           <div class="shopping-cart-title">
                                               <h4><a href="shop-product-right.html">Plain Striola Shirts</a></h4>
@@ -612,12 +351,8 @@
                                       </li>
                                       <li>
                                           <div class="shopping-cart-img">
-<<<<<<< HEAD
                                               <a href="shop-product-right.html"><img alt="Nest"
                                                       src="{{ asset('frontend/assets/imgs/shop/thumbnail-4.jpg')}}" /></a>
-=======
-                                              <a href="shop-product-right.html"><img alt="Nest" src="https://digi-poly.id.vn/frontend/assets/imgs/shop/thumbnail-4.jpg" /></a>
->>>>>>> gopAT
                                           </div>
                                           <div class="shopping-cart-title">
                                               <h4><a href="shop-product-right.html">Macbook Pro 2022</a></h4>
@@ -648,29 +383,6 @@
 
   <!-- End Header  -->
   <style>
-<<<<<<< HEAD
-#searchProducts {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #ffffff;
-    z-index: 999;
-    border-radius: 8px;
-    margin-top: 5px;
-}
-  </style>
-
-  <script>
-function search_result_show() {
-    $("#searchProducts").slideDown();
-
-}
-
-function search_result_hide() {
-    $("#searchProducts").slideUp();
-}
-=======
       #searchProducts {
           position: absolute;
           top: 100%;
@@ -692,7 +404,6 @@ function search_result_hide() {
       function search_result_hide() {
           $("#searchProducts").slideUp();
       }
->>>>>>> gopAT
   </script>
 
 
@@ -700,12 +411,8 @@ function search_result_hide() {
       <div class="mobile-header-wrapper-inner">
           <div class="mobile-header-top">
               <div class="mobile-header-logo">
-<<<<<<< HEAD
                   <a href="index.html"><img src="{{ asset('frontend/assets/imgs/theme/logo.svg')}}"
                           alt="logo" /></a>
-=======
-                  <a href="index.html"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/logo.svg" alt="logo" /></a>
->>>>>>> gopAT
               </div>
               <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                   <button class="close-style search-close">
@@ -856,7 +563,6 @@ function search_result_hide() {
               </div>
               <div class="mobile-social-icon mb-50">
                   <h6 class="mb-15">Follow Us</h6>
-<<<<<<< HEAD
                   <a href="#"><img
                           src="{{ asset('frontend/assets/imgs/theme/icons/icon-facebook-white.svg')}}"
                           alt="" /></a>
@@ -870,20 +576,9 @@ function search_result_hide() {
                           alt="" /></a>
                   <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-youtube-white.svg')}}"
                           alt="" /></a>
-=======
-                  <a href="#"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-facebook-white.svg" alt="" /></a>
-                  <a href="#"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-twitter-white.svg" alt="" /></a>
-                  <a href="#"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-instagram-white.svg" alt="" /></a>
-                  <a href="#"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-pinterest-white.svg" alt="" /></a>
-                  <a href="#"><img src="https://digi-poly.id.vn/frontend/assets/imgs/theme/icons/icon-youtube-white.svg" alt="" /></a>
->>>>>>> gopAT
               </div>
               <div class="site-copyright">Copyright 2022 © Nest. All rights reserved. Powered by AliThemes.</div>
           </div>
       </div>
-<<<<<<< HEAD
   </div>
   <!--End header-->
-=======
-  </div> <!--End header-->
->>>>>>> gopAT

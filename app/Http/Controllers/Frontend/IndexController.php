@@ -7,7 +7,9 @@ use App\Models\Banner;
 use App\Models\Category;
 use App\Models\multi_imgs;
 use App\Models\Product;
+use App\Models\Slider;
 use App\Models\User;
+use App\Models\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,10 +20,12 @@ class IndexController extends Controller
    public function Index()
    {
       $categories = Category::all();
+      $sliders = Slider::all();
       $banners = Banner::all();
       $products = Product::inRandomOrder()->limit(10)->get();
-      return view('frontend.index', compact('categories', 'banners', 'products'));
-   } // End Method 
+      $vendors = User::where('role', 'vendor')->get();
+      return view('frontend.index', compact('categories', 'sliders', 'banners', 'products', 'vendors'));
+   } // End Method
 
 
    public function ProductDetails($id, $slug)
@@ -29,6 +33,7 @@ class IndexController extends Controller
 
       $checkvariant = DB::table('infor_option')->where('idproduct', $id)->get();
       $arrvalue = [];
+      $multi_imgs = DB::table('multi_imgs')->where('product_id', $id)->get();
 
       if (!empty($checkvariant)) {
          $variants_value = DB::table('variant_name')
@@ -68,8 +73,8 @@ class IndexController extends Controller
          abort(404); // Nếu không tìm thấy sản phẩm, trả về lỗi 404
       }
 
-      return view('frontend.product.product_details', compact('arrvalue', 'product'));
-   } // End Method 
+      return view('frontend.product.product_details', compact('arrvalue', 'product', 'multi_imgs'));
+   } // End Method
 
 
    public function jsonvariantproduct($id)
@@ -81,14 +86,14 @@ class IndexController extends Controller
             DB::raw('
               GROUP_CONCAT(
                   CONCAT(variant_name.name, " ")
-                  ORDER BY variant_name.name DESC 
+                  ORDER BY variant_name.name DESC
                   SEPARATOR ", "
               ) as variant_name
           '),
             DB::raw('
               GROUP_CONCAT(
                   CONCAT(variant_attribute.value)
-                  ORDER BY variant_name.name DESC 
+                  ORDER BY variant_name.name DESC
                   SEPARATOR ", "
               ) as variant_value
           '),
@@ -120,7 +125,7 @@ class IndexController extends Controller
       $vendor = User::findOrFail($id);
       $vproduct = Product::where('vendor_id', $id)->get();
       return view('frontend.vendor.vendor_details', compact('vendor', 'vproduct'));
-   } // End Method  
+   } // End Method
 
 
    public function VendorAll()
@@ -128,7 +133,7 @@ class IndexController extends Controller
 
       $vendors = User::where('status', 'active')->where('role', 'vendor')->orderBy('id', 'DESC')->get();
       return view('frontend.vendor.vendor_all', compact('vendors'));
-   } // End Method 
+   } // End Method
 
 
    public function CatWiseProduct(Request $request, $id, $slug)
@@ -203,14 +208,14 @@ class IndexController extends Controller
             DB::raw('
               GROUP_CONCAT(
                   CONCAT(variant_name.name, " ")
-                  ORDER BY variant_name.name DESC 
+                  ORDER BY variant_name.name DESC
                   SEPARATOR ", "
               ) as variant_name
           '),
             DB::raw('
               GROUP_CONCAT(
                   CONCAT(variant_attribute.value)
-                  ORDER BY variant_name.name DESC 
+                  ORDER BY variant_name.name DESC
                   SEPARATOR ", "
               ) as variant_value
           '),
@@ -253,7 +258,7 @@ class IndexController extends Controller
          'data' => ['product' => $product, 'multi_images' => $multi_images, 'option_variant' => $option_variant, 'showvariant' => $arrvalue]
       ));
       //
-   } // End Method 
+   } // End Method
 
 
    public function ProductSearch(Request $request)
@@ -265,7 +270,7 @@ class IndexController extends Controller
       $products = Product::where('product_name', 'LIKE', "%$item%")->get();
       $newProduct = Product::orderBy('id', 'DESC')->limit(3)->get();
       return view('frontend.product.search', compact('products', 'item', 'categories', 'newProduct'));
-   } // End Method 
+   } // End Method
 
 
    public function SearchProduct(Request $request)
@@ -276,7 +281,7 @@ class IndexController extends Controller
       $products = Product::where('product_name', 'LIKE', "%$item%")->select('product_name', 'product_slug', 'product_thambnail', 'selling_price', 'id')->limit(6)->get();
 
       return view('frontend.product.search_product', compact('products'));
-   } // End Method 
+   } // End Method
 
 
 }

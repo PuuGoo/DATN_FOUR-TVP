@@ -59,7 +59,7 @@
                                     </a>
                                 </li>
                             </ul>
-                            
+
                         </div>
                     </div><!-- // End Col md 3 menu -->
 
@@ -76,15 +76,15 @@
                                             <div class="row">
                                                 <div class="form-group col-md-12">
                                                     <label>Old Password <span class="required">*</span></label>
-                                                    <input class="form-control" name="old_password" type="password" id="current_password" placeholder="Old Password">
+                                                    <input class="form-control" name="old_password" type="password" id="current_password" placeholder="Old Password" required>
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     <label>New Password <span class="required">*</span></label>
-                                                    <input class="form-control" name="new_password" type="password" id="new_password" placeholder="New Password">
+                                                    <input class="form-control" name="new_password" type="password" id="new_password" placeholder="New Password" required>
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     <label>Confirm New Password <span class="required">*</span></label>
-                                                    <input class="form-control" name="new_password_confirmation" type="password" id="new_password_confirmation" placeholder="Confirm New Password">
+                                                    <input class="form-control" name="new_password_confirmation" type="password" id="new_password_confirmation" placeholder="Confirm New Password" required>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <button type="submit" class="btn btn-fill-out submit font-weight-bold" name="submit" value="Submit">Save Change</button>

@@ -41,8 +41,8 @@ MyCart Page
                         </tr>
                     </thead>
                     <tbody id="cartPage">
-                        
-                        
+
+
                     </tbody>
                 </table>
             </div>
@@ -50,11 +50,14 @@ MyCart Page
 
             <div class="row mt-50">
                 <div class="col-lg-5">
+                    @if(Session::has('coupon'))
+
+                    @else
 
 
                     <div class="p-40" id="couponField">
                         <h4 class="mb-10">Apply Coupon</h4>
-                        <p class="mb-30"><span class="font-lg text-muted">Using A Promo Code?</span></p>
+                        <p class="mb-30"><span class="font-lg text-muted">Using A Promo Code?</p>
                         <form action="#">
                             <div class="d-flex justify-content-between">
 
@@ -65,7 +68,7 @@ MyCart Page
                         </form>
                     </div>
 
-
+                    @endif
                 </div>
 
 
@@ -80,27 +83,13 @@ MyCart Page
                         <div class="table-responsive">
                             <table class="table no-border">
                                 <tbody id="couponCalField">
-                                    <tr>
-                                        <td class="cart_total_label">
-                                            <h6 class="text-muted">Subtotal</h6>
-                                        </td>
-                                        <td class="cart_total_amount">
-                                            <h4 class="text-brand text-end">$400.00</h4>
-                                        </td>
-                                    </tr>
 
-                                    <tr>
-                                        <td class="cart_total_label">
-                                            <h6 class="text-muted">Grand Total</h6>
-                                        </td>
-                                        <td class="cart_total_amount">
-                                            <h4 class="text-brand text-end">$400.00</h4>
-                                        </td>
-                                    </tr>
+
+
                                 </tbody>
                             </table>
                         </div>
-                        <a href="https://digi-poly.id.vn/checkout" class="btn mb-20 w-100">Proceed To CheckOut<i class="fi-rs-sign-out ml-15"></i></a>
+                        <a href="{{ route('checkout') }}" class="btn mb-20 w-100">Proceed To CheckOut<i class="fi-rs-sign-out ml-15"></i></a>
                     </div>
                 </div>
 

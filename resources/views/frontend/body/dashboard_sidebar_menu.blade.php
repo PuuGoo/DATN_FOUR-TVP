@@ -38,7 +38,7 @@ $route = Route::current()->getName();
             <li class="nav-item">
                 <a class="nav-link" href="#address"><i class="fi-rs-marker mr-10"></i>My Address</a>
             </li>
-            
+
             <li class="nav-item">
                 <a class="nav-link {{ ($route ==  'user.account.page')? 'active':  '' }}"
                     href="{{ route('user.account.page') }}"><i class="fi-rs-user mr-10"></i>Account details</a>
@@ -51,11 +51,7 @@ $route = Route::current()->getName();
 
 
             <li class="nav-item" style="background:#ddd;">
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button class="nav-link w-100" style="background: none; border: none;"><i
-                            class="fi-rs-sign-out mr-10"></i>Logout</button>
-                </form>
+                <a class="nav-link" href="{{ route('user.logout') }}"><i class="fi-rs-sign-out mr-10"></i>Logout</a>
             </li>
         </ul>
     </div>

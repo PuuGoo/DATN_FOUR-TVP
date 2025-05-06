@@ -28,7 +28,7 @@ class CheckoutController extends Controller
         $order->phone = 02151551;
         $order->address = $request->shipping_address;
         $order->notes = $request->notes;
-        $order->payment_method = 'COD';
+        $order->payment_method = $request->payment_option;
         // $order->transaction_id = 1;
         $order->amount = Cart::count();
         // $order->discount_amount = 1;
@@ -36,13 +36,15 @@ class CheckoutController extends Controller
         $order->invoice_no = Str::random(30);
         $order->date = Carbon::now()->toDateString();
 
+
+
         $order->save();
 
         $order_id = $order->id;
 
-        
 
-        
+
+
 
 
         // echo $order_id;
@@ -77,7 +79,7 @@ class CheckoutController extends Controller
 
         Cart::destroy();
         return redirect()->route('user.order.page');
-        
+
 
     }
 }

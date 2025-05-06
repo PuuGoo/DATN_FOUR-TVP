@@ -46,7 +46,7 @@
 								<div class="mb-3">
 									<label for="product-description" class="form-label">Long Description <span class="text-danger">*</span></label>
 									<div id="snow-editor" style="height: 150px;"></div>
-									<input type="hidden" name="long_descp" value="" id="long_descp">
+									<input type="hidden" name="detailed_description" value="" id="conten">
 								</div>
 
 								<div class="form-group mb-3">
@@ -136,15 +136,15 @@
 </div><!--end row-->
 
 
-					<div id="showframeattributesvariant">
+<div id="showframeattributesvariant">
 
-					</div>
-				</div>
-		</div>
+</div>
+</div>
+</div>
 
-		</form>
-	</div>
-	<input type="hidden" id="click" />
+</form>
+</div>
+<input type="hidden" id="click" />
 </div>
 
 <script src="http://127.0.0.1:8000/adminbackend/plugins_rich_text/libs/quill/quill.min.js"></script>
@@ -167,7 +167,7 @@
 				short_descp: {
 					required: true,
 				},
-				product_thumbnail: {
+				product_thambnail: {
 					required: true,
 				},
 				list_image: {
@@ -199,8 +199,8 @@
 				short_descp: {
 					required: 'Please Enter Short Description',
 				},
-				product_thumbnail: {
-					required: 'Please Select Product Thumbnail Image',
+				product_thambnail: {
+					required: 'Please Select Product Thambnail Image',
 				},
 				list_image: {
 					required: 'Please Select Product Multi Image',
@@ -400,6 +400,13 @@
 		docfile();
 	}
 </script>
+
+
+
+
+
+
+
 
 <script type="text/javascript">
 	var btncreatename = document.getElementById('btncreatename');
@@ -629,7 +636,7 @@
 						${columinputvariant(result[i])}
 
 						<div class="mx-2">
-							<label for="">giá tiền ( $ )</label>
+							<label for="">giá tiền ( VNĐ )</label>
 							<input type="number" name="price_attribute[]" class="form-control mt-2" placeholder="Nhập giá tiền" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "10">
 						</div>
 						<div class="mx-2">

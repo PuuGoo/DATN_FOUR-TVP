@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CheckoutController;
@@ -120,16 +121,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
 
-   // Coupon All Route 
-   Route::controller(CouponController::class)->group(function () {
-    Route::get('/all/coupon', 'AllCoupon')->name('all.coupon');
-    Route::match(['get', 'post'], '/add/coupon', 'AddCoupon')->name('add.coupon');
-    Route::get('/edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
-    Route::put('/update/coupon/{id}', 'UpdateCoupon')->name('update.coupon');
+    // Coupon All Route 
+    Route::controller(CouponController::class)->group(function () {
+        Route::get('/all/coupon', 'AllCoupon')->name('all.coupon');
+        Route::match(['get', 'post'], '/add/coupon', 'AddCoupon')->name('add.coupon');
+        Route::get('/edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
+        Route::put('/update/coupon/{id}', 'UpdateCoupon')->name('update.coupon');
 
-    Route::delete('/delete/coupon/{id}', [CouponController::class, 'DeleteCoupon'])->name('delete.coupon');
-
-});
+        Route::delete('/delete/coupon/{id}', [CouponController::class, 'DeleteCoupon'])->name('delete.coupon');
+    });
 
     // Admin Order All Route 
     Route::controller(OrderController::class)->group(function () {
@@ -209,16 +209,13 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
 
-   
+
     // Site Setting All Route 
     Route::controller(SiteSettingController::class)->group(function () {
         Route::get('/site/setting', [SiteSettingController::class, 'editSiteSetting'])->name('site.setting');
 
         Route::get('/seo/setting', 'SeoSetting')->name('seo.setting'); // Hiển thị trang SEO
         Route::post('/site/setting/update/{id}', [SiteSettingController::class, 'UpdateSiteSetting'])->name('site.setting.update');
-
-
-
     });
 
 
@@ -288,40 +285,40 @@ require __DIR__ . '/auth.php';
 
 // Xử lý Front-End
 // Quang Thanh Start
-Route::get('/', [IndexController::class, 'Index'])->name('home');
+Route::get('/', [IndexController::class, 'Index'])->name('home'); // Check Done
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard');
+    Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard'); // Check Done
 
-    Route::post('/user/profile/store', [UserController::class, 'UserProfileStore'])->name('user.profile.store');
+    Route::post('/user/profile/store', [UserController::class, 'UserProfileStore'])->name('user.profile.store'); // Check Done
 
-    Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
+    Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout'); // Check Done
 
-    Route::post('/user/update/password', [UserController::class, 'UserUpdatePassword'])->name('user.update.password');
+    Route::post('/user/update/password', [UserController::class, 'UserUpdatePassword'])->name('user.update.password'); // Check Done(Ko thay thay doi mat khau)
 }); // Quang Thanh End
 
 /// Vendor Dashboard
 // Minh Tan Start
 Route::middleware(['auth', 'role:vendor'])->group(function () {
 
-    Route::get('/vendor/dashboard', [VendorController::class, 'VendorDashboard'])->name('vendor.dashobard');
+    Route::get('/vendor/dashboard', [VendorController::class, 'VendorDashboard'])->name('vendor.dashobard'); // Chua lam
 
-    Route::get('/vendor/logout', [VendorController::class, 'VendorDestroy'])->name('vendor.logout');
+    Route::get('/vendor/logout', [VendorController::class, 'VendorDestroy'])->name('vendor.logout'); // Chua lam
 
-    Route::get('/vendor/profile', [VendorController::class, 'VendorProfile'])->name('vendor.profile');
+    Route::get('/vendor/profile', [VendorController::class, 'VendorProfile'])->name('vendor.profile'); // Chua lam
 
-    Route::post('/vendor/profile/store', [VendorController::class, 'VendorProfileStore'])->name('vendor.profile.store');
+    Route::post('/vendor/profile/store', [VendorController::class, 'VendorProfileStore'])->name('vendor.profile.store'); // Chua lam
 
-    Route::get('/vendor/change/password', [VendorController::class, 'VendorChangePassword'])->name('vendor.change.password');
+    Route::get('/vendor/change/password', [VendorController::class, 'VendorChangePassword'])->name('vendor.change.password'); // Chua lam
 
-    Route::post('/vendor/update/password', [VendorController::class, 'VendorUpdatePassword'])->name('vendor.update.password');
+    Route::post('/vendor/update/password', [VendorController::class, 'VendorUpdatePassword'])->name('vendor.update.password'); // Chua lam
     // Minh Tan End
 
 
     // Anh Thu Start
     // Vendor Add Product All Route 
-    Route::controller(VendorProductController::class)->group(function () {
+    Route::controller(VendorProductController::class)->group(function () { // Check Done
         Route::get('/vendor/all/product', 'VendorAllProduct')->name('vendor.all.product');
         Route::get('/vendor/add/product', 'VendorAddProduct')->name('vendor.add.product');
 
@@ -348,7 +345,7 @@ Route::middleware(['auth', 'role:vendor'])->group(function () {
 
     // Phuong Thai Start
     // Vendor Order All Route 
-    Route::controller(VendorOrderController::class)->group(function () {
+    Route::controller(VendorOrderController::class)->group(function () { // Check done
         Route::get('/vendor/order', 'VendorOrder')->name('vendor.order');
 
         Route::get('/vendor/return/order', 'VendorReturnOrder')->name('vendor.return.order');
@@ -425,7 +422,7 @@ Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
 Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
 
 // Cart All Route 
-Route::controller(CartController::class)->group(function () {
+Route::controller(CartController::class)->group(function () { // Check done
     Route::get('/mycart', 'MyCart')->name('mycart');
     Route::get('/get-cart-product', 'GetCartProduct');
     Route::get('/cart-remove/{rowId}', 'CartRemove');
@@ -492,11 +489,16 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     });
 
 
-    // Stripe All Route // Nên thay thành các phương thức thanh toán Momo, VNPAY,....
-    Route::controller(StripeController::class)->group(function () {
-        Route::post('/stripe/order', 'StripeOrder')->name('stripe.order');
-        Route::post('/cash/order', 'CashOrder')->name('cash.order');
-    });
+    // // Stripe All Route // Nên thay thành các phương thức thanh toán Momo, VNPAY,....
+    // Route::controller(StripeController::class)->group(function () {
+    //     Route::post('/stripe/order', 'StripeOrder')->name('stripe.order');
+    //     Route::post('/cash/order', 'CashOrder')->name('cash.order');
+    // });
+
+    // Cổng thanh toán
+    Route::post('/vnpay_payment', [PaymentController::class, 'vnpay_payment'])->name('vnpay.payment');
+    Route::post('/momo_payment', [PaymentController::class, 'momo_payment']);
+
     // Phuoc Vinh End
 
     // Anh Thu Start

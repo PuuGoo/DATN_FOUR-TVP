@@ -41,16 +41,16 @@ class UserController extends Controller
         $data->email = $request->email;
         $data->phone = $request->phone;
         $data->address = $request->address;
-    
+
         // Xử lý file ảnh
         if ($request->file('photo')) {
             $file = $request->file('photo');
-            @unlink(public_path('upload/user_images/'.$data->photo));
-            $filename = date('YmdHi').$file->getClientOriginalName();
+            @unlink(public_path('upload/user_images/' . $data->photo));
+            $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('upload/user_images'), $filename);
             $data->photo = $filename;
         }
-    
+
         $data->save();
 
         // Thông báo thành công
@@ -59,29 +59,29 @@ class UserController extends Controller
             'alert-type' => 'success',
         ];
 
-        // Cập nhật thông tin người dùng
-        $user->update([
-            'name' => $request->name,
-            'username' => $request->username,
-            'email' => $request->email, // Có thể bỏ nếu không muốn cho phép thay đổi email
-            'phone' => $request->phone,
-            'address' => $request->address,
-        ]);
+        // // Cập nhật thông tin người dùng
+        // $user->update([
+        //     'name' => $request->name,
+        //     'username' => $request->username,
+        //     'email' => $request->email, // Có thể bỏ nếu không muốn cho phép thay đổi email
+        //     'phone' => $request->phone,
+        //     'address' => $request->address,
+        // ]);
 
-        // Xử lý upload ảnh
-        if ($request->hasFile('photo')) {
-            // Xóa ảnh cũ nếu có
-            if ($user->photo && file_exists(public_path('upload/user_images/' . $user->photo))) {
-                unlink(public_path('upload/user_images/' . $user->photo));
-            }
+        // // Xử lý upload ảnh
+        // if ($request->hasFile('photo')) {
+        //     // Xóa ảnh cũ nếu có
+        //     if ($user->photo && file_exists(public_path('upload/user_images/' . $user->photo))) {
+        //         unlink(public_path('upload/user_images/' . $user->photo));
+        //     }
 
-            // Lưu ảnh mới
-            $file = $request->file('photo');
-            $filename = date('YmdHi') . '_' . $file->getClientOriginalName();
-            $file->move(public_path('upload/user_images'), $filename);
-            $user->photo = $filename;
-            $user->save();
-        }
+        //     // Lưu ảnh mới
+        //     $file = $request->file('photo');
+        //     $filename = date('YmdHi') . '_' . $file->getClientOriginalName();
+        //     $file->move(public_path('upload/user_images'), $filename);
+        //     $user->photo = $filename;
+        //     $user->save();
+        // }
 
         return redirect()->back()->with([
             $notification,
@@ -101,7 +101,7 @@ class UserController extends Controller
             'message' => 'User Logout Successfully',
             'alert-type' => 'success'
         );
-        return redirect()->route('login')->with($notification);
+        return redirect('/login')->with($notification);
     } // End Method 
 
     public function UserUpdatePassword(Request $request)
@@ -117,11 +117,12 @@ class UserController extends Controller
 
         // Kiểm tra mật khẩu cũ
         if (!Hash::check($request->old_password, $user->password)) {
-            return back()->with("error", "Old Password Doesn't Match!!");
+            // return back()->with("error", "Old Password Doesn't Match!!");
+            return redirect('/user/change/password');
         }
 
         // Cập nhật mật khẩu mới
-        User::where('id', $user->id)->update([
+        User::whereId($user->id)->update([
             'password' => Hash::make($request->new_password)
         ]);
 

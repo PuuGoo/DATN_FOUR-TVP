@@ -2,15 +2,15 @@
     <div class="container">
         <div class="home-slide-cover mt-30">
             <div class="hero-slider-1 style-4 dot-style-1 dot-style-1-position-1">
-                @foreach ($banners as $bn)
+                @foreach ($sliders as $slider)
 
                 <div class="single-hero-slider single-animation-wrap"
-                    style="background-image: url({{ asset('upload/banner/'.$bn->banner_image) }})">
+                    style="background-image: url({{ asset($slider->image) }})">
                     <div class="slider-content">
                         <h1 class="display-2 mb-40">
-                            {{ $bn->banner_title }}
+                            {{ $slider->title }}
                         </h1>
-                        <p class="mb-65"> {{ $bn->banner_title }}
+                        <p class="mb-65"> {{ $slider->short_title }}
                         </p>
                         <form class="form-subcriber d-flex">
                             <input type="email" placeholder="Your emaill address" />
